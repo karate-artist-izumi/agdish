@@ -10,15 +10,21 @@ Route::get('/tops', function () {
     return view('tops');
 });
 
-//一覧
-Route::get('/input', function () {
+//詳細ページ
+Route::get('/details', function () {
+    $plans = Plan::orderBy('created_at', 'desc')->get();
+    return view('details');
+});
+
+//一覧画面
+Route::get('/', function () {
     $plans = Plan::orderBy('created_at', 'desc')->get();
     return view('plans', [
         'plans' => $plans
     ]);
 });
 
-//登録
+//プラン登録
 Route::post('/plans', function (Request $request) {
 
     //バリデーション
@@ -55,8 +61,13 @@ Route::post('/plans', function (Request $request) {
 
 });
 
-//削除
+//プラン削除
 Route::delete('/plan/{plan}', function (Plan $plan) {
     $plan->delete();       //追加
     return redirect('/');  //追加
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
