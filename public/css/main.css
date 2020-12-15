@@ -2,6 +2,35 @@ body {
     background-color: antiquewhite;
   }
 
+  div#navi{
+    width: 600px;
+    height: 54px;
+    background-color: cadetblue;
+  }
+
+  textarea#search{
+    width: 156px;
+    height: 34px;
+    background-color: white;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 20px;
+  }
+
+  div#navi_search{
+    display: flex;
+  }
+
+  button {
+    margin-top: 10px;
+    font-size: 20px;
+    font-family: serif;
+    height: 34px;
+    background-color: darkslategrey;
+    color: aliceblue;
+}
+
+
   div#p200 {
     margin-bottom: 230px;
 }

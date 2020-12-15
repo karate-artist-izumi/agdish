@@ -15,9 +15,16 @@
 <body>
   <!-- この中に記述していく -->
   <!-- ここから下にコードを書く -->
- 
+ <div id="navi">
+   <div id="navi_search">
+   <textarea name="" id="search"></textarea>
+   <button>Search</button>
+   </div>
   
-  <div id="p20"></div>
+
+ </div>
+  
+
   <div class="video-wrap">
     <p>AgDish</p>
     
