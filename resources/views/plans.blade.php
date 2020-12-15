@@ -33,6 +33,44 @@
             </div>
         </form>
     </div>
-    <!-- Book: 既に登録されてる本のリスト -->
+
+    <!-- プランのリスト -->
+     @if (count($plans) > 0)
+        <div class="card-body">
+            <div class="card-body">
+                <table class="table table-striped task-table">
+                    <!-- テーブルヘッダ -->
+                    <thead>
+                        <th>プラン一覧</th>
+                        <th>&nbsp;</th>
+                    </thead>
+                    <!-- テーブル本体 -->
+                    <tbody>
+                        @foreach ($plans as $plan)
+                            <tr>
+                                <!-- 本タイトル -->
+                                <td class="table-text">
+                                    <div>{{ $plan->title }}</div>
+                                </td>
+
+                                <!-- 本: 削除ボタン -->
+                                <td>
+                                <form action="{{ url('plan/'.$plan->id) }}" method="POST">
+                                    {{ csrf_field() }}
+                                    {{ method_field('delete') }}
+                                    <button type="submit" class="btn btn-danger">
+                                        削除
+                                    </button>
+                                </form>
+
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    @endif
+
 
 @endsection
