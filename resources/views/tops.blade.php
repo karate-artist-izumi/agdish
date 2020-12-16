@@ -7,21 +7,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>TOP</title>
-  <link rel="stylesheet" href="{{asset('/css/main.css')}}">
-  <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+  <link href="{{asset('/css/main.css')}}" rel="stylesheet">
+  <link href="{{asset('/css/app.css')}}" rel="stylesheet">
+
 </head>
 <!-- 最初の設定は終わっています　必要な方は触ってください -->
 
 <body>
   <!-- この中に記述していく -->
   <!-- ここから下にコードを書く -->
+
+  <header>
+    <nav>
+      <div role="navigation" class="header d-flex flex-row justify-content-between">
+        <div class="header_left w-50">
+          <ul class="d-flex flex-row justify-content-start">
+            <li><p>AgDish</p></li>
+            <li><p>アグディッシュ</p> </li>
+            <li><p>農×食</p> </li>
+          </ul>
+        </div>
+        <div class="header_right w-50">
+          <ul class="d-flex flex-row justify-content-end">
+            <li><p>ログイン</p></li>
+            <li><p>ユーザー登録</p></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
  <div id="navi">
    <div id="navi_search">
    <textarea name="" id="search"></textarea>
    <button>Search</button>
    </div>
-  
-
  </div>
   
 
