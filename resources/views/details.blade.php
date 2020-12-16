@@ -69,14 +69,9 @@
   <!-- ここから上にコードを書く -->
   <!-- この中に記述していく -->
   <!-- <script type="text/javascript" src="js/bootstrap.bundle.js"></script> -->
-<<<<<<< Updated upstream
   <script src="{{ asset('/js/map.js') }}"></script>
   <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyDfICqav8n0LnTfZ3FtjZhPuas7lIdh8kc&callback=initMap"></script>
 </body>
-=======
-  <script src="{{asset('/js/google_map.js')}}"></script>
-<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
->>>>>>> Stashed changes
 </body>
 
 </html>
