@@ -22,28 +22,55 @@
     
     
 
-    <video src="upload/agdish01.mp4" autoplay loop muted></video>
-<p>What's BUDO</p>
-</div>
-<video src="upload/agdish01.mp4" autoplay loop muted></video>
+ 
 
 <div id="p20"></div>
 
-<a href="study.html">
-  <div class="btn from-top">Study</div>
-</a>
-<a href="watch.html">
-  <div class="btn from-left">Watch</div>
-</a>
-<a href="db/ippan_select.php">
-  <div class="btn from-right">Data Base</div>
-</a>
-<a href="ask.html">
-  <div class="btn from-center">Ask</div>
-</a>
-<a href="db/login_main.php">
-  <div class="btn from-bottom">Join us</div>
-</a>
+      <tr>
+          <!-- 本タイトル -->
+          <td class="table-text">
+              <div>{{ $plan->title }}</div>
+          </td>
+          <td class="table-text">
+              <div>{{ $plan->description }}</div>
+          </td>
+          <td class="table-text">
+              <div>{{ $plan->plan_date }}</div>
+          </td>
+          <td class="table-text">
+              <div>{{ $plan->photo }}</div>
+          </td>
+          <td class="table-text">
+              <div>{{ $plan->ag_latitude }}</div>
+          </td>
+          <td class="table-text">
+              <div>{{ $plan->ag_longitude }}</div>
+          </td>
+          <td class="table-text">
+              <div>{{ $plan->dish_latitude }}</div>
+          </td>
+          <td class="table-text">
+              <div>{{ $plan->dish_longitude }}</div>
+          </td>
+          <td class="table-text">
+              <div>{{ $plan->price }}</div>
+          </td>
+          <td class="table-text">
+              <div>{{ $plan->place }}</div>
+          </td>
+          <td class="table-text">
+              <div>{{ $plan->small_place }}</div>
+          </td>
+          <td class="table-text">
+              <div>{{ $plan->vegetable }}</div>
+          </td>
+          <td class="table-text">
+              <div>{{ $plan->map }}</div>
+          </td>
+
+
+          </td>
+      </tr>
 
 
 

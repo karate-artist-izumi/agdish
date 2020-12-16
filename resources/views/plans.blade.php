@@ -55,7 +55,7 @@
                     <input type="text" name="price" class="form-control">
                 </div>
                 <div class="col-sm-6">
-                    開催場所
+                    場所
                     <input type="text" name="place" class="form-control">
                 </div>
                 <div class="col-sm-6">

@@ -35,7 +35,7 @@
 
 <div id="p20"></div>
 
-<a href="details">
+<a href="/details/1">
   <div id="select">
     <div id="select_img">
       <img src="upload/no01.jpg" alt="">
@@ -53,7 +53,7 @@
 </a>
 <div id="p20"></div>
 
-<a href="details">
+<a href="/details/3">
   <div id="select">
     <div id="select_img">
       <img src="upload/no02.jpg" alt="">
