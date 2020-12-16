@@ -35,104 +35,21 @@
 
 <div id="p20"></div>
 
-<a href="/details/1">
-  <div id="select">
-    <div id="select_img">
-      <img src="upload/no01.jpg" alt="">
-      <img src="upload/ryo01.jpg" alt="">
-    </div>
-    <div id="select_text">取れたてほうれん草のフレンチコース</div>
-    <div id="tyudan">
-      <div id="place">開催場所：神奈川県　</div>
-      <div id="price">　金額：8000円</div>
-    </div>
-    <div id="details">契約農家でほうれん草の収穫体験と<br>
-      提携レストランにてフレンチのコースを堪能
-    </div>
-  </div>
-</a>
-<div id="p20"></div>
-
-<a href="/details/3">
-  <div id="select">
-    <div id="select_img">
-      <img src="upload/no02.jpg" alt="">
-      <img src="upload/ryo02.jpg" alt="">
-    </div>
-    <div id="select_text">泥付き人参と串焼きコース</div>
-    <div id="tyudan">
-      <div id="place">開催場所：千葉県　</div>
-      <div id="price">　金額：5000円</div>
-    </div>
-    <div id="details">新鮮な泥付き人参と、地元で有名な<br>
-      串焼き屋さんにて、その場で野菜串に！
-    </div>
-  </div>
-</a>
-<div id="p20"></div>
-
-<a href="details">
-  <div id="select">
-    <div id="select_img">
-      <img src="upload/no03.jpg" alt="">
-      <img src="upload/ryo03.jpg" alt="">
-    </div>
-    <div id="select_text">有機白菜とテリーヌ料理</div>
-    <div id="tyudan">
-      <div id="place">開催場所：埼玉県　</div>
-      <div id="price">　金額：3000円</div>
-    </div>
-    <div id="details">身体にやさしい有機栽培の白菜と<br>
-      有名レストランのレシピによるテリーヌ料理
-    </div>
-  </div>
-</a>
-<div id="p20"></div>
 
           @foreach ($plans as $plan)
           <a href="/details/{{ $plan->id }}">
-                <tr>
-                    <!-- 本タイトル -->
-                    <td class="table-text">
-                        <div>{{ $plan->title }}</div>
-                    </td>
-                    <td class="table-text">
-                        <div>{{ $plan->description }}</div>
-                    </td>
-                    <td class="table-text">
-                        <div>{{ $plan->plan_date }}</div>
-                    </td>
-                    <td class="table-text">
-                        <div>{{ $plan->photo }}</div>
-                    </td>
-                    <td class="table-text">
-                        <div>{{ $plan->ag_latitude }}</div>
-                    </td>
-                    <td class="table-text">
-                        <div>{{ $plan->ag_longitude }}</div>
-                    </td>
-                    <td class="table-text">
-                        <div>{{ $plan->dish_latitude }}</div>
-                    </td>
-                    <td class="table-text">
-                        <div>{{ $plan->dish_longitude }}</div>
-                    </td>
-                    <td class="table-text">
-                        <div>{{ $plan->price }}</div>
-                    </td>
-                    <td class="table-text">
-                        <div>{{ $plan->place }}</div>
-                    </td>
-                    <td class="table-text">
-                        <div>{{ $plan->small_place }}</div>
-                    </td>
-                    <td class="table-text">
-                        <div>{{ $plan->vegetable }}</div>
-                    </td>
-                    <td class="table-text">
-                        <div>{{ $plan->map }}</div>
-                    </td>
-                </tr>
+          <div id="select">
+            <div id="select_img">
+              <img src="upload/no01.jpg" alt="">
+              <img src="upload/ryo01.jpg" alt="">
+            </div>
+            <div id="select_text">{{ $plan->title }}</div>
+            <div id="tyudan">
+              <div id="place">開催場所：{{ $plan->small_place }}　</div>
+              <div id="price">　金額：{{ $plan->price }}円</div>
+            </div>
+            <div id="details">{{ $plan->description }}</div>
+          </div>    
               </a>
             <div id="p20"></div>
             @endforeach
