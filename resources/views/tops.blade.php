@@ -22,14 +22,15 @@
       <div role="navigation" class="header d-flex flex-row justify-content-between">
         <div class="header_left w-50">
           <ul class="d-flex flex-row justify-content-start">
-            <li><p>AgDish</p></li>
-            <li><p>アグディッシュ</p> </li>
-            <li><p>農×食</p> </li>
+            <li><h1>AgDish</h1></li>
+            <li><h2>アグディッシュ</h2></li>
+            <li><p>キャッチコピー</p> </li>
           </ul>
         </div>
         <div class="header_right w-50">
           <ul class="d-flex flex-row justify-content-end">
             <li><p>ログイン</p></li>
+            <li><p>|</p></li>
             <li><p>ユーザー登録</p></li>
           </ul>
         </div>

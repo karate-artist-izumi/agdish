@@ -4,21 +4,23 @@
   }
 
   header{
-    height: 300px;
+    height: 500px;
     width:100%;
-  }
-
-  header{
-    height: 300px;
-    width:100%;
+    background-repeat: no-repeat ;
+    background: url( "/img/header_top.jpeg" ) ;
   }
 
   .header_left li {
     list-style:none;
     padding-right:20px;
+    color:grey;
+    font-size:24px;
+    padding-top:20px;
   }
 
   .header_right li {
     list-style:none;
     padding-right:20px;
+    color:grey;
+    padding-top:20px;
   }
