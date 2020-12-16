@@ -34,17 +34,18 @@ class PlansController extends Controller
         //バリデーション
         $validator = Validator::make($request->all(), [
         'title' => 'required',
-        'description' => 'required',
-        'plan_date' => 'required',
+        // 'description' => 'required',
+        // 'plan_date' => 'required',
         // 'photo' => 'required',
         // 'ag_latitude' => 'required',
         // 'ag_longitude' => 'required',
         // 'dish_latitude' => 'required',
         // 'dish_longitude' => 'required',
-        'price' => 'required',
-        'place' => 'required',
-        'small_place' => 'required',
-        'vegetable' => 'required',
+        // 'adult_price' => 'required',
+        // 'child_price' => 'required',
+        // 'place' => 'required',
+        // 'small_place' => 'required',
+        // 'vegetable' => 'required',
         // 'map' => 'required',
         ]);
 
@@ -65,11 +66,13 @@ class PlansController extends Controller
         $plans->ag_longitude = $request->ag_longitude;
         $plans->dish_latitude = $request->dish_latitude;
         $plans->dish_longitude = $request->dish_longitude;
-        $plans->price = $request->price;
+        $plans->adult_price = $request->adult_price;
+        $plans->child_price = $request->child_price;
         $plans->place = $request->place;
         $plans->small_place = $request->small_place;
         $plans->vegetable = $request->vegetable;
-        $plans->map = $request->map;
+        $plans->ag_name = $request->ag_name;
+        $plans->dish_name = $request->dish_name;
         $plans->save(); 
         return redirect('/');
 
@@ -92,18 +95,18 @@ class PlansController extends Controller
     //バリデーション
     $validator = Validator::make($request->all(), [
         'id' => 'required',
-        'title' => 'required',
-        'description' => 'required',
-        'plan_date' => 'required',
+        // 'title' => 'required',
+        // 'description' => 'required',
+        // 'plan_date' => 'required',
         // 'photo' => 'required',
         // 'ag_latitude' => 'required',
         // 'ag_longitude' => 'required',
         // 'dish_latitude' => 'required',
         // 'dish_longitude' => 'required',
-        'price' => 'required',
-        'place' => 'required',
-        'small_place' => 'required',
-        'vegetable' => 'required',
+        // 'price' => 'required',
+        // 'place' => 'required',
+        // 'small_place' => 'required',
+        // 'vegetable' => 'required',
         // 'map' => 'required',
         ]);
 
@@ -124,11 +127,13 @@ class PlansController extends Controller
         $plans->ag_longitude = $request->ag_longitude;
         $plans->dish_latitude = $request->dish_latitude;
         $plans->dish_longitude = $request->dish_longitude;
-        $plans->price = $request->price;
+        $plans->adult_price = $request->adult_price;
+        $plans->child_price = $request->child_price;
         $plans->place = $request->place;
         $plans->small_place = $request->small_place;
         $plans->vegetable = $request->vegetable;
-        $plans->map = $request->map;
+        $plans->ag_name = $request->ag_name;
+        $plans->dish_name = $request->dish_name;
         $plans->save(); 
         return redirect('/');
 
