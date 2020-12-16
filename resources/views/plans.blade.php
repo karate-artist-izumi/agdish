@@ -51,8 +51,12 @@
                     <input type="text" name="dish_longitude" class="form-control">
                 </div>
                 <div class="col-sm-6">
-                    金額
-                    <input type="text" name="price" class="form-control">
+                    大人料金
+                    <input type="text" name="adult_price" class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    子供料金
+                    <input type="text" name="child_price" class="form-control">
                 </div>
                 <div class="col-sm-6">
                     場所
@@ -67,8 +71,12 @@
                     <input type="text" name="vegetable" class="form-control">
                 </div>
                 <div class="col-sm-6">
-                    MAP
-                    <input type="text" name="map" class="form-control">
+                    農家名
+                    <input type="text" name="ag_name" class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    レストラン名
+                    <input type="text" name="dish_name" class="form-control">
                 </div>
             </div>
 
@@ -98,11 +106,13 @@
                         <th>農家経度</th>
                         <th>レストラン緯度</th>
                         <th>レストラン経度</th>
-                        <th>金額</th>
+                        <th>大人料金</th>
+                        <th>子供料金</th>
                         <th>開催場所</th>
                         <th>Search[県]</th>
                         <th>Search[野菜]</th>
-                        <th>MAP</th>
+                        <th>農家名</th>
+                        <th>レストラン名</th>
                     </thead>
                     <!-- テーブル本体 -->
                     <tbody>
@@ -135,7 +145,10 @@
                                     <div>{{ $plan->dish_longitude }}</div>
                                 </td>
                                 <td class="table-text">
-                                    <div>{{ $plan->price }}</div>
+                                    <div>{{ $plan->adult_price }}</div>
+                                </td>
+                                <td class="table-text">
+                                    <div>{{ $plan->child_price }}</div>
                                 </td>
                                 <td class="table-text">
                                     <div>{{ $plan->place }}</div>
@@ -147,7 +160,10 @@
                                     <div>{{ $plan->vegetable }}</div>
                                 </td>
                                 <td class="table-text">
-                                    <div>{{ $plan->map }}</div>
+                                    <div>{{ $plan->ag_name }}</div>
+                                </td>
+                                <td class="table-text">
+                                    <div>{{ $plan->dish_name }}</div>
                                 </td>
 
                                 <!--本の更新-->

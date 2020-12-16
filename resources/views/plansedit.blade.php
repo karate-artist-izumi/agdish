@@ -40,8 +40,12 @@
            <input type="text" id="dish_longitude" name="dish_longitude" class="form-control" value="{{$plan->dish_longitude}}">
         </div>
         <div class="form-group">
-           <label for="title">金額</label>
-           <input type="text" id="price" name="price" class="form-control" value="{{$plan->price}}">
+           <label for="title">大人料金</label>
+           <input type="text" id="adult_price" name="adult_price" class="form-control" value="{{$plan->adult_price}}">
+        </div>
+        <div class="form-group">
+           <label for="title">子供料金</label>
+           <input type="text" id="child_price" name="child_price" class="form-control" value="{{$plan->child_price}}">
         </div>
         <div class="form-group">
            <label for="title">場所</label>
@@ -56,8 +60,12 @@
            <input type="text" id="vegetable" name="vegetable" class="form-control" value="{{$plan->vegetable}}">
         </div>
         <div class="form-group">
-           <label for="title">MAP</label>
-           <input type="text" id="map" name="map" class="form-control" value="{{$plan->map}}">
+           <label for="title">農家名</label>
+           <input type="text" id="ag_name" name="ag_name" class="form-control" value="{{$plan->ag_name}}">
+        </div>
+        <div class="form-group">
+           <label for="title">レストラン名</label>
+           <input type="text" id="dish_name" name="dish_name" class="form-control" value="{{$plan->dish_name}}">
         </div>
 
  
