@@ -3,6 +3,9 @@
 use App\Plan;
 use Illuminate\Http\Request;
 
+//検索ページ
+Route::get('/books', 'PlansController@search');
+
 //topページ
 Route::get('/tops', 'PlansController@top');
 
