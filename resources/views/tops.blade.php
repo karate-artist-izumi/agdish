@@ -89,7 +89,53 @@
 </a>
 <div id="p20"></div>
 
-
+          @foreach ($plans as $plan)
+          <a href="/details/{{ $plan->id }}">
+                <tr>
+                    <!-- 本タイトル -->
+                    <td class="table-text">
+                        <div>{{ $plan->title }}</div>
+                    </td>
+                    <td class="table-text">
+                        <div>{{ $plan->description }}</div>
+                    </td>
+                    <td class="table-text">
+                        <div>{{ $plan->plan_date }}</div>
+                    </td>
+                    <td class="table-text">
+                        <div>{{ $plan->photo }}</div>
+                    </td>
+                    <td class="table-text">
+                        <div>{{ $plan->ag_latitude }}</div>
+                    </td>
+                    <td class="table-text">
+                        <div>{{ $plan->ag_longitude }}</div>
+                    </td>
+                    <td class="table-text">
+                        <div>{{ $plan->dish_latitude }}</div>
+                    </td>
+                    <td class="table-text">
+                        <div>{{ $plan->dish_longitude }}</div>
+                    </td>
+                    <td class="table-text">
+                        <div>{{ $plan->price }}</div>
+                    </td>
+                    <td class="table-text">
+                        <div>{{ $plan->place }}</div>
+                    </td>
+                    <td class="table-text">
+                        <div>{{ $plan->small_place }}</div>
+                    </td>
+                    <td class="table-text">
+                        <div>{{ $plan->vegetable }}</div>
+                    </td>
+                    <td class="table-text">
+                        <div>{{ $plan->map }}</div>
+                    </td>
+                </tr>
+              </a>
+            <div id="p20"></div>
+            @endforeach
 
   
   <!-- ここから上にコードを書く -->

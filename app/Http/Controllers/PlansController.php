@@ -13,7 +13,7 @@ class PlansController extends Controller
     //topページ
     public function top(){
         $plans = Plan::orderBy('created_at', 'desc')->get();
-        return view('tops');
+        return view('tops',['plans' => $plans]);
     }
 
     //詳細ページ
