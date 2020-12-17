@@ -13,7 +13,7 @@
         <!-- バリデーションエラーの表示に使用-->
 
         <!-- 本登録フォーム -->
-        <form action="{{ url('plans') }}" method="POST" class="form-horizontal">
+        <form enctype="multipart/form-data" action="{{ url('plans') }}" method="POST" class="form-horizontal">
             {{ csrf_field() }}
 
             <!-- 本のタイトル -->
@@ -30,10 +30,10 @@
                     開催日
                     <input type="date" name="plan_date" class="form-control">
                 </div>
-                <div class="col-sm-6">
+                <!-- <div class="col-sm-6">
                     写真URL
                     <input type="text" name="photo" class="form-control">
-                </div>
+                </div> -->
                 <div class="col-sm-6">
                     農家緯度
                     <input type="text" name="ag_latitude" class="form-control">
@@ -78,6 +78,11 @@
                     レストラン名
                     <input type="text" name="dish_name" class="form-control">
                 </div>
+                <div class="col-sm-6">
+                    <label>画像</label>
+                    <input type="file" name="photo">
+                </div>
+
             </div>
 
             <!-- 本 登録ボタン -->
@@ -101,7 +106,7 @@
                         <th>プラン名</th>
                         <th>説明</th>
                         <th>開催日</th>
-                        <th>写真URL</th>
+                        <!-- <th>写真URL</th> -->
                         <th>農家緯度</th>
                         <th>農家経度</th>
                         <th>レストラン緯度</th>
@@ -129,9 +134,9 @@
                                 <td class="table-text">
                                     <div>{{ $plan->plan_date }}</div>
                                 </td>
-                                <td class="table-text">
+                                <!-- <td class="table-text">
                                     <div>{{ $plan->photo }}</div>
-                                </td>
+                                </td> -->
                                 <td class="table-text">
                                     <div>{{ $plan->ag_latitude }}</div>
                                 </td>
@@ -164,6 +169,9 @@
                                 </td>
                                 <td class="table-text">
                                     <div>{{ $plan->dish_name }}</div>
+                                </td>
+                                <td>
+                                    <div> <img src="upload/{{$plan->photo}}" width="100"></div>
                                 </td>
 
                                 <!--本の更新-->

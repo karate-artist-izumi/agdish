@@ -55,13 +55,28 @@ class PlansController extends Controller
             ->withInput()
             ->withErrors($validator);
             }
+
+        //file 取得
+        $file = $request->file('photo');
+        //file が空かチェック
+        if( !empty($file) ){
+        //ファイル名を取得
+        $filename = $file->getClientOriginalName();
+        //AWSの場合どちらかになる事がある”../upload/” or “./upload/”
+        $move = $file->move('./upload/',$filename); //public/upload/...
+        }else{
+        $filename = "";
+        }
+
+        
         //以下に登録処理を記述（Eloquentモデル）
         // Eloquentモデル
         $plans = new Plan;
         $plans->title = $request->title;
         $plans->description = $request->description;
         $plans->plan_date = $request->plan_date;
-        $plans->photo = $request->photo;
+        // $plans->photo = $request->photo;
+        $plans->photo = $filename;
         $plans->ag_latitude = $request->ag_latitude;
         $plans->ag_longitude = $request->ag_longitude;
         $plans->dish_latitude = $request->dish_latitude;
@@ -116,13 +131,28 @@ class PlansController extends Controller
                 ->withInput()
                 ->withErrors($validator);
         }
+
+        //file 取得
+        $file = $request->file('photo');
+        //file が空かチェック
+        if( !empty($file) ){
+        //ファイル名を取得
+        $filename = $file->getClientOriginalName();
+        //AWSの場合どちらかになる事がある”../upload/” or “./upload/”
+        $move = $file->move('./upload/',$filename); //public/upload/...
+        }else{
+        $filename = "";
+        }
+
+
         //以下に登録処理を記述（Eloquentモデル）
         // Eloquentモデル
         $plans = Plan::find($request->id);
         $plans->title = $request->title;
         $plans->description = $request->description;
         $plans->plan_date = $request->plan_date;
-        $plans->photo = $request->photo;
+        // $plans->photo = $request->photo;
+        $plans->photo = $filename;
         $plans->ag_latitude = $request->ag_latitude;
         $plans->ag_longitude = $request->ag_longitude;
         $plans->dish_latitude = $request->dish_latitude;

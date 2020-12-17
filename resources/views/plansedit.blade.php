@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-md-12">
     @include('common.errors')
-    <form action="{{ url('plans/update') }}" method="POST">
+    <form enctype="multipart/form-data" action="{{ url('plans/update') }}" method="POST">
 
 
         <div class="form-group">
@@ -19,10 +19,10 @@
            <label for="title">開催日</label>
            <input type="text" id="plan_date" name="plan_date" class="form-control" value="{{$plan->plan_date}}">
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
            <label for="title">写真URL</label>
            <input type="text" id="photo" name="photo" class="form-control" value="{{$plan->photo}}">
-        </div>
+        </div> -->
         <div class="form-group">
            <label for="title">農家緯度</label>
            <input type="text" id="ag_latitude" name="ag_latitude" class="form-control" value="{{$plan->ag_latitude}}">
@@ -66,6 +66,10 @@
         <div class="form-group">
            <label for="title">レストラン名</label>
            <input type="text" id="dish_name" name="dish_name" class="form-control" value="{{$plan->dish_name}}">
+        </div>
+        <div class="form-group">
+           <label for="title">写真</label>
+           <input type="file" id="photo" name="photo" class="form-control" value="{{$plan->photo}}">
         </div>
 
  
