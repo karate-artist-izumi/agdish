@@ -81,7 +81,7 @@
         </div>
         <div class="col-sm-6">
             登録用パスワード
-            <input type="test" name="email" class="form-control">
+            <input type="test" name="pass" class="form-control">
         </div>
         <span>
           おとなの人数
