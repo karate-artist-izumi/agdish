@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>マイページ</title>
 </head>
 <body>
   <h1>マイページ</h1>
@@ -16,7 +16,7 @@
   <!-- 予約中のプランは複数件とれてきているの以下の方法で表示する -->
   <!-- 1件だったとしてもループで回さないとエラーになる -->
   <h2>予約中のプラン</h2>
-​
+
   @foreach($reservePlans as $reservePlan)
   <h3>{{ $reservePlan->plan_title }}</h3>
   <p>開催日：{{ $reservePlan->plan_date }}</p>
