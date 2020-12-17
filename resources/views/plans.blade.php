@@ -107,23 +107,23 @@
                 <table class="table table-striped task-table">
                     <!-- テーブルヘッダ -->
                     <thead>
-                        <th>プラン名</th>
-                        <th>説明</th>
-                        <th>開催日</th>
-                        <th>農家名</th>
-                        <th>レストラン名</th>
+                        <th width="200">プラン名</th>
+                        <th width="200">説明</th>
+                        <th width="100">開催日</th>
+                        <th width="100">農家名</th>
+                        <th width="100">レストラン名</th>
                         <!-- <th>写真URL</th> -->
-                        <th>農家写真</th>
-                        <th>レストラン写真</th>
-                        <th>農家緯度</th>
-                        <th>農家経度</th>
-                        <th>レストラン緯度</th>
-                        <th>レストラン経度</th>
-                        <th>大人料金</th>
-                        <th>子供料金</th>
-                        <th>開催場所</th>
-                        <th>Search[県]</th>
-                        <th>Search[野菜]</th>
+                        <th width="100">農家写真</th>
+                        <th width="100">レストラン写真</th>
+                        <th width="50">農家緯度</th>
+                        <th width="50">農家経度</th>
+                        <th width="50">レストラン緯度</th>
+                        <th width="50">レストラン経度</th>
+                        <th width="50">大人料金</th>
+                        <th width="50">子供料金</th>
+                        <th width="100">開催場所</th>
+                        <th width="50">Search[県]</th>
+                        <th width="50">Search[野菜]</th>
                     </thead>
                     <!-- テーブル本体 -->
                     <tbody>
