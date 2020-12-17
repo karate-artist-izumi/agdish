@@ -29,13 +29,6 @@ Route::post('/plansedit/{plans}', 'PlansController@edit');
 Route::post('/plans/update','PlansController@update');
 
 
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
