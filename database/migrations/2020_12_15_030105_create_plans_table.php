@@ -16,20 +16,21 @@ class CreatePlansTable extends Migration
         Schema::create('plans', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->text('description');
-            $table->datetime('plan_date');
-            $table->text('photo');
-            $table->string('ag_latitude');
-            $table->string('ag_longitude');
-            $table->string('dish_latitude');
-            $table->string('dish_longitude');
-            $table->integer('adult_price');
-            $table->integer('child_price');
-            $table->string('place');
-            $table->string('small_place');
-            $table->string('vegetable');
-            $table->text('ag_name');
-            $table->text('dish_name');
+            $table->text('description')->nullable();
+            $table->datetime('plan_date')->nullable();
+            $table->text('ag_name')->nullable();
+            $table->text('dish_name')->nullable();
+            $table->text('ag_photo')->nullable();
+            $table->text('dish_photo')->nullable();
+            $table->string('ag_latitude')->nullable();
+            $table->string('ag_longitude')->nullable();
+            $table->string('dish_latitude')->nullable();
+            $table->string('dish_longitude')->nullable();
+            $table->integer('adult_price')->nullable();
+            $table->integer('child_price')->nullable();
+            $table->string('place')->nullable();
+            $table->string('small_place')->nullable();
+            $table->string('vegetable')->nullable();
             $table->timestamps();
         });
     }

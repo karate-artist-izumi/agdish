@@ -30,10 +30,26 @@
                     開催日
                     <input type="date" name="plan_date" class="form-control">
                 </div>
+                <div class="col-sm-6">
+                    農家名
+                    <input type="text" name="ag_name" class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    レストラン名
+                    <input type="text" name="dish_name" class="form-control">
+                </div>
                 <!-- <div class="col-sm-6">
                     写真URL
                     <input type="text" name="photo" class="form-control">
                 </div> -->
+                <div class="col-sm-6">
+                    <label>農家写真</label>
+                    <input type="file" name="ag_photo">
+                </div>
+                <div class="col-sm-6">
+                    <label>レストラン写真</label>
+                    <input type="file" name="dish_photo">
+                </div>
                 <div class="col-sm-6">
                     農家緯度
                     <input type="text" name="ag_latitude" class="form-control">
@@ -70,18 +86,6 @@
                     Search[野菜]
                     <input type="text" name="vegetable" class="form-control">
                 </div>
-                <div class="col-sm-6">
-                    農家名
-                    <input type="text" name="ag_name" class="form-control">
-                </div>
-                <div class="col-sm-6">
-                    レストラン名
-                    <input type="text" name="dish_name" class="form-control">
-                </div>
-                <div class="col-sm-6">
-                    <label>画像</label>
-                    <input type="file" name="photo">
-                </div>
 
             </div>
 
@@ -106,7 +110,11 @@
                         <th>プラン名</th>
                         <th>説明</th>
                         <th>開催日</th>
+                        <th>農家名</th>
+                        <th>レストラン名</th>
                         <!-- <th>写真URL</th> -->
+                        <th>農家写真</th>
+                        <th>レストラン写真</th>
                         <th>農家緯度</th>
                         <th>農家経度</th>
                         <th>レストラン緯度</th>
@@ -116,8 +124,6 @@
                         <th>開催場所</th>
                         <th>Search[県]</th>
                         <th>Search[野菜]</th>
-                        <th>農家名</th>
-                        <th>レストラン名</th>
                     </thead>
                     <!-- テーブル本体 -->
                     <tbody>
@@ -134,9 +140,21 @@
                                 <td class="table-text">
                                     <div>{{ $plan->plan_date }}</div>
                                 </td>
+                                <td class="table-text">
+                                    <div>{{ $plan->ag_name }}</div>
+                                </td>
+                                <td class="table-text">
+                                    <div>{{ $plan->dish_name }}</div>
+                                </td>
                                 <!-- <td class="table-text">
                                     <div>{{ $plan->photo }}</div>
                                 </td> -->
+                                <td>
+                                    <div> <img src="upload/{{$plan->ag_photo}}" width="100"></div>
+                                </td>
+                                <td>
+                                    <div> <img src="upload/{{$plan->dish_photo}}" width="100"></div>
+                                </td>
                                 <td class="table-text">
                                     <div>{{ $plan->ag_latitude }}</div>
                                 </td>
@@ -164,15 +182,7 @@
                                 <td class="table-text">
                                     <div>{{ $plan->vegetable }}</div>
                                 </td>
-                                <td class="table-text">
-                                    <div>{{ $plan->ag_name }}</div>
-                                </td>
-                                <td class="table-text">
-                                    <div>{{ $plan->dish_name }}</div>
-                                </td>
-                                <td>
-                                    <div> <img src="upload/{{$plan->photo}}" width="100"></div>
-                                </td>
+                                
 
                                 <!--本の更新-->
                                 <td>
