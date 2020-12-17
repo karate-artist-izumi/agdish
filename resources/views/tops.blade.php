@@ -18,25 +18,52 @@
   <!-- ここから下にコードを書く -->
 
   <header>
-    <nav>
-      <div role="navigation" class="header d-flex flex-row justify-content-between">
-        <div class="header_left w-50">
-          <ul class="d-flex flex-row justify-content-start">
-            <li><h1>AgDish</h1></li>
-            <li><h2>アグディッシュ</h2></li>
-            <li><p>キャッチコピー</p> </li>
-          </ul>
+    <div class="header_wrapper">
+      <nav>
+        <div role="navigation" class="header_top d-flex flex-row justify-content-between">
+          <div class="header_left w-50">
+            <ul class="d-flex flex-row justify-content-start">
+              <li><h1>AgDish</h1></li>
+              <li><h2>アグディッシュ</h2></li>
+              <li><p>キャッチコピー</p> </li>
+            </ul>
+          </div>
+          <div class="header_right w-50">
+            <ul class="d-flex flex-row justify-content-end">
+              <li><p>ログイン</p></li>
+              <li><p>|</p></li>
+              <li><p>ユーザー登録</p></li>
+            </ul>
+          </div>
         </div>
-        <div class="header_right w-50">
-          <ul class="d-flex flex-row justify-content-end">
-            <li><p>ログイン</p></li>
-            <li><p>|</p></li>
-            <li><p>ユーザー登録</p></li>
-          </ul>
+      </nav>
+      <div class="header_bottom">
+        <div class="search_box d-flex justify-content-between">
+          <div class="search_box_left">
+            <h2 class="search-title">日時、人数から探す</h2>
+          </div>
+          <div class="search_box_right">
+            <form action="">
+              <input type="text">
+              <input type="text">
+            </form>
+          </div>
         </div>
       </div>
-    </nav>
+    </div>
   </header>
+
+  <main>
+    <section>
+      <div class="main_top">
+        <div class="video_container">
+          <video src="upload/agdish01.mp4" autoplay loop muted></video>
+          <video src="upload/agdish02.mp4" autoplay loop muted></video>
+        </div>
+      </div>
+    </section>
+  </main>
+
 
  <div id="navi">
    <div id="navi_search">
