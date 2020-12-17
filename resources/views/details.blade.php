@@ -79,20 +79,37 @@
             メールアドレス
             <input type="test" name="email" class="form-control">
         </div>
+        <div class="col-sm-6">
+            登録用パスワード
+            <input type="test" name="pass" class="form-control">
+        </div>
         <span>
           おとなの人数
           <select name="adult" id="">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
           </select>
         </span>
         <span>
           こどもの人数
           <select name="child" id="">
+            <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
           </select>
         </span>
         <input type="hidden" name="plan_id" value="{{ $plan->id }}">
