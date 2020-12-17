@@ -19,10 +19,26 @@
            <label for="title">開催日</label>
            <input type="text" id="plan_date" name="plan_date" class="form-control" value="{{$plan->plan_date}}">
         </div>
+        <div class="form-group">
+           <label for="title">農家名</label>
+           <input type="text" id="ag_name" name="ag_name" class="form-control" value="{{$plan->ag_name}}">
+        </div>
+        <div class="form-group">
+           <label for="title">レストラン名</label>
+           <input type="text" id="dish_name" name="dish_name" class="form-control" value="{{$plan->dish_name}}">
+        </div>
         <!-- <div class="form-group">
            <label for="title">写真URL</label>
            <input type="text" id="photo" name="photo" class="form-control" value="{{$plan->photo}}">
         </div> -->
+        <div class="form-group">
+           <label for="title">農家写真</label>
+           <input type="file" id="ag_photo" name="ag_photo" class="form-control" value="{{$plan->ag_photo}}">
+        </div>
+        <div class="form-group">
+           <label for="title">レストラン写真</label>
+           <input type="file" id="dish_photo" name="dish_photo" class="form-control" value="{{$plan->dish_photo}}">
+        </div>
         <div class="form-group">
            <label for="title">農家緯度</label>
            <input type="text" id="ag_latitude" name="ag_latitude" class="form-control" value="{{$plan->ag_latitude}}">
@@ -59,18 +75,8 @@
            <label for="title">Search[野菜]</label>
            <input type="text" id="vegetable" name="vegetable" class="form-control" value="{{$plan->vegetable}}">
         </div>
-        <div class="form-group">
-           <label for="title">農家名</label>
-           <input type="text" id="ag_name" name="ag_name" class="form-control" value="{{$plan->ag_name}}">
-        </div>
-        <div class="form-group">
-           <label for="title">レストラン名</label>
-           <input type="text" id="dish_name" name="dish_name" class="form-control" value="{{$plan->dish_name}}">
-        </div>
-        <div class="form-group">
-           <label for="title">写真</label>
-           <input type="file" id="photo" name="photo" class="form-control" value="{{$plan->photo}}">
-        </div>
+        
+        
 
  
         
