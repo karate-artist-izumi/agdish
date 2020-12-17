@@ -10,6 +10,10 @@
   <link href="{{asset('/css/main.css')}}" rel="stylesheet">
   <link href="{{asset('/css/app.css')}}" rel="stylesheet">
 
+  <!-- GoogleFonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+
 </head>
 <!-- 最初の設定は終わっています　必要な方は触ってください -->
 
@@ -23,8 +27,8 @@
         <div role="navigation" class="header_top d-flex flex-row justify-content-between">
           <div class="header_left w-50">
             <ul class="d-flex flex-row justify-content-start">
-              <li><h1>AgDish</h1></li>
-              <li><h2>アグディッシュ</h2></li>
+              <li><img src="/img/logo.png" alt=""></li>
+              <li><p>アグディッシュ</p></li>
               <li><p>キャッチコピー</p> </li>
             </ul>
           </div>
@@ -37,6 +41,11 @@
           </div>
         </div>
       </nav>
+      <div class="header_center">
+        <div class="header_message">
+          <p>メッセージ</p>
+        </div>
+      </div>
       <div class="header_bottom">
         <div class="search_box d-flex justify-content-between">
           <div class="search_box_left">
@@ -54,56 +63,123 @@
   </header>
 
   <main>
+
     <section>
       <div class="main_top">
         <div class="video_container">
           <video src="upload/agdish01.mp4" autoplay loop muted></video>
-          <video src="upload/agdish02.mp4" autoplay loop muted></video>
         </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="select_wrapper d-flex flex-wrap justify-content-center">
+        @foreach ($plans as $plan)
+          <div class="select_box">
+            <a href="/details/{{ $plan->id }}">
+              <div class="select_cell d-flex flex-column">
+
+                <div class="select_img"> 
+                  <img src="upload/no01.jpg" alt="">
+                </div>
+                <div class="select_img">
+                  <img src="upload/ryo01.jpg" alt="">
+                </div>
+
+                <div id="select_text">
+                  {{ $plan->title }}
+                </div>
+
+                <div id="place">
+                  開催場所：{{ $plan->small_place }}
+                </div>
+
+                <div id="price">
+                  金額：{{ $plan->price }}円
+                </div>
+          
+                <div id="details">
+                  {{ $plan->description }}
+                </div>
+
+              </div>
+            </a>
+          </div>
+        @endforeach
       </div>
     </section>
   </main>
 
+  <footer>
+    <div class="footer_wrapper">
 
- <div id="navi">
-   <div id="navi_search">
-   <textarea name="" id="search"></textarea>
-   <button>Search</button>
-   </div>
- </div>
-  
+      <div class="footer_top d-flex flex-row justify-content-center">
+        <div class="footer_cell">
+          <div class="footer_title">
+            <p>利用したい</p>
+          </div>
+          <div class="footer_list">
+            <ul class="">
+                <li><a href="/about">アグリッシュとは？</a></li>
+                <li><a href="#">アグリッシュ基準</a></li>
+                <li><a href="#">ご利用ガイド</a></li>
+                <li><a href="#">品質保証について</a></li>
+                <li><a href="#">注文方法</a></li>
+                <li><a href="#" target="_blank" rel="noopener">飲食店の方へ</a></li>
+                <li><a href="#" target="_blank" rel="noopener">イベント主催者の方へ</a></li>
+              </ul>
+          </div>
+        </div>
+        <div class="footer_cell">
+          <div class="footer_title">
+            <p>出店したい</p>
+          </div>
+          <div class="footer_list">
+            <ul class="">
+                <li><a href="/about">出品者募集</a></li>
+                <li><a href="#">募集要件</a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#" target="_blank" rel="noopener"></a></li>
+                <li><a href="#" target="_blank" rel="noopener"></a></li>
+              </ul>
+          </div>
+        </div>
+        <div class="footer_cell">
+          <div class="footer_title">
+            <p>アグリッシュについて</p>
+          </div>
+          <div class="footer_list">
+            <ul class="">
+                <li><a href="/about">運営会社</a></li>
+                <li><a href="#">よくある質問</a></li>
+                <li><a href="#">お問い合わせ</a></li>
+                <li><a href="#">利用規約</a></li>
+                <li><a href="#">プライバシーポリシー</a></li>
+                <li><a href="#" target="_blank" rel="noopener">特定商取引法</a></li>
+                <li><a href="#" target="_blank" rel="noopener">採用情報</a></li>
+              </ul>
+          </div>
+        </div>
+      </div>
 
-  <div class="video-wrap">
-    <p>AgDish</p>
-    
+      <div class="footer_bottom">
+        <div>
+          <ul class="sns_list d-flex flex-row justify-content-center">
+            <li><a href="#" target="_blank" rel="noopener"><img src="https://img.icons8.com/clouds/100/000000/line-me.png"/></a></li>
+            <li><a href="#" target="_blank" rel="noopener"><img src="https://img.icons8.com/clouds/100/000000/instagram.png"/></a></li>
+            <li><a href="#" target="_blank" rel="noopener"><img src="https://img.icons8.com/clouds/100/000000/facebook-f.png"/></a></li>
+            <li><a href="#" target="_blank" rel="noopener"><img src="https://img.icons8.com/clouds/100/000000/twitter-circled.png"/></a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="copyright"><small>Copyright</small> © 2020 KARATE DOJO Inc.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-    <video src="upload/agdish01.mp4" autoplay loop muted></video>
-    <video src="upload/agdish02.mp4" autoplay loop muted></video>
-</div>
-
-<div id="p20"></div>
-
-
-          @foreach ($plans as $plan)
-          <a href="/details/{{ $plan->id }}">
-          <div id="select">
-            <div id="select_img">
-              <img src="upload/no01.jpg" alt="">
-              <img src="upload/ryo01.jpg" alt="">
-            </div>
-            <div id="select_text">{{ $plan->title }}</div>
-            <div id="tyudan">
-              <div id="place">開催場所：{{ $plan->small_place }}　</div>
-              <div id="price">　金額：{{ $plan->price }}円</div>
-            </div>
-            <div id="details">{{ $plan->description }}</div>
-          </div>    
-              </a>
-            <div id="p20"></div>
-            @endforeach
-
-  
-  <!-- ここから上にコードを書く -->
   <!-- この中に記述していく -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <!-- <script type="text/javascript" src="js/bootstrap.bundle.js"></script> -->
