@@ -25,8 +25,8 @@ array_push($cartData, [
 
 require '../vendor/autoload.php';
 
-$secretKey = 'sk_test_51Htj55FdjvdBVD7vPeqBlUwwEJquDSWefBNOgbB07nl4Un5dVkzNUH15wT0y6tVIgkP5Av1zeChAETCzpeIErIUw00kVXfFp67';
-$publicKey = 'pk_test_51Htj55FdjvdBVD7vaa492NPaq6aU6PtQI8p76qTG8aXPbGQzalPES3DJOcQGn9TaAnhmUjvqkNUeGUphfcHrgPY200a8xu5bjk';
+$secretKey = env('STRIPE_SECRET');
+$publicKey = env('STRIPE_KEY');
 
 $stripe = new \Stripe\StripeClient($secretKey);
 $session = $stripe->checkout->sessions->create([
