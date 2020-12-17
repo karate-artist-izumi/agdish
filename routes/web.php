@@ -28,7 +28,17 @@ Route::post('/plansedit/{plans}', 'PlansController@edit');
 // 更新処理
 Route::post('/plans/update','PlansController@update');
 
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+
+
+// 以下小川作業分
+
+Route::post('/buy', 'ShopController@input');
+Route::get('/buy/result', 'ShopController@result');
+
+// 小川作業ここまで
