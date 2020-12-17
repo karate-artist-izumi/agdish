@@ -42,3 +42,9 @@ Route::post('/buy', 'ShopController@input');
 Route::get('/buy/result', 'ShopController@result');
 
 // 小川作業ここまで
+
+// 以下田崎作業分
+
+Route::get('/mypage', 'UserController@showUser');
+
+// 田崎作業ここまで
