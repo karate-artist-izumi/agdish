@@ -13,13 +13,13 @@ var infoWindow = [];
 var markerData = [ // マーカーを立てる場所名・緯度・経度
 {
    name: '農家',
-   lat: ag_latitude.name,
-   lng: ag_longitude.name,
+   lat: parseFloat(ag_latitude.name),
+   lng: parseFloat(ag_longitude.name),
    icon: '../img/ag.png' //
  }, {
    name: '飲食店',
-   lat: dish_latitude.name,
-   lng: dish_longitude.name,
+   lat: parseFloat(dish_latitude.name),
+   lng: parseFloat(dish_longitude.name),
    icon: '../img/restaurant.png' //
  }
 ];
@@ -31,7 +31,7 @@ map = new google.maps.Map(document.getElementById('mapSample'), {
 // 地図の中心を指定
 center: mapLatLng,
 // 地図のズームを指定
-zoom: 1 });
+zoom: 10 });
 // マーカー毎の処理
 // 緯度経度のデータ作成
 for (var i = 0; i < markerData.length; i++) {
