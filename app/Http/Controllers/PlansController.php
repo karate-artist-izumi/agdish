@@ -34,17 +34,18 @@ class PlansController extends Controller
         //バリデーション
         $validator = Validator::make($request->all(), [
         'title' => 'required',
-        'description' => 'required',
-        'plan_date' => 'required',
+        // 'description' => 'required',
+        // 'plan_date' => 'required',
         // 'photo' => 'required',
         // 'ag_latitude' => 'required',
         // 'ag_longitude' => 'required',
         // 'dish_latitude' => 'required',
         // 'dish_longitude' => 'required',
-        'price' => 'required',
-        'place' => 'required',
-        'small_place' => 'required',
-        'vegetable' => 'required',
+        // 'adult_price' => 'required',
+        // 'child_price' => 'required',
+        // 'place' => 'required',
+        // 'small_place' => 'required',
+        // 'vegetable' => 'required',
         // 'map' => 'required',
         ]);
 
@@ -54,22 +55,39 @@ class PlansController extends Controller
             ->withInput()
             ->withErrors($validator);
             }
+
+        //file 取得
+        $file = $request->file('photo');
+        //file が空かチェック
+        if( !empty($file) ){
+        //ファイル名を取得
+        $filename = $file->getClientOriginalName();
+        //AWSの場合どちらかになる事がある”../upload/” or “./upload/”
+        $move = $file->move('./upload/',$filename); //public/upload/...
+        }else{
+        $filename = "";
+        }
+
+        
         //以下に登録処理を記述（Eloquentモデル）
         // Eloquentモデル
         $plans = new Plan;
         $plans->title = $request->title;
         $plans->description = $request->description;
         $plans->plan_date = $request->plan_date;
-        $plans->photo = $request->photo;
+        // $plans->photo = $request->photo;
+        $plans->photo = $filename;
         $plans->ag_latitude = $request->ag_latitude;
         $plans->ag_longitude = $request->ag_longitude;
         $plans->dish_latitude = $request->dish_latitude;
         $plans->dish_longitude = $request->dish_longitude;
-        $plans->price = $request->price;
+        $plans->adult_price = $request->adult_price;
+        $plans->child_price = $request->child_price;
         $plans->place = $request->place;
         $plans->small_place = $request->small_place;
         $plans->vegetable = $request->vegetable;
-        $plans->map = $request->map;
+        $plans->ag_name = $request->ag_name;
+        $plans->dish_name = $request->dish_name;
         $plans->save(); 
         return redirect('/');
 
@@ -92,18 +110,18 @@ class PlansController extends Controller
     //バリデーション
     $validator = Validator::make($request->all(), [
         'id' => 'required',
-        'title' => 'required',
-        'description' => 'required',
-        'plan_date' => 'required',
+        // 'title' => 'required',
+        // 'description' => 'required',
+        // 'plan_date' => 'required',
         // 'photo' => 'required',
         // 'ag_latitude' => 'required',
         // 'ag_longitude' => 'required',
         // 'dish_latitude' => 'required',
         // 'dish_longitude' => 'required',
-        'price' => 'required',
-        'place' => 'required',
-        'small_place' => 'required',
-        'vegetable' => 'required',
+        // 'price' => 'required',
+        // 'place' => 'required',
+        // 'small_place' => 'required',
+        // 'vegetable' => 'required',
         // 'map' => 'required',
         ]);
 
@@ -113,22 +131,39 @@ class PlansController extends Controller
                 ->withInput()
                 ->withErrors($validator);
         }
+
+        //file 取得
+        $file = $request->file('photo');
+        //file が空かチェック
+        if( !empty($file) ){
+        //ファイル名を取得
+        $filename = $file->getClientOriginalName();
+        //AWSの場合どちらかになる事がある”../upload/” or “./upload/”
+        $move = $file->move('./upload/',$filename); //public/upload/...
+        }else{
+        $filename = "";
+        }
+
+
         //以下に登録処理を記述（Eloquentモデル）
         // Eloquentモデル
         $plans = Plan::find($request->id);
         $plans->title = $request->title;
         $plans->description = $request->description;
         $plans->plan_date = $request->plan_date;
-        $plans->photo = $request->photo;
+        // $plans->photo = $request->photo;
+        $plans->photo = $filename;
         $plans->ag_latitude = $request->ag_latitude;
         $plans->ag_longitude = $request->ag_longitude;
         $plans->dish_latitude = $request->dish_latitude;
         $plans->dish_longitude = $request->dish_longitude;
-        $plans->price = $request->price;
+        $plans->adult_price = $request->adult_price;
+        $plans->child_price = $request->child_price;
         $plans->place = $request->place;
         $plans->small_place = $request->small_place;
         $plans->vegetable = $request->vegetable;
-        $plans->map = $request->map;
+        $plans->ag_name = $request->ag_name;
+        $plans->dish_name = $request->dish_name;
         $plans->save(); 
         return redirect('/');
 

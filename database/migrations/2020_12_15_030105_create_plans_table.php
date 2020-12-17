@@ -23,11 +23,13 @@ class CreatePlansTable extends Migration
             $table->string('ag_longitude');
             $table->string('dish_latitude');
             $table->string('dish_longitude');
-            $table->integer('price');
+            $table->integer('adult_price');
+            $table->integer('child_price');
             $table->string('place');
             $table->string('small_place');
             $table->string('vegetable');
-            $table->text('map');
+            $table->text('ag_name');
+            $table->text('dish_name');
             $table->timestamps();
         });
     }

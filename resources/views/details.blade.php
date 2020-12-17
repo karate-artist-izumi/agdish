@@ -37,7 +37,7 @@
    
               <div>{{ $plan->plan_date }}</div>
     
-              <div>{{ $plan->photo }}</div>
+              
 
               <div>{{ $plan->ag_latitude }}</div>
 
@@ -65,6 +65,39 @@
       <span id="js-dish_latitude" data-name="{{ $plan->dish_latitude }}"></span>
       <span id="js-dish_longitude" data-name="{{ $plan->dish_longitude }}"></span>
 
+      <form action="{{ url('buy') }}" method="post">
+      {{ csrf_field() }}
+        <div class="col-sm-6">
+            代表者氏名
+            <input type="text" name="name" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            電話番号
+            <input type="test" name="tell" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            メールアドレス
+            <input type="test" name="email" class="form-control">
+        </div>
+        <span>
+          おとなの人数
+          <select name="adult" id="">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </span>
+        <span>
+          こどもの人数
+          <select name="child" id="">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </span>
+        <input type="hidden" name="plan_id" value="{{ $plan->id }}">
+        <button type="submit">購入確認画面へ</button>
+      </form>
   
   <!-- ここから上にコードを書く -->
   <!-- この中に記述していく -->

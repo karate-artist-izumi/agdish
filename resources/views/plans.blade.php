@@ -13,7 +13,7 @@
         <!-- バリデーションエラーの表示に使用-->
 
         <!-- 本登録フォーム -->
-        <form action="{{ url('plans') }}" method="POST" class="form-horizontal">
+        <form enctype="multipart/form-data" action="{{ url('plans') }}" method="POST" class="form-horizontal">
             {{ csrf_field() }}
 
             <!-- 本のタイトル -->
@@ -30,10 +30,10 @@
                     開催日
                     <input type="date" name="plan_date" class="form-control">
                 </div>
-                <div class="col-sm-6">
+                <!-- <div class="col-sm-6">
                     写真URL
                     <input type="text" name="photo" class="form-control">
-                </div>
+                </div> -->
                 <div class="col-sm-6">
                     農家緯度
                     <input type="text" name="ag_latitude" class="form-control">
@@ -51,8 +51,12 @@
                     <input type="text" name="dish_longitude" class="form-control">
                 </div>
                 <div class="col-sm-6">
-                    金額
-                    <input type="text" name="price" class="form-control">
+                    大人料金
+                    <input type="text" name="adult_price" class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    子供料金
+                    <input type="text" name="child_price" class="form-control">
                 </div>
                 <div class="col-sm-6">
                     場所
@@ -67,9 +71,18 @@
                     <input type="text" name="vegetable" class="form-control">
                 </div>
                 <div class="col-sm-6">
-                    MAP
-                    <input type="text" name="map" class="form-control">
+                    農家名
+                    <input type="text" name="ag_name" class="form-control">
                 </div>
+                <div class="col-sm-6">
+                    レストラン名
+                    <input type="text" name="dish_name" class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    <label>画像</label>
+                    <input type="file" name="photo">
+                </div>
+
             </div>
 
             <!-- 本 登録ボタン -->
@@ -93,16 +106,18 @@
                         <th>プラン名</th>
                         <th>説明</th>
                         <th>開催日</th>
-                        <th>写真URL</th>
+                        <!-- <th>写真URL</th> -->
                         <th>農家緯度</th>
                         <th>農家経度</th>
                         <th>レストラン緯度</th>
                         <th>レストラン経度</th>
-                        <th>金額</th>
+                        <th>大人料金</th>
+                        <th>子供料金</th>
                         <th>開催場所</th>
                         <th>Search[県]</th>
                         <th>Search[野菜]</th>
-                        <th>MAP</th>
+                        <th>農家名</th>
+                        <th>レストラン名</th>
                     </thead>
                     <!-- テーブル本体 -->
                     <tbody>
@@ -119,9 +134,9 @@
                                 <td class="table-text">
                                     <div>{{ $plan->plan_date }}</div>
                                 </td>
-                                <td class="table-text">
+                                <!-- <td class="table-text">
                                     <div>{{ $plan->photo }}</div>
-                                </td>
+                                </td> -->
                                 <td class="table-text">
                                     <div>{{ $plan->ag_latitude }}</div>
                                 </td>
@@ -135,7 +150,10 @@
                                     <div>{{ $plan->dish_longitude }}</div>
                                 </td>
                                 <td class="table-text">
-                                    <div>{{ $plan->price }}</div>
+                                    <div>{{ $plan->adult_price }}</div>
+                                </td>
+                                <td class="table-text">
+                                    <div>{{ $plan->child_price }}</div>
                                 </td>
                                 <td class="table-text">
                                     <div>{{ $plan->place }}</div>
@@ -147,7 +165,13 @@
                                     <div>{{ $plan->vegetable }}</div>
                                 </td>
                                 <td class="table-text">
-                                    <div>{{ $plan->map }}</div>
+                                    <div>{{ $plan->ag_name }}</div>
+                                </td>
+                                <td class="table-text">
+                                    <div>{{ $plan->dish_name }}</div>
+                                </td>
+                                <td>
+                                    <div> <img src="upload/{{$plan->photo}}" width="100"></div>
                                 </td>
 
                                 <!--本の更新-->
