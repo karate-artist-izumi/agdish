@@ -57,15 +57,27 @@ class PlansController extends Controller
             }
 
         //file 取得
-        $file = $request->file('photo');
+        $ag_file = $request->file('ag_photo');
         //file が空かチェック
-        if( !empty($file) ){
+        if( !empty($ag_file) ){
         //ファイル名を取得
-        $filename = $file->getClientOriginalName();
+        $ag_filename = $ag_file->getClientOriginalName();
         //AWSの場合どちらかになる事がある”../upload/” or “./upload/”
-        $move = $file->move('./upload/',$filename); //public/upload/...
+        $ag_move = $ag_file->move('./upload/',$ag_filename); //public/upload/...
         }else{
-        $filename = "";
+        $ag_filename = "";
+        }
+
+        //file 取得
+        $dish_file = $request->file('dish_photo');
+        //file が空かチェック
+        if( !empty($dish_file) ){
+        //ファイル名を取得
+        $dish_filename = $dish_file->getClientOriginalName();
+        //AWSの場合どちらかになる事がある”../upload/” or “./upload/”
+        $ag_move = $dish_file->move('./upload/',$dish_filename); //public/upload/...
+        }else{
+        $dish_filename = "";
         }
 
         
@@ -75,8 +87,11 @@ class PlansController extends Controller
         $plans->title = $request->title;
         $plans->description = $request->description;
         $plans->plan_date = $request->plan_date;
+        $plans->ag_name = $request->ag_name;
+        $plans->dish_name = $request->dish_name;
         // $plans->photo = $request->photo;
-        $plans->photo = $filename;
+        $plans->ag_photo = $ag_filename;
+        $plans->dish_photo = $dish_filename;
         $plans->ag_latitude = $request->ag_latitude;
         $plans->ag_longitude = $request->ag_longitude;
         $plans->dish_latitude = $request->dish_latitude;
@@ -86,8 +101,6 @@ class PlansController extends Controller
         $plans->place = $request->place;
         $plans->small_place = $request->small_place;
         $plans->vegetable = $request->vegetable;
-        $plans->ag_name = $request->ag_name;
-        $plans->dish_name = $request->dish_name;
         $plans->save(); 
         return redirect('/');
 
@@ -133,15 +146,27 @@ class PlansController extends Controller
         }
 
         //file 取得
-        $file = $request->file('photo');
+        $ag_file = $request->file('ag_photo');
         //file が空かチェック
-        if( !empty($file) ){
+        if( !empty($ag_file) ){
         //ファイル名を取得
-        $filename = $file->getClientOriginalName();
+        $ag_filename = $ag_file->getClientOriginalName();
         //AWSの場合どちらかになる事がある”../upload/” or “./upload/”
-        $move = $file->move('./upload/',$filename); //public/upload/...
+        $ag_move = $ag_file->move('./upload/',$ag_filename); //public/upload/...
         }else{
-        $filename = "";
+        $ag_filename = "";
+        }
+
+        //file 取得
+        $dish_file = $request->file('dish_photo');
+        //file が空かチェック
+        if( !empty($dish_file) ){
+        //ファイル名を取得
+        $dish_filename = $dish_file->getClientOriginalName();
+        //AWSの場合どちらかになる事がある”../upload/” or “./upload/”
+        $ag_move = $dish_file->move('./upload/',$dish_filename); //public/upload/...
+        }else{
+        $dish_filename = "";
         }
 
 
@@ -151,8 +176,11 @@ class PlansController extends Controller
         $plans->title = $request->title;
         $plans->description = $request->description;
         $plans->plan_date = $request->plan_date;
+        $plans->ag_name = $request->ag_name;
+        $plans->dish_name = $request->dish_name;
         // $plans->photo = $request->photo;
-        $plans->photo = $filename;
+        $plans->ag_photo = $ag_filename;
+        $plans->dish_photo = $dish_filename;
         $plans->ag_latitude = $request->ag_latitude;
         $plans->ag_longitude = $request->ag_longitude;
         $plans->dish_latitude = $request->dish_latitude;
@@ -162,8 +190,6 @@ class PlansController extends Controller
         $plans->place = $request->place;
         $plans->small_place = $request->small_place;
         $plans->vegetable = $request->vegetable;
-        $plans->ag_name = $request->ag_name;
-        $plans->dish_name = $request->dish_name;
         $plans->save(); 
         return redirect('/');
 
