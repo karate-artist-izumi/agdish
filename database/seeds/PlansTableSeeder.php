@@ -13,7 +13,8 @@ class PlansTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(Plan::class, 15)->create();
+        $path = 'database/sql/planstable.sql';
+        DB::unprepared(file_get_contents($path));
     }
 }
 
