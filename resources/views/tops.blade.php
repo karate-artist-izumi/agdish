@@ -10,6 +10,10 @@
   <link href="{{asset('/css/main.css')}}" rel="stylesheet">
   <link href="{{asset('/css/app.css')}}" rel="stylesheet">
 
+  <!-- GoogleFonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+
 </head>
 <!-- 最初の設定は終わっています　必要な方は触ってください -->
 
@@ -19,12 +23,13 @@
 
   <header>
     <div class="header_wrapper">
+
       <nav>
         <div role="navigation" class="header_top d-flex flex-row justify-content-between">
           <div class="header_left w-50">
             <ul class="d-flex flex-row justify-content-start">
-              <li><h1>AgDish</h1></li>
-              <li><h2>アグディッシュ</h2></li>
+              <li><img src="/img/logo.png" alt=""></li>
+              <li><p>アグディッシュ</p></li>
               <li><p>キャッチコピー</p> </li>
             </ul>
           </div>
@@ -37,77 +42,230 @@
           </div>
         </div>
       </nav>
+
+      <div class="header_center">
+        <div class="header_message">
+          <p>トップメッセージ</p>
+        </div>
+      </div>
+
       <div class="header_bottom">
         <div class="search_box d-flex justify-content-between">
           <div class="search_box_left">
-            <h2 class="search-title">日時、人数から探す</h2>
+            <h2 class="search_title">都道府県・食材・日時から探す</h2>
           </div>
           <div class="search_box_right">
-            <form action="">
-              <input type="text">
-              <input type="text">
+            <form action="" class="d-flex justify-content-end">
+              <div class="search_cell">
+                <select class="select" name="pref_name" id="pref">
+                  <option value="" selected>都道府県</option>
+                    <option value="北海道">北海道</option>
+                    <option value="青森県">青森県</option>
+                    <option value="岩手県">岩手県</option>
+                    <option value="宮城県">宮城県</option>
+                    <option value="秋田県">秋田県</option>
+                    <option value="山形県">山形県</option>
+                    <option value="福島県">福島県</option>
+                    <option value="茨城県">茨城県</option>
+                    <option value="栃木県">栃木県</option>
+                    <option value="群馬県">群馬県</option>
+                    <option value="埼玉県">埼玉県</option>
+                    <option value="千葉県">千葉県</option>
+                    <option value="東京都">東京都</option>
+                    <option value="神奈川県">神奈川県</option>
+                    <option value="新潟県">新潟県</option>
+                    <option value="富山県">富山県</option>
+                    <option value="石川県">石川県</option>
+                    <option value="福井県">福井県</option>
+                    <option value="山梨県">山梨県</option>
+                    <option value="長野県">長野県</option>
+                    <option value="岐阜県">岐阜県</option>
+                    <option value="静岡県">静岡県</option>
+                    <option value="愛知県">愛知県</option>
+                    <option value="三重県">三重県</option>
+                    <option value="滋賀県">滋賀県</option>
+                    <option value="京都府">京都府</option>
+                    <option value="大阪府">大阪府</option>
+                    <option value="兵庫県">兵庫県</option>
+                    <option value="奈良県">奈良県</option>
+                    <option value="和歌山県">和歌山県</option>
+                    <option value="鳥取県">鳥取県</option>
+                    <option value="島根県">島根県</option>
+                    <option value="岡山県">岡山県</option>
+                    <option value="広島県">広島県</option>
+                    <option value="山口県">山口県</option>
+                    <option value="徳島県">徳島県</option>
+                    <option value="香川県">香川県</option>
+                    <option value="愛媛県">愛媛県</option>
+                    <option value="高知県">高知県</option>
+                    <option value="福岡県">福岡県</option>
+                    <option value="佐賀県">佐賀県</option>
+                    <option value="長崎県">長崎県</option>
+                    <option value="熊本県">熊本県</option>
+                    <option value="大分県">大分県</option>
+                    <option value="宮崎県">宮崎県</option>
+                    <option value="鹿児島県">鹿児島県</option>
+                    <option value="沖縄県">沖縄県</option>
+                </select>
+              </div>
+              <div class="search_cell">
+                <select class="select" name="veg_name" id="veg">
+                  <option value="" selected>食材</option>
+                  <option value="白菜">白菜</option>
+                  <option value="ほうれん草">ほうれん草</option>
+                  <option value="人参">人参</option>
+                  <option value=""></option>
+                  <option value=""></option>
+                  <option value=""></option>
+                  <option value=""></option>
+                  <option value=""></option>
+                  <option value=""></option>
+                  <option value=""></option>
+                </select>
+              </div>
+              <div class="search_cell">
+                <input type="date" id="today" name="today" value="yyyy-mm-dd" max="9999-12-31">
+              </div>
+              <div class="search_cell">
+                <button>検索</button>
+              </div>
             </form>
           </div>
         </div>
       </div>
+
     </div>
   </header>
 
   <main>
+
     <section>
       <div class="main_top">
         <div class="video_container">
-          <video src="upload/agdish01.mp4" autoplay loop muted></video>
-          <video src="upload/agdish02.mp4" autoplay loop muted></video>
+          <video id="video" src="upload/agdish01.mp4" type="vdeo/mp4"autoplay loop muted></video>
         </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="info">
+
+      </div>
+    </section>
+
+    <section>
+      <div class="select_wrapper d-flex flex-wrap justify-content-center">
+        @foreach ($plans as $plan)
+          <div class="select_box">
+            <a href="/details/{{ $plan->id }}">
+              <div class="select_cell d-flex flex-column">
+
+                <div class="select_img"> 
+                  <img src="upload/{{ $plan->ag_photo }}" alt="">
+                </div>
+                <div class="select_img">
+                  <img src="upload/{{ $plan->dish_photo }}" alt="">
+                </div>
+
+                <div id="select_text">
+                  <p>{{ $plan->title }}</p>
+                </div>
+
+                <div id="place">
+                  <p>開催場所：{{ $plan->small_place }}</p> 
+                </div>
+
+                <div id="price">
+                  <p>金額：{{ $plan->price }}円</p>
+                </div>
+          
+                <div id="details">
+                  <p>{{ $plan->description }}</p>
+                </div>
+
+              </div>
+            </a>
+          </div>
+        @endforeach
       </div>
     </section>
   </main>
 
+  <footer>
+    <div class="footer_wrapper">
 
- <div id="navi">
-   <div id="navi_search">
-   <textarea name="" id="search"></textarea>
-   <button>Search</button>
-   </div>
- </div>
-  
+      <div class="footer_top d-flex flex-row justify-content-center">
+        <div class="footer_cell">
+          <div class="footer_title">
+            <p>利用したい</p>
+          </div>
+          <div class="footer_list">
+            <ul class="">
+                <li><a href="/about">アグリッシュとは？</a></li>
+                <li><a href="#">アグリッシュ基準</a></li>
+                <li><a href="#">ご利用ガイド</a></li>
+                <li><a href="#">品質保証について</a></li>
+                <li><a href="#">注文方法</a></li>
+                <li><a href="#" target="_blank" rel="noopener">飲食店の方へ</a></li>
+                <li><a href="#" target="_blank" rel="noopener">イベント主催者の方へ</a></li>
+              </ul>
+          </div>
+        </div>
+        <div class="footer_cell">
+          <div class="footer_title">
+            <p>出店したい</p>
+          </div>
+          <div class="footer_list">
+            <ul class="">
+                <li><a href="/about">出品者募集</a></li>
+                <li><a href="#">募集要件</a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#" target="_blank" rel="noopener"></a></li>
+                <li><a href="#" target="_blank" rel="noopener"></a></li>
+              </ul>
+          </div>
+        </div>
+        <div class="footer_cell">
+          <div class="footer_title">
+            <p>アグリッシュについて</p>
+          </div>
+          <div class="footer_list">
+            <ul class="">
+                <li><a href="/about">運営会社</a></li>
+                <li><a href="#">よくある質問</a></li>
+                <li><a href="#">お問い合わせ</a></li>
+                <li><a href="#">利用規約</a></li>
+                <li><a href="#">プライバシーポリシー</a></li>
+                <li><a href="#" target="_blank" rel="noopener">特定商取引法</a></li>
+                <li><a href="#" target="_blank" rel="noopener">採用情報</a></li>
+              </ul>
+          </div>
+        </div>
+      </div>
 
-  <div class="video-wrap">
-    <p>AgDish</p>
-    
+      <div class="footer_bottom">
+        <div>
+          <ul class="sns_list d-flex flex-row justify-content-center">
+            <li><a href="#" target="_blank" rel="noopener"><img src="https://img.icons8.com/clouds/100/000000/line-me.png"/></a></li>
+            <li><a href="#" target="_blank" rel="noopener"><img src="https://img.icons8.com/clouds/100/000000/instagram.png"/></a></li>
+            <li><a href="#" target="_blank" rel="noopener"><img src="https://img.icons8.com/clouds/100/000000/facebook-f.png"/></a></li>
+            <li><a href="#" target="_blank" rel="noopener"><img src="https://img.icons8.com/clouds/100/000000/twitter-circled.png"/></a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="copyright"><small>Copyright</small> © 2020 KARATE DOJO Inc.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-    <video src="upload/agdish01.mp4" autoplay loop muted></video>
-    <video src="upload/agdish02.mp4" autoplay loop muted></video>
-</div>
-
-<div id="p20"></div>
-
-
-          @foreach ($plans as $plan)
-          <a href="/details/{{ $plan->id }}">
-          <div id="select">
-            <div id="select_img">
-              <img src="upload/no01.jpg" alt="">
-              <img src="upload/ryo01.jpg" alt="">
-            </div>
-            <div id="select_text">{{ $plan->title }}</div>
-            <div id="tyudan">
-              <div id="place">開催場所：{{ $plan->small_place }}　</div>
-              <div id="price">　金額：{{ $plan->price }}円</div>
-            </div>
-            <div id="details">{{ $plan->description }}</div>
-          </div>    
-              </a>
-            <div id="p20"></div>
-            @endforeach
-
-  
-  <!-- ここから上にコードを書く -->
   <!-- この中に記述していく -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <!-- <script type="text/javascript" src="js/bootstrap.bundle.js"></script> -->
   <script src="js/main.js"></script>
+  <script src="js/tops.js"></script>
 </body>
 
 </html>
