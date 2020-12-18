@@ -67,6 +67,8 @@
 
       <form action="{{ url('buy') }}" method="post">
       {{ csrf_field() }}
+      <!-- 1218追加 -->
+      @if(!Auth::id())
         <div class="col-sm-6">
             代表者氏名
             <input type="text" name="name" class="form-control">
@@ -81,8 +83,10 @@
         </div>
         <div class="col-sm-6">
             登録用パスワード
-            <input type="test" name="pass" class="form-control">
+            <input type="password" name="pass" class="form-control">
         </div>
+        <!-- 1218追加 -->
+        @endif
         <span>
           おとなの人数
           <select name="adult" id="">
