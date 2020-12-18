@@ -23,6 +23,7 @@
 
   <header>
     <div class="header_wrapper">
+
       <nav>
         <div role="navigation" class="header_top d-flex flex-row justify-content-between">
           <div class="header_left w-50">
@@ -41,24 +42,98 @@
           </div>
         </div>
       </nav>
+
       <div class="header_center">
         <div class="header_message">
-          <p>メッセージ</p>
+          <p>トップメッセージ</p>
         </div>
       </div>
+
       <div class="header_bottom">
         <div class="search_box d-flex justify-content-between">
           <div class="search_box_left">
-            <h2 class="search-title">日時、人数から探す</h2>
+            <h2 class="search_title">都道府県・食材・日時から探す</h2>
           </div>
           <div class="search_box_right">
-            <form action="">
-              <input type="text">
-              <input type="text">
+            <form action="" class="d-flex justify-content-end">
+              <div class="search_cell">
+                <select class="select" name="pref_name" id="pref">
+                  <option value="" selected>都道府県</option>
+                    <option value="北海道">北海道</option>
+                    <option value="青森県">青森県</option>
+                    <option value="岩手県">岩手県</option>
+                    <option value="宮城県">宮城県</option>
+                    <option value="秋田県">秋田県</option>
+                    <option value="山形県">山形県</option>
+                    <option value="福島県">福島県</option>
+                    <option value="茨城県">茨城県</option>
+                    <option value="栃木県">栃木県</option>
+                    <option value="群馬県">群馬県</option>
+                    <option value="埼玉県">埼玉県</option>
+                    <option value="千葉県">千葉県</option>
+                    <option value="東京都">東京都</option>
+                    <option value="神奈川県">神奈川県</option>
+                    <option value="新潟県">新潟県</option>
+                    <option value="富山県">富山県</option>
+                    <option value="石川県">石川県</option>
+                    <option value="福井県">福井県</option>
+                    <option value="山梨県">山梨県</option>
+                    <option value="長野県">長野県</option>
+                    <option value="岐阜県">岐阜県</option>
+                    <option value="静岡県">静岡県</option>
+                    <option value="愛知県">愛知県</option>
+                    <option value="三重県">三重県</option>
+                    <option value="滋賀県">滋賀県</option>
+                    <option value="京都府">京都府</option>
+                    <option value="大阪府">大阪府</option>
+                    <option value="兵庫県">兵庫県</option>
+                    <option value="奈良県">奈良県</option>
+                    <option value="和歌山県">和歌山県</option>
+                    <option value="鳥取県">鳥取県</option>
+                    <option value="島根県">島根県</option>
+                    <option value="岡山県">岡山県</option>
+                    <option value="広島県">広島県</option>
+                    <option value="山口県">山口県</option>
+                    <option value="徳島県">徳島県</option>
+                    <option value="香川県">香川県</option>
+                    <option value="愛媛県">愛媛県</option>
+                    <option value="高知県">高知県</option>
+                    <option value="福岡県">福岡県</option>
+                    <option value="佐賀県">佐賀県</option>
+                    <option value="長崎県">長崎県</option>
+                    <option value="熊本県">熊本県</option>
+                    <option value="大分県">大分県</option>
+                    <option value="宮崎県">宮崎県</option>
+                    <option value="鹿児島県">鹿児島県</option>
+                    <option value="沖縄県">沖縄県</option>
+                </select>
+              </div>
+              <div class="search_cell">
+                <select class="select" name="veg_name" id="veg">
+                  <option value="" selected>食材</option>
+                  <option value="白菜">白菜</option>
+                  <option value="ほうれん草">ほうれん草</option>
+                  <option value="人参">人参</option>
+                  <option value=""></option>
+                  <option value=""></option>
+                  <option value=""></option>
+                  <option value=""></option>
+                  <option value=""></option>
+                  <option value=""></option>
+                  <option value=""></option>
+                </select>
+              </div>
+              <div class="search_cell">
+                <input type="date" id="today" name="today" value="yyyy-mm-dd" max="9999-12-31">
+              </div>
+              <div class="search_cell">
+                <button>検索</button>
+              </div>
             </form>
           </div>
         </div>
       </div>
+
     </div>
   </header>
 
@@ -67,8 +142,14 @@
     <section>
       <div class="main_top">
         <div class="video_container">
-          <video src="upload/agdish01.mp4" autoplay loop muted></video>
+          <video id="video" src="upload/agdish01.mp4" type="vdeo/mp4"autoplay loop muted></video>
         </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="info">
+
       </div>
     </section>
 
@@ -80,26 +161,26 @@
               <div class="select_cell d-flex flex-column">
 
                 <div class="select_img"> 
-                  <img src="upload/no01.jpg" alt="">
+                  <img src="upload/{{ $plan->ag_photo }}" alt="">
                 </div>
                 <div class="select_img">
-                  <img src="upload/ryo01.jpg" alt="">
+                  <img src="upload/{{ $plan->dish_photo }}" alt="">
                 </div>
 
                 <div id="select_text">
-                  {{ $plan->title }}
+                  <p>{{ $plan->title }}</p>
                 </div>
 
                 <div id="place">
-                  開催場所：{{ $plan->small_place }}
+                  <p>開催場所：{{ $plan->small_place }}</p> 
                 </div>
 
                 <div id="price">
-                  金額：{{ $plan->price }}円
+                  <p>金額：{{ $plan->price }}円</p>
                 </div>
           
                 <div id="details">
-                  {{ $plan->description }}
+                  <p>{{ $plan->description }}</p>
                 </div>
 
               </div>
@@ -184,6 +265,7 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <!-- <script type="text/javascript" src="js/bootstrap.bundle.js"></script> -->
   <script src="js/main.js"></script>
+  <script src="js/tops.js"></script>
 </body>
 
 </html>
