@@ -12,16 +12,19 @@ array_push($cartData, [
   ],
   'quantity' => $data['adult'],
   ]);
-array_push($cartData, [
-  'price_data' => [
-      'currency' => 'JPY',
-      'product_data' => [
-          'name' => $plan->title.'こども料金',
+  // もしこども人数が0ならarray_pushしない
+  if (!$data['child'] === 0) {
+    array_push($cartData, [
+      'price_data' => [
+          'currency' => 'JPY',
+          'product_data' => [
+              'name' => $plan->title.'こども料金',
+          ],
+          'unit_amount' => $plan->child_price,
       ],
-      'unit_amount' => $plan->child_price,
-  ],
-  'quantity' => $data['child'],
-]);
+      'quantity' => $data['child'],
+    ]);
+  }
 
 require '../vendor/autoload.php';
 

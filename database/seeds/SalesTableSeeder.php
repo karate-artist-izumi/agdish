@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Plan;
 
-class PlansTableSeeder extends Seeder
+class SalesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,8 +12,8 @@ class PlansTableSeeder extends Seeder
     public function run()
     {
         //
-        $path = 'database/sql/planstable.sql';
+        $path = 'database/sql/salestable.sql';
         DB::unprepared(file_get_contents($path));
+
     }
 }
-
