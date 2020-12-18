@@ -47,4 +47,12 @@ Route::get('/buy/result', 'ShopController@result');
 
 Route::get('/mypage', 'UserController@showUser');
 
+Route::get('/logintest', function () {
+  return view('logintest');
+});
+
+// Route::get('/agdish/mypage', function () {
+//   return view('mypage');
+// });
+
 // 田崎作業ここまで
