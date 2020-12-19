@@ -56,10 +56,9 @@
           </div>
           <div class="search_box_right">
 
-          <!-- <form method="post" name="form1" action="link.php"> -->
-          <!-- <form enctype="multipart/form-data" action="{{ url('plans') }}" method="POST" class="form-horizontal"> -->
+
             <form method="post" action="{{ url('searchs') }}" class="d-flex justify-content-end">
-            {{ csrf_field() }}
+
 
               <div class="search_cell">
                 <select class="select" name="pref_name" id="pref">
@@ -82,9 +81,9 @@
                   <option value="トマト">トマト</option>
                 </select>
               </div>
-              <!-- <div class="search_cell">
+              <div class="search_cell">
                 <input type="date" id="today" name="today" value="yyyy-mm-dd" max="9999-12-31">
-              </div> -->
+              </div>
               <div class="search_cell">
                 <button type="submit">検索</button>
               </div>
