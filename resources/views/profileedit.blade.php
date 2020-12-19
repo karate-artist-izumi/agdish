@@ -36,13 +36,13 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="active ">
-            <a href="#">
+          <li>
+            <a href="/mypage">
               <i class="fas fa-leaf"></i>
               <p>購入履歴</p>
             </a>
           </li>
-          <li>
+          <li class="active ">
             <a href="/profile">
             <i class="far fa-user-circle"></i>
               <p>プロフィール</p>
@@ -111,27 +111,47 @@
 
       <!-- Veu Field -->
       <div class="content container-fluid content-row">
-        <h5 class="ml-2 mb-2"><a href="#" >購入履歴(プランの確認)</a></h5>
+        <h5 class="ml-2 mb-2"><a href="#" >ご登録情報(変更画面)</a></h5>
         <div class="card-group">
-          <div class="row">
+                <!-- バリデーションエラーの表示に使用-->
+                @include('common.errors')
+                <!-- バリデーションエラーの表示に使用-->
 
-            <!-- 購入したプランを表示-->
-            @foreach($reservePlans as $reservePlan)
-            <div class="col-sm-6 col-lg-3">
-              <div class="card" style="width: 14rem;">
-                <div class="card-body">
-                  <h5>{{ $reservePlan->plan_title }}</h5>
-                  <p class="card-title">開催日：{{ $reservePlan->plan_date }}</p>
-                  <p class="card-title">大人料金{{ $reservePlan->plan_adult_price }}円 × {{ $reservePlan->adult_kazu }}名様</p>
-                  <p class="card-title">こども料金{{ $reservePlan->plan_child_price }}円 × {{ $reservePlan->child_kazu }}名様</p>
-                  <img class="card-img-top" src="https://picsum.photos/255/180" alt="Card image cap">
-                  <a href='.$r["id"].'class="btn btn-primary">詳細を確認する</a>
-                </div>
-              </div>
-            </div>
-            @endforeach
-          </div>
+            <!-- お客様の情報を表示-->
+          <form action="{{ url('profile/update') }}" method="POST">
+          {{ csrf_field() }}
+            <table>
+              <tr>
+                <th>お名前</th>
+                <td>
+                  <!-- inputにstyle充ててます -->
+                  <input style="border:none;" type="text" name="name" value="{{$user->name}}">
+                </td>
+              </tr>
+              <tr>
+                <th>メールアドレス</th>
+                <td>
+                  <!-- inputにstyle充ててます -->
+                  <input style="border:none;" type="text" name="email" value="{{$user->email}}">
+                </td>
+              </tr>
+              <tr>
+                <th>電話番号</th>
+                <td>
+                  <!-- inputにstyle充ててます -->
+                  <input style="border:none;" type="text" name="tell" value="{{$user->tell}}">
+                </td>
+              </tr>
+            </table>
+            <div class="well well-sm">
+            <input type="hidden" name="id" value="{{$user->id}}">
+            <button type="submit" class="btn btn-primary">変更</button>
+            <a class="btn btn-link pull-right" href="{{ url('profile') }}">
+              戻る
+            </a>
+          </form>
         </div>
+            <!-- お客様の情報を表示 END-->
       </div>
       <!-- Veu Field -->
       <!-- footer -->

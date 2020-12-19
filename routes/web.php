@@ -28,10 +28,6 @@ Route::post('/plansedit/{plans}', 'PlansController@edit');
 // 更新処理
 Route::post('/plans/update','PlansController@update');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 //野菜検索
 Route::get('/search1/{vegetable}', 'PlansController@search_vegetable');
 
@@ -57,12 +53,19 @@ Route::get('/buy/result', 'ShopController@result');
 
 Route::get('/mypage', 'UserController@showUser');
 
+Route::get('/profile', 'UserController@showUserInfo');
+
+Route::get('/profileedit', 'UserController@showUserEdit')->name('pe');
+
+Route::post('/profile/update', 'UserController@showUserupdate');
+
 Route::get('/logintest', function () {
   return view('logintest');
 });
 
-// Route::get('/agdish/mypage', function () {
-//   return view('mypage');
-// });
-
 // 田崎作業ここまで
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
