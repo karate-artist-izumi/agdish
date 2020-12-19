@@ -156,8 +156,12 @@
                   <p>開催場所：{{ $plan->small_place }}</p> 
                 </div>
 
-                <div id="price">
-                  <p>金額：{{ $plan->price }}円</p>
+                <div id="adult_price">
+                  <p>大人料金：{{ $plan->adult_price }}円</p>
+                </div>
+
+                <div id="child_price">
+                  <p>子供料金：{{ $plan->child_price }}円</p>
                 </div>
           
                 <div id="details">
