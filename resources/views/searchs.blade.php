@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>TOP</title>
+  <title>検索結果</title>
   <link href="{{asset('/css/main.css')}}" rel="stylesheet">
   <link href="{{asset('/css/app.css')}}" rel="stylesheet">
 
@@ -49,57 +49,13 @@
         </div>
       </div>
 
-      <div class="header_bottom">
-        <div class="search_box d-flex justify-content-between">
-          <div class="search_box_left">
-            <h2 class="search_title">都道府県・食材・日時から探す</h2>
-          </div>
-          <div class="search_box_right">
-            <form action="" class="d-flex justify-content-end">
-              <div class="search_cell">
-                <select class="select" name="pref_name" id="pref">
-                  <option value="" selected>都道府県</option>
-                    <option value="茨城県">茨城県</option>
-                    <option value="栃木県">栃木県</option>
-                    <option value="群馬県">群馬県</option>
-                    <option value="埼玉県">埼玉県</option>
-                    <option value="千葉県">千葉県</option>
-                    <option value="東京都">東京都</option>
-                    <option value="神奈川県">神奈川県</option>
-                </select>
-              </div>
-              <div class="search_cell">
-                <select class="select" name="veg_name" id="veg">
-                  <option value="" selected>食材</option>
-                  <option value="白菜">白菜</option>
-                  <option value="ほうれん草">ほうれん草</option>
-                  <option value="人参">人参</option>
-                  <option value="トマト">トマト</option>
-                </select>
-              </div>
-              <div class="search_cell">
-                <input type="date" id="today" name="today" value="yyyy-mm-dd" max="9999-12-31">
-              </div>
-              <div class="search_cell">
-                <button>検索</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
 
     </div>
   </header>
 
   <main>
 
-    <section>
-      <div class="main_top">
-        <div class="video_container">
-          <video id="video" src="upload/agdish01.mp4" type="vdeo/mp4"autoplay loop muted></video>
-        </div>
-      </div>
-    </section>
+
 
     <section>
       <div class="info">
