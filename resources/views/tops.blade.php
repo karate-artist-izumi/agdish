@@ -55,7 +55,11 @@
             <h2 class="search_title">都道府県・食材・日時から探す</h2>
           </div>
           <div class="search_box_right">
-            <form action="" class="d-flex justify-content-end">
+
+          <!-- <form method="post" name="form1" action="link.php"> -->
+          <!-- <form enctype="multipart/form-data" action="{{ url('plans') }}" method="POST" class="form-horizontal">
+            {{ csrf_field() }} -->
+            <form method="post" action="" class="d-flex justify-content-end">
               <div class="search_cell">
                 <select class="select" name="pref_name" id="pref">
                   <option value="" selected>都道府県</option>
@@ -77,9 +81,9 @@
                   <option value="トマト">トマト</option>
                 </select>
               </div>
-              <div class="search_cell">
+              <!-- <div class="search_cell">
                 <input type="date" id="today" name="today" value="yyyy-mm-dd" max="9999-12-31">
-              </div>
+              </div> -->
               <div class="search_cell">
                 <button>検索</button>
               </div>
