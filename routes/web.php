@@ -28,6 +28,20 @@ Route::post('/plansedit/{plans}', 'PlansController@edit');
 // 更新処理
 Route::post('/plans/update','PlansController@update');
 
+//野菜検索
+Route::get('/search1/{vegetable}', 'PlansController@search_vegetable');
+
+//県検索
+Route::get('/search2/{small_place}', 'PlansController@search_small_place');
+
+//日付検索
+Route::get('/search3/{plan_date}', 'PlansController@search_plan_date');
+
+//AND検索
+Route::get('/search4/{and}', 'PlansController@search_and');
+
+
+
 // 以下小川作業分
 
 Route::post('/buy', 'ShopController@input');

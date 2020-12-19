@@ -9,6 +9,11 @@ use App\Sale;
 use App\User;
 use Auth;
 
+use App\Mail\SampleMail;
+use Illuminate\Support\Facades\Mail;
+
+
+
 class ShopController extends Controller
 {
     //詳細画面から得た情報から確認画面を表示
@@ -46,12 +51,19 @@ class ShopController extends Controller
     public function result(){
         $sessionData = session()->all();
         $plan = Plan::find($sessionData['plan_id']);
+        
+        session([
+            'plan_title' => $plan->title,
+            'plan_adult_price' => $plan->adult_price,
+            'plan_child_price' => $plan->child_price,
+        ]);
 
         if (!Auth::id()) {
             // ユーザー情報を保存
             $user = new User;
             $user->name = $sessionData['name'];
             $user->email = $sessionData['email'];
+            $user->tell = $sessionData['tell'];
             $user->password = Hash::make($sessionData['pass']);
             $user->save(); 
             
@@ -86,9 +98,25 @@ class ShopController extends Controller
 
         }
         
+        //メールを送信
+        $mail_name =$sessionData['name'];
+        $mail_text = $mail_name.' 様、ご購入ありがとうございました';
+        $data = session()->all();
+        $mail_to = $sessionData['email'];
+        Mail::to($mail_to)->send( new SampleMail($mail_name, $mail_text, $data) );
+
         return view('result',['sessionData' => $sessionData]);
 
         //メールを送信
+        $mail_name =$sessionData['name'];
+        $mail_text = $mail_name.' 様、ご購入ありがとうございました';
+        $data = session()->all();
+        // 管理者のメールアドレスを入力
+        $mail_to = 'gawgaw.developer@gmail.com';
+        Mail::to($mail_to)->send( new SampleMail($mail_name, $mail_text, $data) );
+
+        return view('result',['sessionData' => $sessionData]);
+
     }
 
 
