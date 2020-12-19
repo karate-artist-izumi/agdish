@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <title>
+  agdishマイページ
+  </title>
+  <!--     Fonts and icons     -->
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+
+  <!-- CSS Files -->
+  <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/paper-dashboard.css?v=2.0.1') }}" rel="stylesheet">
+</head>
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="white" data-active-color="danger">
+      <div class="logo">
+        <a href="#" class="simple-text logo-mini">
+          <!-- <div class="logo-image-small">
+            <img src="./assets/img/logo-small.png">
+          </div> -->
+          <!-- <p>CT</p> -->
+        </a>
+        <a href="#" class="simple-text logo-normal">
+          agdish
+          <!-- <div class="logo-image-big">
+            <img src="../assets/img/logo-big.png">
+          </div> -->
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="active ">
+            <a href="javascript:;">
+              <i class="fas fa-leaf"></i>
+              <p>購入履歴</p>
+            </a>
+          </li>
+          <li>
+            <a href="./cms_case.php">
+              <i class="nc-icon nc-diamond"></i>
+              <p>テスト1</p>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:;">
+              <i class="nc-icon nc-pin-3"></i>
+              <p>テスト2</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel" style="height: 100vh;">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <div class="navbar-toggle">
+              <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+            </div>
+            <a class="navbar-brand" href="javascript:;">マイページ</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navigation">
+            <form>
+              <div class="input-group no-border">
+                <input type="text" value="" class="form-control" placeholder="検索する">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <i class="fas fa-search"></i>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+            <ul class="navbar-nav">
+              <li class="nav-item btn-rotate dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="far fa-bell"></i>
+
+                  <p>
+                    <span class="d-lg-none d-md-block">ユーザー情報</span>
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">テスト</a>
+                  <a class="dropdown-item" href="#">テスト</a>
+                  <a class="dropdown-item" href="#">ログアウト</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+
+      <!-- Veu Field -->
+      <div class="content container-fluid content-row">
+        <h5 class="ml-2 mb-2"><a href="#" >購入履歴(プランの確認)</a></h5>
+        <div class="card-group">
+          <div class="row">
+
+            <!-- echo $view; -->
+            @foreach($reservePlans as $reservePlan)
+            <div class="col-sm-6 col-lg-3">
+              <div class="card" style="width: 14rem;">
+                <div class="card-body">
+                  <h5>{{ $reservePlan->plan_title }}</h5>
+                  <p class="card-title">開催日：{{ $reservePlan->plan_date }}</p>
+                  <p class="card-title">大人料金{{ $reservePlan->plan_adult_price }}円 × {{ $reservePlan->adult_kazu }}名様</p>
+                  <p class="card-title">こども料金{{ $reservePlan->plan_child_price }}円 × {{ $reservePlan->child_kazu }}名様</p>
+                  <img class="card-img-top" src="https://picsum.photos/255/180" alt="Card image cap">
+                  <a href='.$r["id"].'class="btn btn-primary">詳細を確認する</a>
+                </div>
+              </div>
+            </div>
+            @endforeach
+          </div>
+        </div>
+      </div>
+      <!-- Veu Field -->
+      <!-- footer -->
+      <footer class="footer" style="position: absolute; bottom: 0; width: -webkit-fill-available;">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="credits ml-auto">
+              <span class="copyright">
+                © 2020,Lab_10th made with by TEAM ISM
+              </span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!--   Core&Plugins JS Files   -->
+  <script src="{{ asset('js/core/jquery.min.js') }}" defer></script>
+  <script src="{{ asset('js/core/popper.min.js') }}" defer></script>
+  <script src="{{ asset('js/core/bootstrap.min.js') }}" defer></script>
+  <script src="{{ asset('js/plugins/perfect-scrollbar.jquery.min.js') }}" defer></script>
+</body>
+
+</html>
