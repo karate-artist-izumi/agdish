@@ -6,161 +6,225 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>詳細ページ</title>
     <link rel="stylesheet" href="{{asset('/css/details.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/app.css')}}" >
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   </head>
 
   <body>
-  <header>
-
-  </header>
-  <main>
-
-  </main>
-  <div id="p20"></div>
-
-                <div>{{ $plan->title }}</div>
-    
-                <div>{{ $plan->description }}</div>
-    
-                <div>{{ $plan->plan_date }}</div>
-      
-                
-
-                <div>{{ $plan->ag_latitude }}</div>
-
-                <div>{{ $plan->ag_longitude }}</div>
-
-                <div>{{ $plan->dish_latitude }}</div>
-
-                <div>{{ $plan->dish_longitude }}</div>
-
-                <div>{{ $plan->price }}</div>
-
-                <div>{{ $plan->place }}</div>
-
-                <div>{{ $plan->small_place }}</div>
-
-                <div>{{ $plan->vegetable }}</div>
-
-                <div>{{ $plan->map }}</div>
-
-
-        <div id="mapSample"></div>
-
-        <span id="js-ag_latitude" data-name="{{ $plan->ag_latitude }}"></span>
-        <span id="js-ag_longitude" data-name="{{ $plan->ag_longitude }}"></span>
-        <span id="js-dish_latitude" data-name="{{ $plan->dish_latitude }}"></span>
-        <span id="js-dish_longitude" data-name="{{ $plan->dish_longitude }}"></span>
-
-        <form action="{{ url('buy') }}" method="post">
-        {{ csrf_field() }}
-        <!-- 1218追加 -->
-        @if(!Auth::id())
-          <div class="col-sm-6">
-              代表者氏名
-              <input type="text" name="name" class="form-control">
+    <header>
+      <nav>
+        <div class="header">
+          <div class="logo">
+            <img src="/img/logo.png" alt="AgDish">
           </div>
-          <div class="col-sm-6">
-              電話番号
-              <input type="test" name="tell" class="form-control">
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+          <div class="info d-flex flex-row">
+
+            <div class="plan_info d-flex flex-column w-55">
+
+              <div>
+                <p style="font-weight:bold; font-size:32px">店舗情報</p>
+              </div>
+
+              <div class="info_cell d-flex flex-row">
+                <div class="info_pic">
+                  <div>
+                    <img src="upload/{{ $plan->ag_photo }}" alt="">
+                  </div>
+                </div>
+                <div class="info_pic">
+                  <div>
+                    <img src="upload/{{ $plan->dish_photo }}" alt="">
+                  </div>
+                </div>
+              </div>
+
+              <div class="info_cell d-flex flex-row">
+                <div>
+                  <p>プラン名</p>
+                </div>
+                <div>
+                  <p>{{ $plan->ag_name }}</p>
+                </div>
+              </div>
+              <div class="info_cell d-flex flex-row">
+                <div>
+                  <p>プラン名</p>
+                </div>
+                <div>
+                  <p>{{ $plan->dish_name }}</p>
+                </div>
+              </div>
+
+              <div class="info_cell d-flex flex-row">
+                <div>
+                  <p>プラン名</p>
+                </div>
+                <div>
+                  <p>{{ $plan->title }}</p>
+                </div>
+              </div>
+
+              <div class="info_cell d-flex flex-row">
+                <div>
+                  <p>プラン詳細</p>
+                </div>
+                <div>
+                  <p>{{ $plan->description }}</p>
+                </div>
+              </div>
+              <div class="info_cell d-flex flex-row">
+                <div>
+                  <p>野菜</p>
+                </div>
+                <div>
+                  <p>{{ $plan->vegetable }}</p>
+                </div>
+              </div>
+              
+
+              <div class="info_cell d-flex flex-row">
+                <div class="info_cell d-flex flex-row">
+                  <div>
+                    <p>大人料金</p>
+                  </div>
+                  <div>
+                    <p>{{ $plan->adult_price }}</p>
+                  </div>
+                </div>
+                <div class="info_cell d-flex flex-row">
+                  <div>
+                    <p>子供料金</p>
+                  </div>
+                  <div>
+                    <p>{{ $plan->child_price }}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="info_cell d-flex flex-row">
+                <div>
+                  <p>住所</p>
+                </div>
+                <div>
+                  <p>{{ $plan->place }}</p>
+                </div>
+              </div>
+            
+            </div>
+
+            <div class="plan_map w-45 d-flex flex-column">
+
+              <div class="map">
+                <div id="mapSample" style="width:550px; height:350px">
+                  <span id="js-ag_latitude"    data-name="{{ $plan->ag_latitude }}"></span>
+                  <span id="js-ag_longitude"   data-name="{{ $plan->ag_longitude }}"></span>
+                  <span id="js-dish_latitude"  data-name="{{ $plan->dish_latitude }}"></span>
+                  <span id="js-dish_longitude" data-name="{{ $plan->dish_longitude }}"></span>
+                </div>
+              </div>
+
+              <div class="reservation">
+                <p>ご予約はこちらから</p>
+              </div>
+
+              <div class="form">
+                <form action="{{ url('buy') }}" method="post">
+                  {{ csrf_field() }}
+                  <!-- 1218追加 -->
+                  @if(!Auth::id())
+                    <div class="d-flex flex-row w-100">
+
+                      <div class="flex_item_right w-50">
+                        <div class="contact_info">
+                            代表者氏名
+                            <input type="text" name="name" class="form-control">
+                        </div>
+                        <div class="contact_info">
+                            電話番号
+                            <input type="test" name="tell" class="form-control">
+                        </div>
+                      </div>
+
+                      <div class="flex-item w-50">
+                        <div class="contact_info">
+                            メールアドレス
+                            <input type="test" name="email" class="form-control">
+                        </div>
+                        <div class="contact_info">
+                            登録用パスワード
+                            <input type="password" name="pass" class="form-control">
+                        </div>
+                      </div>
+
+                    </div>
+                    
+                    <!-- 1218追加 -->
+                    <div class="count_number">
+                      @endif
+                      <div class="d-flex flex-row">
+
+                          <div class="d-flex flex-column w-50">
+                            <div class="number_adult">
+                              <span>
+                                おとなの人数
+                                <select name="adult" id="">
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                  <option value="6">6</option>
+                                  <option value="7">7</option>
+                                  <option value="8">8</option>
+                                  <option value="9">9</option>
+                                </select>
+                              </span>
+                            </div>
+                            <div>
+                              <span>
+                                こどもの人数
+                                <select name="child" id="">
+                                  <option value="0">0</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                  <option value="6">6</option>
+                                  <option value="7">7</option>
+                                  <option value="8">8</option>
+                                  <option value="9">9</option>
+                                </select>
+                              </span>
+                            </div>
+                          </div>
+                          <div class="w-50 button">
+                            <input type="hidden" name="plan_id" value="{{ $plan->id }}">
+                            <button type="submit">購入確認画面へ</button>
+                          </div>
+
+                      </div>
+                    </div>
+                    
+                </form>
+              </div>
+
+            </div>
+
           </div>
-          <div class="col-sm-6">
-              メールアドレス
-              <input type="test" name="email" class="form-control">
-          </div>
-          <div class="col-sm-6">
-              登録用パスワード
-              <input type="password" name="pass" class="form-control">
-          </div>
-          <!-- 1218追加 -->
-          @endif
-          <span>
-            おとなの人数
-            <select name="adult" id="">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-            </select>
-          </span>
-          <span>
-            こどもの人数
-            <select name="child" id="">
-              <option value="0">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-            </select>
-          </span>
-          <input type="hidden" name="plan_id" value="{{ $plan->id }}">
-          <button type="submit">購入確認画面へ</button>
-        </form>
+        </section>
+      </main>
     
     <!-- footerはここから -->
 
     <footer>
       <div class="footer_wrapper">
-
-        <div class="footer_top d-flex flex-row justify-content-center">
-          <div class="footer_cell">
-            <div class="footer_title">
-              <p>利用したい</p>
-            </div>
-            <div class="footer_list">
-              <ul class="">
-                  <li><a href="/about">アグリッシュとは？</a></li>
-                  <li><a href="#">アグリッシュ基準</a></li>
-                  <li><a href="#">ご利用ガイド</a></li>
-                  <li><a href="#">品質保証について</a></li>
-                  <li><a href="#">注文方法</a></li>
-                  <li><a href="#" target="_blank" rel="noopener">飲食店の方へ</a></li>
-                  <li><a href="#" target="_blank" rel="noopener">イベント主催者の方へ</a></li>
-                </ul>
-            </div>
-          </div>
-          <div class="footer_cell">
-            <div class="footer_title">
-              <p>出店したい</p>
-            </div>
-            <div class="footer_list">
-              <ul class="">
-                  <li><a href="/about">出品者募集</a></li>
-                  <li><a href="#">募集要件</a></li>
-                  <li><a href="#"></a></li>
-                  <li><a href="#"></a></li>
-                  <li><a href="#"></a></li>
-                  <li><a href="#" target="_blank" rel="noopener"></a></li>
-                  <li><a href="#" target="_blank" rel="noopener"></a></li>
-                </ul>
-            </div>
-          </div>
-          <div class="footer_cell">
-            <div class="footer_title">
-              <p>アグリッシュについて</p>
-            </div>
-            <div class="footer_list">
-              <ul class="">
-                  <li><a href="/about">運営会社</a></li>
-                  <li><a href="#">よくある質問</a></li>
-                  <li><a href="#">お問い合わせ</a></li>
-                  <li><a href="#">利用規約</a></li>
-                  <li><a href="#">プライバシーポリシー</a></li>
-                  <li><a href="#" target="_blank" rel="noopener">特定商取引法</a></li>
-                  <li><a href="#" target="_blank" rel="noopener">採用情報</a></li>
-                </ul>
-            </div>
-          </div>
-        </div>
 
         <div class="footer_bottom">
           <div>
@@ -174,18 +238,14 @@
           <div>
             <p class="copyright"><small>Copyright</small> © 2020 KARATE DOJO Inc.</p>
           </div>
-        </div>
-    </div>
-  </footer>
+      </div>
+    </footer>
 
   <!-- footerはここまで -->
 
     <script src="{{ asset('/js/map.js') }}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyDfICqav8n0LnTfZ3FtjZhPuas7lIdh8kc&callback=initMap"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
-    
-  </body>
   </body>
 
-  </html>
+</html>
