@@ -196,7 +196,13 @@ class PlansController extends Controller
     }
 
 
-
+//野菜検索
+public function search_vegetable($vegetable)
+    {
+        $plans = Plan::where('vegetable', $vegetable)->get();
+        $data = ['plans' => $plans];
+        return view('searchs', $data);
+    }
 
 
 

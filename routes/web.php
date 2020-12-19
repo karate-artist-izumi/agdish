@@ -32,6 +32,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//野菜検索
+Route::get('/search/{vegetable}', 'PlansController@search_vegetable');
 
 
 

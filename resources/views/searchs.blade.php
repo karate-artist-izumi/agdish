@@ -93,13 +93,6 @@
 
   <main>
 
-  <ul>
-    <li><a href="/search/白菜">白菜</a></li>
-    <li><a href="/search/ほうれん草">ほうれん草</a></li>
-    <li><a href="/search/人参">人参</a></li>
-    <li><a href="/search/トマト">トマト</a></li>
-</ul>
-
     <section>
       <div class="main_top">
         <div class="video_container">
@@ -122,10 +115,10 @@
               <div class="select_cell d-flex flex-column">
 
                 <div class="select_img"> 
-                  <img src="upload/{{ $plan->ag_photo }}" alt="">
+                  <img src="../upload/{{ $plan->ag_photo }}" alt="">
                 </div>
                 <div class="select_img">
-                  <img src="upload/{{ $plan->dish_photo }}" alt="">
+                  <img src="../upload/{{ $plan->dish_photo }}" alt="">
                 </div>
 
                 <div id="select_text">
