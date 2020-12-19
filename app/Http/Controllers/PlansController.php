@@ -223,9 +223,9 @@ public function search_plan_date($plan_date)
     }
 
 //AND検索
-public function search_and($and)
+public function search_and($and1,$and2)
     {
-        $plans = Plan::where('and', $and)->get();
+        $plans = Plan::where('small_place', $and1)->where('vegetable', $and2)->get();
         $data = ['plans' => $plans];
         return view('searchs', $data);
     }
