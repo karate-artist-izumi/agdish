@@ -36,16 +36,16 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="active ">
-            <a href="#">
+          <li>
+            <a href="/mypage">
               <i class="fas fa-leaf"></i>
               <p>購入履歴</p>
             </a>
           </li>
-          <li>
-            <a href="/profile">
+          <li class="active ">
+            <a href="#">
             <i class="far fa-user-circle"></i>
-              <p>プロフィール</p>
+            <p>プロフィール</p>
             </a>
           </li>
           <li>
@@ -111,26 +111,24 @@
 
       <!-- Veu Field -->
       <div class="content container-fluid content-row">
-        <h5 class="ml-2 mb-2"><a href="#" >購入履歴(プランの確認)</a></h5>
+        <h5 class="ml-2 mb-2"><a href="#" >ご登録情報</a></h5>
         <div class="card-group">
-          <div class="row">
-
-            <!-- 購入したプランを表示-->
-            @foreach($reservePlans as $reservePlan)
-            <div class="col-sm-6 col-lg-3">
-              <div class="card" style="width: 14rem;">
-                <div class="card-body">
-                  <h5>{{ $reservePlan->plan_title }}</h5>
-                  <p class="card-title">開催日：{{ $reservePlan->plan_date }}</p>
-                  <p class="card-title">大人料金{{ $reservePlan->plan_adult_price }}円 × {{ $reservePlan->adult_kazu }}名様</p>
-                  <p class="card-title">こども料金{{ $reservePlan->plan_child_price }}円 × {{ $reservePlan->child_kazu }}名様</p>
-                  <img class="card-img-top" src="https://picsum.photos/255/180" alt="Card image cap">
-                  <a href='.$r["id"].'class="btn btn-primary">詳細を確認する</a>
-                </div>
-              </div>
-            </div>
-            @endforeach
-          </div>
+            <!-- お客様の情報を表示-->
+          <table>
+            <tr>
+              <th>お名前</th><td>{{$user->name}}</td>
+            </tr>
+            <tr>
+              <th>メールアドレス</th><td>{{$user->email}}</td>
+            </tr>
+            <tr>
+              <th>電話番号</th><td>{{$user->tell}}</td>
+            </tr>
+          </table>
+              <a href="{{ url('profileedit') }}" class="btn btn-primary">
+                お客様情報を変更する
+              </a>
+            <!-- お客様の情報を表示-->
         </div>
       </div>
       <!-- Veu Field -->
