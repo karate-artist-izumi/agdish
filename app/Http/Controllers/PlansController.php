@@ -196,7 +196,39 @@ class PlansController extends Controller
     }
 
 
+//野菜検索
+public function search_vegetable($vegetable)
+    {
+        $plans = Plan::where('vegetable', $vegetable)->get();
+        $data = ['plans' => $plans];
+        return view('searchs', $data);
+    }
 
+//県検索
+public function search_small_place($small_place)
+    {
+        // 'name', 'like', '%川%'
+        $plans = Plan::where('small_place',$small_place)->get();
+        // $data = ['plans' => $plans];
+        // return view('searchs', $data);
+        return view('searchs', ['plans' => $plans]);
+    }
+
+//日付検索
+public function search_plan_date($plan_date)
+    {
+        $plans = Plan::where('plan_date', $plan_date)->get();
+        $data = ['plans' => $plans];
+        return view('searchs', $data);
+    }
+
+//AND検索
+public function search_and($and)
+    {
+        $plans = Plan::where('and', $and)->get();
+        $data = ['plans' => $plans];
+        return view('searchs', $data);
+    }
 
 
 
