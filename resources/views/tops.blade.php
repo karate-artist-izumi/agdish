@@ -132,12 +132,11 @@
     <li><a href="/search2/神奈川県">神奈川県</a></li>
 </ul>
 
+
+
 <!-- 検索用リンクここまで↑ -->
 
 
-<a href="/search3/{plan_date}">
-<input type="date" id="plan_date" name="plan_date" value="yyyy-mm-dd" max="9999-12-31">
-</a>
 
     <section>
       <div class="select_wrapper d-flex flex-wrap justify-content-center">
