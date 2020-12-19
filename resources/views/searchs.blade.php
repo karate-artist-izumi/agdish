@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>TOP</title>
+  <title>検索結果</title>
   <link href="{{asset('/css/main.css')}}" rel="stylesheet">
   <link href="{{asset('/css/app.css')}}" rel="stylesheet">
 
@@ -49,94 +49,19 @@
         </div>
       </div>
 
-      <div class="header_bottom">
-        <div class="search_box d-flex justify-content-between">
-          <div class="search_box_left">
-            <h2 class="search_title">都道府県・食材・日時から探す</h2>
-          </div>
-          <div class="search_box_right">
-
-
-            <form method="post" action="{{ url('searchs') }}" class="d-flex justify-content-end">
-
-
-              <div class="search_cell">
-                <select class="select" name="pref_name" id="pref">
-                  <option value="" selected>都道府県</option>
-                    <option value="茨城県">茨城県</option>
-                    <option value="栃木県">栃木県</option>
-                    <option value="群馬県">群馬県</option>
-                    <option value="埼玉県">埼玉県</option>
-                    <option value="千葉県">千葉県</option>
-                    <option value="東京都">東京都</option>
-                    <option value="神奈川県">神奈川県</option>
-                </select>
-              </div>
-              <div class="search_cell">
-                <select class="select" name="veg_name" id="veg">
-                  <option value="" selected>食材</option>
-                  <option value="白菜">白菜</option>
-                  <option value="ほうれん草">ほうれん草</option>
-                  <option value="人参">人参</option>
-                  <option value="トマト">トマト</option>
-                </select>
-              </div>
-              <div class="search_cell">
-                <input type="date" id="today" name="today" value="yyyy-mm-dd" max="9999-12-31">
-              </div>
-              <div class="search_cell">
-                <button type="submit">検索</button>
-              </div>
-              
-            </form>
-          </div>
-        </div>
-      </div>
 
     </div>
   </header>
 
   <main>
 
-    <section>
-      <div class="main_top">
-        <div class="video_container">
-          <video id="video" src="upload/agdish01.mp4" type="vdeo/mp4"autoplay loop muted></video>
-        </div>
-      </div>
-    </section>
+
 
     <section>
       <div class="info">
 
       </div>
     </section>
-
-
-<!-- 検索用リンクここから↓ -->
-
-<ul>
-    <li><a href="/search1/白菜">白菜</a></li>
-    <li><a href="/search1/ほうれん草">ほうれん草</a></li>
-    <li><a href="/search1/人参">人参</a></li>
-    <li><a href="/search1/トマト">トマト</a></li>
-</ul>
-
-<ul>
-    <li><a href="/search2/茨城県">茨城県</a></li>
-    <li><a href="/search2/栃木県">栃木県</a></li>
-    <li><a href="/search2/群馬県">群馬県</a></li>
-    <li><a href="/search2/埼玉県">埼玉県</a></li>
-    <li><a href="/search2/千葉県">千葉県</a></li>
-    <li><a href="/search2/東京都">東京都</a></li>
-    <li><a href="/search2/神奈川県">神奈川県</a></li>
-</ul>
-
-
-
-<!-- 検索用リンクここまで↑ -->
-
-
 
     <section>
       <div class="select_wrapper d-flex flex-wrap justify-content-center">
@@ -146,10 +71,10 @@
               <div class="select_cell d-flex flex-column">
 
                 <div class="select_img"> 
-                  <img src="upload/{{ $plan->ag_photo }}" alt="">
+                  <img src="../upload/{{ $plan->ag_photo }}" alt="">
                 </div>
                 <div class="select_img">
-                  <img src="upload/{{ $plan->dish_photo }}" alt="">
+                  <img src="../upload/{{ $plan->dish_photo }}" alt="">
                 </div>
 
                 <div id="select_text">
@@ -160,12 +85,8 @@
                   <p>開催場所：{{ $plan->small_place }}</p> 
                 </div>
 
-                <div id="adult_price">
-                  <p>大人料金：{{ $plan->adult_price }}円</p>
-                </div>
-
-                <div id="child_price">
-                  <p>子供料金：{{ $plan->child_price }}円</p>
+                <div id="price">
+                  <p>金額：{{ $plan->price }}円</p>
                 </div>
           
                 <div id="details">
