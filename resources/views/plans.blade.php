@@ -107,23 +107,23 @@
                 <table class="table table-striped task-table">
                     <!-- テーブルヘッダ -->
                     <thead>
-                        <th width="200">プラン名</th>
-                        <th width="200">説明</th>
-                        <th width="100">開催日</th>
-                        <th width="100">農家名</th>
-                        <th width="100">レストラン名</th>
+                        <th white-space: nowrap;>プラン名　　　　　　　　　　　　</th>
+                        <th white-space: nowrap;>説明　　　　　　　　　　　　　　　　</th>
+                        <th white-space: nowrap;>開催日</th>
+                        <th white-space: nowrap;>農家名　　　　　　</th>
+                        <th white-space: nowrap;>レストラン名　　　</th>
                         <!-- <th>写真URL</th> -->
-                        <th width="100">農家写真</th>
-                        <th width="100">レストラン写真</th>
-                        <th width="50">農家緯度</th>
-                        <th width="50">農家経度</th>
-                        <th width="50">レストラン緯度</th>
-                        <th width="50">レストラン経度</th>
-                        <th width="50">大人料金</th>
-                        <th width="50">子供料金</th>
-                        <th width="100">開催場所</th>
-                        <th width="50">Search[県]</th>
-                        <th width="50">Search[野菜]</th>
+                        <th white-space: nowrap;>農家写真</th>
+                        <th white-space: nowrap;>レストラン写真</th>
+                        <th white-space: nowrap;>農家緯度</th>
+                        <th white-space: nowrap;>農家経度</th>
+                        <th white-space: nowrap;>レストラン緯度</th>
+                        <th white-space: nowrap;>レストラン経度</th>
+                        <th white-space: nowrap;>大人料金</th>
+                        <th white-space: nowrap;>子供料金</th>
+                        <th white-space: nowrap;>開催場所　　　　　　</th>
+                        <th white-space: nowrap;>Search[県]</th>
+                        <th white-space: nowrap;>Search[野菜]</th>
                     </thead>
                     <!-- テーブル本体 -->
                     <tbody>
