@@ -93,13 +93,6 @@
 
   <main>
 
-  <ul>
-    <li><a href="/search/白菜">白菜</a></li>
-    <li><a href="/search/ほうれん草">ほうれん草</a></li>
-    <li><a href="/search/人参">人参</a></li>
-    <li><a href="/search/トマト">トマト</a></li>
-</ul>
-
     <section>
       <div class="main_top">
         <div class="video_container">
@@ -113,6 +106,33 @@
 
       </div>
     </section>
+
+
+<!-- 検索用リンクここから↓ -->
+
+<ul>
+    <li><a href="/search1/白菜">白菜</a></li>
+    <li><a href="/search1/ほうれん草">ほうれん草</a></li>
+    <li><a href="/search1/人参">人参</a></li>
+    <li><a href="/search1/トマト">トマト</a></li>
+</ul>
+
+<ul>
+    <li><a href="/search2/茨城県">茨城県</a></li>
+    <li><a href="/search2/栃木県">栃木県</a></li>
+    <li><a href="/search2/群馬県">群馬県</a></li>
+    <li><a href="/search2/埼玉県">埼玉県</a></li>
+    <li><a href="/search2/千葉県">千葉県</a></li>
+    <li><a href="/search2/東京都">東京都</a></li>
+    <li><a href="/search2/神奈川県">神奈川県</a></li>
+</ul>
+
+<!-- 検索用リンクここまで↑ -->
+
+
+<a href="/search3/{plan_date}">
+<input type="date" id="plan_date" name="plan_date" value="yyyy-mm-dd" max="9999-12-31">
+</a>
 
     <section>
       <div class="select_wrapper d-flex flex-wrap justify-content-center">
