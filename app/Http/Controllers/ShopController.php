@@ -32,7 +32,7 @@ class ShopController extends Controller
             ]);
         } else {
             // ログインしていたときの処理
-            $user = USER::find(Auth::id());
+            $user = User::find(Auth::id());
             session([
                 'plan_id' => $request->plan_id,
                 'adult' => $request->adult,
@@ -58,7 +58,7 @@ class ShopController extends Controller
             'plan_child_price' => $plan->child_price,
         ]);
 
-        if (!Auth::id()) {
+        if (!User::where('email', $sessionData['email'])->exists()) {
             // ユーザー情報を保存
             $user = new User;
             $user->name = $sessionData['name'];
@@ -83,10 +83,11 @@ class ShopController extends Controller
             $sale->child_kazu = $sessionData['child'];
             $sale->save();
         } else {
+            $user = User::where('email', $sessionData['email'])->first();
             // 購入データをDBに保存
             // リレーションしなくてもいいようにマイページで必要な情報全部入れる
             $sale = new Sale;
-            $sale->user_id = Auth::id();
+            $sale->user_id = $user->id;
             $sale->plan_id = $sessionData['plan_id'];
             $sale->plan_title = $plan->title;
             $sale->plan_date = $plan->plan_date;
@@ -107,15 +108,6 @@ class ShopController extends Controller
 
         return view('result',['sessionData' => $sessionData]);
 
-        //メールを送信
-        $mail_name =$sessionData['name'];
-        $mail_text = $mail_name.' 様、ご購入ありがとうございました';
-        $data = session()->all();
-        // 管理者のメールアドレスを入力
-        $mail_to = 'gawgaw.developer@gmail.com';
-        Mail::to($mail_to)->send( new SampleMail($mail_name, $mail_text, $data) );
-
-        return view('result',['sessionData' => $sessionData]);
 
     }
 
