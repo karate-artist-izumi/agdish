@@ -108,15 +108,6 @@ class ShopController extends Controller
 
         return view('result',['sessionData' => $sessionData]);
 
-        //メールを送信
-        $mail_name =$sessionData['name'];
-        $mail_text = $mail_name.' 様、ご購入ありがとうございました';
-        $data = session()->all();
-        // 管理者のメールアドレスを入力
-        $mail_to = 'gawgaw.developer@gmail.com';
-        Mail::to($mail_to)->send( new SampleMail($mail_name, $mail_text, $data) );
-
-        return view('result',['sessionData' => $sessionData]);
 
     }
 
