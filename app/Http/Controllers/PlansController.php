@@ -223,13 +223,27 @@ public function search_plan_date($plan_date)
     }
 
 //AND検索
-public function search_and($and1,$and2)
+public function search_and(Request $request)
     {
-        $plans = Plan::where('small_place', $and1)->where('vegetable', $and2)->get();
+        $small_place=$request->input('small_place');
+        $vegetable=$request->input('vegetable');
+   
+        $plans = Plan::where('small_place', $small_place)->where('vegetable', $vegetable)->get();
         $data = ['plans' => $plans];
         return view('searchs', $data);
     }
 
+
+//プラン検索
+public function search(Request $request)
+    {
+        $small_place=$request->input('small_place');
+        $vegetable=$request->input('vegetable');
+   
+        $plans = Plan::where('small_place', $small_place)->where('vegetable', $vegetable)->get();
+        $data = ['plans' => $plans];
+        return view('searchs', $data);
+    }
 
 
 
