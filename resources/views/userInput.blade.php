@@ -11,7 +11,7 @@ array_push($cartData, [
       'quantity' => $data['adult'],
   ]);
   // もしこども人数が0ならarray_pushしない
-  if (!$data['child'] == 0) {
+  if (!$data['child'] === 0) {
     array_push($cartData, [
           'price_data'   => [
           'currency'     => 'JPY',
@@ -57,9 +57,11 @@ $session = $stripe->checkout->sessions->create([
     <title>Document</title>
     <!-- Stripe -->
     <script src="https://js.stripe.com/v3/"></script>
-  </head>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-  <body>
+    </head>
+
+  <body class="is-slide" id="page-animate">
 
     <header>
       <nav>
@@ -140,6 +142,33 @@ $session = $stripe->checkout->sessions->create([
       }
     });
   });
+</script>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+  // 画面が読み込まれた時、is-slideを外し、アニメーションさせる
+$(window).on('load', function(){
+ $('body').removeClass('is-slide');
+});
+
+$(function() {
+ // ハッシュリンク(#)と別ウィンドウでページを開く場合は実行しない
+
+ $('a:not([href^="#"]):not([target])').on('click', function(e){
+   e.preventDefault();         // ページ遷移を一旦キャンセル
+   url = $(this).attr('href'); // 遷移先のURLを取得
+
+   if (url !== '') {
+     $('body').addClass('is-slide-in'); // 画面遷移前のアニメーション is-slide-in
+
+     setTimeout(function () {
+       window.location = url;  // 0.7秒後に取得したURLに遷移
+     }, 700);
+   }
+   return false;
+ });
+
+});
 </script>
 
 </body>
