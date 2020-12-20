@@ -98,11 +98,10 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                      {{ Auth::id()}}
                       <a class="dropdown-item" href="{{ route('logout') }}"
                           onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                          {{ __('Logout') }}
+                          document.getElementById('logout-form').submit();">
+                          {{ __('ログアウト') }}
                       </a>
                       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                           @csrf
