@@ -82,7 +82,7 @@
                 </select>
               </div>
               <div class="search_cell">
-                <input type="date" id="today" name="plan_date" value="yyyy-mm-dd" max="9999-12-31">
+                <input type="date" name="plan_date" value="yyyy-mm-dd" max="9999-12-31">
               </div>
               <div class="search_cell">
                 <button type="submit">検索</button>
