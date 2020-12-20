@@ -66,6 +66,15 @@ Route::get('/logintest', function () {
   return view('logintest');
 });
 
+Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
+Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
+
+Route::post('/login/admin', 'Auth\LoginController@adminLogin');
+Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
+
+// Route::view('/home', 'home')->middleware('auth');
+Route::view('/plans', 'plans');
+
 // 田崎作業ここまで
 
 Auth::routes();
