@@ -133,6 +133,12 @@
 </ul>
 
 
+  <form method="post" action="{{ url('search3') }}">
+  {{ csrf_field() }}
+      <input type="date" id="today" name="plan_date" value="yyyy-mm-dd" max="9999-12-31">
+      <button type="submit">検索</button>
+  </form>
+
 <!-- 検索用リンクここまで↑ -->
 
 
