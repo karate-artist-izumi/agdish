@@ -60,4 +60,15 @@ class LoginController extends Controller
         }
         return back()->withInput($request->only('name', 'remember'));
     }
+
+    // protected function loggedOut(Request $request){
+    //     Auth::logout();
+
+    //         $this->guard()->logout();
+
+    //         $request->session()->invalidate();
+
+    //         return $this->loggedOut($request) ?: redirect('/tops');
+    // }
+
 }
