@@ -34,11 +34,14 @@ Route::get('/search1/{vegetable}', 'PlansController@search_vegetable');
 //県検索
 Route::get('/search2/{small_place}', 'PlansController@search_small_place');
 
-//日付検索
-Route::get('/search3/{plan_date}', 'PlansController@search_plan_date');
-
 //AND検索
-Route::get('/search4/{and1,and2}', 'PlansController@search_and');
+Route::get('/search4', 'PlansController@search_and');
+
+//プラン検索
+Route::post('/searchs','PlansController@search');
+
+//日付検索
+Route::post('/search3', 'PlansController@search_plan_date');
 
 
 

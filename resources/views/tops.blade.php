@@ -58,10 +58,10 @@
 
 
             <form method="post" action="{{ url('searchs') }}" class="d-flex justify-content-end">
-
+            {{ csrf_field() }}
 
               <div class="search_cell">
-                <select class="select" name="pref_name" id="pref">
+                <select class="select" name="small_place" id="pref">
                   <option value="" selected>都道府県</option>
                     <option value="茨城県">茨城県</option>
                     <option value="栃木県">栃木県</option>
@@ -73,7 +73,7 @@
                 </select>
               </div>
               <div class="search_cell">
-                <select class="select" name="veg_name" id="veg">
+                <select class="select" name="vegetable" id="veg">
                   <option value="" selected>食材</option>
                   <option value="白菜">白菜</option>
                   <option value="ほうれん草">ほうれん草</option>
@@ -82,7 +82,7 @@
                 </select>
               </div>
               <div class="search_cell">
-                <input type="date" id="today" name="today" value="yyyy-mm-dd" max="9999-12-31">
+                <input type="date" id="today" name="plan_date" value="yyyy-mm-dd" max="9999-12-31">
               </div>
               <div class="search_cell">
                 <button type="submit">検索</button>
@@ -132,11 +132,12 @@
     <li><a href="/search2/神奈川県">神奈川県</a></li>
 </ul>
 
-<ul>
-    <li><a href="/search4/'茨城県','白菜'">茨城県,白菜</a></li>
-    <li><a href="/search4/神奈川県,ほうれん草">神奈川県,ほうれん草</a></li>
-</ul>
 
+  <form method="post" action="{{ url('search3') }}">
+  {{ csrf_field() }}
+      <input type="date" id="today" name="plan_date" value="yyyy-mm-dd" max="9999-12-31">
+      <button type="submit">検索</button>
+  </form>
 
 <!-- 検索用リンクここまで↑ -->
 
