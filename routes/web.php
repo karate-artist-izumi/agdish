@@ -38,7 +38,7 @@ Route::get('/search2/{small_place}', 'PlansController@search_small_place');
 Route::get('/search3/{plan_date}', 'PlansController@search_plan_date');
 
 //AND検索
-Route::get('/search4/{and}', 'PlansController@search_and');
+Route::get('/search4/{and1,and2}', 'PlansController@search_and');
 
 
 

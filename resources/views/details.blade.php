@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>詳細ページ</title>
-    <link rel="stylesheet" href="{{asset('/css/details.css')}}">
     <link rel="stylesheet" href="{{asset('/css/app.css')}}" >
+    <link rel="stylesheet" href="{{asset('/css/details.css')}}">
+    <!-- fontAwesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   </head>
 
@@ -34,12 +36,12 @@
               <div class="info_cell d-flex flex-row">
                 <div class="info_pic">
                   <div>
-                    <img src="upload/{{ $plan->ag_photo }}" alt="">
+                    <img src="../upload/{{ $plan->ag_photo }}" alt="">
                   </div>
                 </div>
                 <div class="info_pic">
                   <div>
-                    <img src="upload/{{ $plan->dish_photo }}" alt="">
+                    <img src="../upload/{{ $plan->dish_photo }}" alt="">
                   </div>
                 </div>
               </div>
@@ -127,6 +129,7 @@
                   <span id="js-dish_latitude"  data-name="{{ $plan->dish_latitude }}"></span>
                   <span id="js-dish_longitude" data-name="{{ $plan->dish_longitude }}"></span>
                 </div>
+                <a href="http://maps.google.com/maps?saddr={{ $plan->ag_latitude }},{{ $plan->ag_longitude }}&daddr={{ $plan->dish_latitude }},{{ $plan->dish_longitude }}&dirflg=d" target="_blank">経路検索</a>
               </div>
 
               <div class="reservation">
@@ -140,7 +143,7 @@
                   @if(!Auth::id())
                     <div class="d-flex flex-row w-100">
 
-                      <div class="flex_item_right w-50">
+                      <div class="flex_item_left w-50">
                         <div class="contact_info">
                             代表者氏名
                             <input type="text" name="name" class="form-control">
@@ -167,12 +170,12 @@
                     <!-- 1218追加 -->
                     <div class="count_number">
                       @endif
-                      <div class="d-flex flex-row">
+                      <div class="d-flex flex-row justify-content-start w-100">
 
-                          <div class="d-flex flex-column w-50">
+                          <div class="d-flex flex-row w-40">
                             <div class="number_adult">
                               <span>
-                                おとなの人数
+                                <p>おとなの人数</p> 
                                 <select name="adult" id="">
                                   <option value="1">1</option>
                                   <option value="2">2</option>
@@ -186,9 +189,9 @@
                                 </select>
                               </span>
                             </div>
-                            <div>
+                            <div class="number_child">
                               <span>
-                                こどもの人数
+                                <p>こどもの人数</p>
                                 <select name="child" id="">
                                   <option value="0">0</option>
                                   <option value="1">1</option>
@@ -204,7 +207,10 @@
                               </span>
                             </div>
                           </div>
-                          <div class="w-50 button">
+                          <div class="w-30 icon">
+                            <i class="fas fa-arrow-circle-right"></i>
+                          </div>
+                          <div class="w-30 button">
                             <input type="hidden" name="plan_id" value="{{ $plan->id }}">
                             <button type="submit">購入確認画面へ</button>
                           </div>
