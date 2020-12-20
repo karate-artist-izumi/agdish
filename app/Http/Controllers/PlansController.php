@@ -239,8 +239,10 @@ public function search(Request $request)
     {
         $small_place=$request->input('small_place');
         $vegetable=$request->input('vegetable');
+        $plan_date=$request->input('plan_date');
    
-        $plans = Plan::where('small_place', $small_place)->where('vegetable', $vegetable)->get();
+        // $plans = Plan::where('small_place', $small_place)->where('vegetable', $vegetable)->get();
+        $plans = Plan::where('small_place', $small_place)->where('vegetable', $vegetable)->where('plan_date', $plan_date)->get();
         $data = ['plans' => $plans];
         return view('searchs', $data);
     }
