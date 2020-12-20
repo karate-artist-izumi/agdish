@@ -214,13 +214,6 @@ public function search_small_place($small_place)
         return view('searchs', ['plans' => $plans]);
     }
 
-//日付検索
-public function search_plan_date($plan_date)
-    {
-        $plans = Plan::where('plan_date', $plan_date)->get();
-        $data = ['plans' => $plans];
-        return view('searchs', $data);
-    }
 
 //AND検索
 public function search_and(Request $request)
@@ -229,6 +222,17 @@ public function search_and(Request $request)
         $vegetable=$request->input('vegetable');
    
         $plans = Plan::where('small_place', $small_place)->where('vegetable', $vegetable)->get();
+        $data = ['plans' => $plans];
+        return view('searchs', $data);
+    }
+
+//日付検索
+public function search_plan_date(Request $request)
+    {
+        $plan_date=$request->input('plan_date');
+   
+        // $plans = Plan::where('small_place', $small_place)->where('vegetable', $vegetable)->get();
+        $plans = Plan::where('plan_date', $plan_date)->get();
         $data = ['plans' => $plans];
         return view('searchs', $data);
     }
