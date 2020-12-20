@@ -132,10 +132,6 @@
     <li><a href="/search2/神奈川県">神奈川県</a></li>
 </ul>
 
-<ul>
-    <li><a href="/search4?small_place=茨城県&vegetable=白菜">茨城県,白菜</a></li>
-</ul>
-
 
 <!-- 検索用リンクここまで↑ -->
 
