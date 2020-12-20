@@ -125,7 +125,7 @@
                   <p class="card-title">大人料金{{ $reservePlan->plan_adult_price }}円 × {{ $reservePlan->adult_kazu }}名様</p>
                   <p class="card-title">こども料金{{ $reservePlan->plan_child_price }}円 × {{ $reservePlan->child_kazu }}名様</p>
                   <img class="card-img-top" src="https://picsum.photos/255/180" alt="Card image cap">
-                  <a href='.$r["id"].'class="btn btn-primary">詳細を確認する</a>
+                  <a href="/details/{{ $reservePlan->id }}" class="btn btn-primary">詳細を確認する</a>
                 </div>
               </div>
             </div>
