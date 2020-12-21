@@ -121,7 +121,7 @@
           <div class="row">
 
             <!-- 購入したプランを表示-->
-            @foreach($reservePlans as $reservePlan)
+            @foreach($favoritePlans as $reservePlan)
             <div class="col-sm-6 col-lg-3">
               <div class="card" style="width: 14rem;">
                 <div class="card-body">

@@ -36,6 +36,28 @@
                 <p style="font-weight:bold; font-size:32px">店舗情報</p>
               </div>
 
+              <!-- 以下おがわお気に入りボタンテスト -->
+              @if(Auth::id())
+              <div style="margin-bottom:30px;" class="row justify-content-center">
+              @if(!$plan->users()->where('user_id', Auth::id())->exists())
+                <div class="col-md-3"> 
+                  <form action="{{ route('favorites', $plan) }}" method="POST">
+                    @csrf
+                    <input type="submit" value="&#xf004;お気に入りに追加する" class="fas btn btn-danger">
+                  </form>
+                </div>
+              @else
+                <div class="col-md-3">
+                  <form action="{{ route('unfavorites', $plan) }}" method="POST">
+                    @csrf
+                    <input type="submit" value="&#xf004;お気に入りを取り消す" class="fas btn btn-info">
+                  </form>
+                </div>
+              @endif
+              </div>
+              @endif
+              <!-- おがわお気に入りボタンテストここまで -->
+
               <div class="info_cell d-flex flex-row">
                 <div class="info_pic">
                   <div>
