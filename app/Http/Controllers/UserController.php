@@ -6,19 +6,42 @@ use Illuminate\Http\Request;
 use App\User;   //Userモデルを使えるようにする
 use App\Sale;   //Saleモデルを使えるようにする
 use Auth;   //Bookモデルを使えるようにする
+use DateTime;
 
 use Validator;
 
 class UserController extends Controller
 {
-    //mypage
-    public function showUser(){
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    //mypage_new
+    public function showUserNew(){
         $login_user_id = Auth::id();
+        $today=new DateTime();
         $user = User::find($login_user_id);
-        //reservePlansは複数のデータを取得する為 s がつ
-        $reservePlans = Sale::where('user_id', $login_user_id)->get();
+        //reservePlansは複数のデータを取得する為 s がついてviewでfor
+        // dd($login_user_id);
+        $reservePlans = Sale::where('user_id', $login_user_id)-> whereDate('plan_date','>',$today)->get();
         // 必要な情報を持たせて、mypage.blade.phpを返す
-        return view('mypage',['user' => $user, 'reservePlans' => $reservePlans]);
+        return view('mypage_new',['user' => $user, 'reservePlans' => $reservePlans]);
+    }
+
+    
+
+    //mypage_old
+    public function showUserOld(){
+        $login_user_id = Auth::id();
+        $today=new DateTime();
+        $user = User::find($login_user_id);
+        //reservePlansは複数のデータを取得する為 s がついてviewでfor
+        // dd($login_user_id);
+        $oldPlans = Sale::where('user_id', $login_user_id)-> whereDate('plan_date','<',$today)->get();
+        // 必要な情報を持たせて、mypage.blade.phpを返す
+        // return view('mypage_new',['user' => $user, 'reservePlans' => $reservePlans]);
+        return view('mypage_old',['user' => $user, 'oldPlans' => $oldPlans]);
     }
 
     //profile

@@ -30,7 +30,7 @@ class LoginController extends Controller
      * @var string
      */
     //ログインしたらmypageへ
-    protected $redirectTo = '/mypage';
+    protected $redirectTo = '/mypage_new';
 
     /**
      * Create a new controller instance.
@@ -66,7 +66,7 @@ class LoginController extends Controller
 
     protected function loggedOut(Request $request){
 
-        redirect('/tops');
+        return redirect('/tops');
 
     }
 

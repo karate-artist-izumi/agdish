@@ -10,7 +10,7 @@ Route::get('/books', 'PlansController@search');
 Route::get('/tops', 'PlansController@top');
 
 //詳細ページ
-Route::get('/details/{id}', 'PlansController@detail');
+Route::get('/details/{id}', 'PlansController@detail')->name('details');
 
 //一覧画面
 Route::get('/', 'PlansController@list');
@@ -50,11 +50,17 @@ Route::post('/search3', 'PlansController@search_plan_date');
 Route::post('/buy', 'ShopController@input');
 Route::get('/buy/result', 'ShopController@result');
 
+Route::post('/posts/{plan}/favorites', 'FavoriteController@store')->name('favorites');
+Route::post('/posts/{plan}/unfavorites', 'FavoriteController@destroy')->name('unfavorites');
+
+
 // 小川作業ここまで
 
 // 以下田崎作業分
 
-Route::get('/mypage', 'UserController@showUser');
+Route::get('/mypage_new', 'UserController@showUserNew');
+
+Route::get('/mypage_old', 'UserController@showUserOld');
 
 Route::get('/profile', 'UserController@showUserInfo');
 
