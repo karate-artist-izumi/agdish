@@ -36,20 +36,20 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li>
+          <li >
             <a href="/mypage_new">
               <i class="fas fa-leaf"></i>
               <p>予約一覧</p>
             </a>
           </li>
-          <li>
-            <a href="/mypage_old">
+          <li class="active ">
+            <a href="/">
             <i class="fas fa-history"></i>
               <p>過去の購入履歴</p>
             </a>
           </li>
-          <li class="active ">
-            <a href="#">
+          <li>
+            <a href="/profile">
             <i class="far fa-user-circle"></i>
               <p>プロフィール</p>
             </a>
@@ -116,24 +116,26 @@
 
       <!-- Veu Field -->
       <div class="content container-fluid content-row">
-        <h5 class="ml-2 mb-2">ご登録情報</h5>
+        <h5 class="ml-2 mb-2">過去の購入履歴</h5>
         <div class="card-group">
-            <!-- お客様の情報を表示-->
-          <table>
-            <tr>
-              <th>お名前</th><td>{{$user->name}}</td>
-            </tr>
-            <tr>
-              <th>メールアドレス</th><td>{{$user->email}}</td>
-            </tr>
-            <tr>
-              <th>電話番号</th><td>{{$user->tell}}</td>
-            </tr>
-          </table>
-              <a href="{{ url('profileedit') }}" class="btn btn-primary">
-                お客様情報を変更する
-              </a>
-            <!-- お客様の情報を表示-->
+          <div class="row">
+
+            <!-- 購入したプランを表示-->
+            @foreach($oldPlans as $oldPlan)
+            <div class="col-sm-6 col-lg-3">
+              <div class="card" style="width: 14rem;">
+                <div class="card-body">
+                  <h5>{{ $oldPlan->plan_title }}</h5>
+                  <p class="card-title">開催日：{{ $oldPlan->plan_date }}</p>
+                  <p class="card-title">大人料金{{ $oldPlan->plan_adult_price }}円 × {{ $oldPlan->adult_kazu }}名様</p>
+                  <p class="card-title">こども料金{{ $oldPlan->plan_child_price }}円 × {{ $oldPlan->child_kazu }}名様</p>
+                  <p class="card-title">合計金額{{ $oldPlan->plan_adult_price * $oldPlan->adult_kazu + $oldPlan->plan_child_price * $oldPlan->child_kazu }}円</p>
+                  <a href="/details/{{ $oldPlan->id }}" class="btn btn-primary">詳細を確認する</a>
+                </div>
+              </div>
+            </div>
+            @endforeach
+          </div>
         </div>
       </div>
       <!-- Veu Field -->
