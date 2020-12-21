@@ -7,9 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>TOP</title>
-  <link href="{{asset('/css/main.css')}}" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{asset('/css/slick.css')}}"/>
+  <link rel="stylesheet" type="text/css" href="{{asset('/css/slick_theme.css')}}"/>
   <link href="{{asset('/css/app.css')}}" rel="stylesheet">
-
+  <link href="{{asset('/css/main.css')}}" rel="stylesheet">
+  
   <!-- GoogleFonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
@@ -97,58 +99,55 @@
 
   <main>
 
-    <!--  videoは外す（一応残しとく）-->
-
-    <!-- <section>
-      <div class="main_top">
-        <div class="video_container">
-          <video id="video" src="upload/agdish01.mp4" type="vdeo/mp4"autoplay loop muted></video>
-        </div>
-      </div>
-    </section> -->
-
-    <!--  videoは外す（一応残しとく）-->
-
-
     <section>
       <div class="info">
 
+        <div class="info_container d-flex flex-row justify-content-between w-100">
+          <div class="info_left w-60">
+            <h2>- 特集 -</h2>
+            <img src="/img/info.jpg" alt="">
+            <p id="arctext" class="arctext_1">まるでフルーツ？</p>
+            <p id="arctext_2" class="arctext_2">トマト嫌いでも食べられると噂のトマトの秘密を探る</p>
+          </div>
+          <div class="info_right w-40">
+
+            <!-- 検索用リンクこposition: absolute;こから↓ -->
+
+            <ul>
+              <li><a href="/search1/白菜">白菜</a></li>
+              <li><a href="/search1/ほうれん草">ほうれん草</a></li>
+              <li><a href="/search1/人参">人参</a></li>
+              <li><a href="/search1/トマト">トマト</a></li>
+            </ul>
+
+            <ul>
+              <li><a href="/search2/茨城県">茨城県</a></li>
+              <li><a href="/search2/栃木県">栃木県</a></li>
+              <li><a href="/search2/群馬県">群馬県</a></li>
+              <li><a href="/search2/埼玉県">埼玉県</a></li>
+              <li><a href="/search2/千葉県">千葉県</a></li>
+              <li><a href="/search2/東京都">東京都</a></li>
+              <li><a href="/search2/神奈川県">神奈川県</a></li>
+            </ul>
+
+            <form method="post" action="{{ url('search3') }}">
+            {{ csrf_field() }}
+                <input type="date" id="today" name="plan_date" value="yyyy-mm-dd" max="9999-12-31">
+                <button type="submit">検索</button>
+            </form>
+
+            <!-- 検索用リンクここまで↑ -->
+
+          </div>
+        </div>
       </div>
     </section>
 
-
-<!-- 検索用リンクここから↓ -->
-
-<ul>
-    <li><a href="/search1/白菜">白菜</a></li>
-    <li><a href="/search1/ほうれん草">ほうれん草</a></li>
-    <li><a href="/search1/人参">人参</a></li>
-    <li><a href="/search1/トマト">トマト</a></li>
-</ul>
-
-<ul>
-    <li><a href="/search2/茨城県">茨城県</a></li>
-    <li><a href="/search2/栃木県">栃木県</a></li>
-    <li><a href="/search2/群馬県">群馬県</a></li>
-    <li><a href="/search2/埼玉県">埼玉県</a></li>
-    <li><a href="/search2/千葉県">千葉県</a></li>
-    <li><a href="/search2/東京都">東京都</a></li>
-    <li><a href="/search2/神奈川県">神奈川県</a></li>
-</ul>
-
-
-  <form method="post" action="{{ url('search3') }}">
-  {{ csrf_field() }}
-      <input type="date" id="today" name="plan_date" value="yyyy-mm-dd" max="9999-12-31">
-      <button type="submit">検索</button>
-  </form>
-
-<!-- 検索用リンクここまで↑ -->
-
-
-
     <section>
-      <div class="select_wrapper d-flex flex-wrap justify-content-center">
+      <div class="main_center">
+        <h2>- プラン一覧 -</h2>
+      </div>
+      <div class="plan_wrapper d-flex flex-wrap justify-content-center">
         @foreach ($plans as $plan)
           <div class="select_box">
             <a href="/details/{{ $plan->id }}">
@@ -264,6 +263,23 @@
   <!-- <script type="text/javascript" src="js/bootstrap.bundle.js"></script> -->
   <script src="js/main.js"></script>
   <script src="js/tops.js"></script>
+
+  <!-- slicker -->
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('#swipe').slick({
+    slidesToShow:1,
+    slidesToScroll:1,
+    autoplay:true,
+    autoplaySpeed:3000,
+});
+});
+<script type="text/javascript" src="js/jquery.arctext.js"></script>
+  </script>
+  <script>
+    $arctext.arctext({radius: 300})
+  </script>
 </body>
 
 </html>

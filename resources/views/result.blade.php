@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="app.css" >
+    <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="result.css">
-
 
     <title>購入後画面</title>
   </head>
@@ -14,9 +14,12 @@
     <!-- headerはここから -->
     <header>
       <nav>
-        <div class="header">
+        <div class="header d-flex flex-row justify-content-between">
           <div class="logo">
             <img src="/img/logo.png" alt="AgDish">
+          </div>
+          <div class="logo">
+            <img src="/img/gotoeat.png" alt="AgDish">
           </div>
         </div>
       </nav>
