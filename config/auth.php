@@ -44,7 +44,12 @@ return [
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
-            'hash' => false,
+            // 'hash' => false,
+        ],
+        //admin追加
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
         ],
     ],
 
@@ -70,7 +75,11 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
-
+        //admin追加
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Admin::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

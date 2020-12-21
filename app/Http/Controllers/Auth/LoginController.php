@@ -26,7 +26,8 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    //ログインしたらmypageへ
+    protected $redirectTo = '/mypage';
 
     /**
      * Create a new controller instance.
@@ -36,5 +37,38 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+        //admin追加
+        $this->middleware('guest:admin')->except('logout');
     }
+
+     // 下記を追記する
+    public function showAdminLoginForm()
+    {
+        return view('auth.login', ['url' => 'admin']);
+    }
+
+    public function adminLogin(Request $request)
+    {
+        $this->validate($request, [
+            'name'   => 'required',
+            'password' => 'required|min:6'
+        ]);
+
+        if (Auth::guard('admin')->attempt(['name' => $request->name, 'password' => $request->password], $request->get('remember'))) {
+
+            return redirect()->intended('/admin');
+        }
+        return back()->withInput($request->only('name', 'remember'));
+    }
+
+    // protected function loggedOut(Request $request){
+    //     Auth::logout();
+
+    //         $this->guard()->logout();
+
+    //         $request->session()->invalidate();
+
+    //         return $this->loggedOut($request) ?: redirect('/tops');
+    // }
+
 }

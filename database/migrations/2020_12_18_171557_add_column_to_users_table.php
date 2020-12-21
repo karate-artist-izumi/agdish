@@ -15,7 +15,7 @@ class AddColumnToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->string('tell');  // 電話番号
+            $table->string('tell')->nullable();  // 電話番号
         });
     }
 
