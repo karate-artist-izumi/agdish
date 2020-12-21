@@ -11,7 +11,7 @@ array_push($cartData, [
       'quantity' => $data['adult'],
   ]);
   // もしこども人数が0ならarray_pushしない
-  if (!$data['child'] === 0) {
+  if (!$data['child'] == 0) {
     array_push($cartData, [
           'price_data'   => [
           'currency'     => 'JPY',
