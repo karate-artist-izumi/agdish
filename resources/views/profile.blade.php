@@ -43,6 +43,12 @@
             </a>
           </li>
           <li>
+            <a href="/mypage_favorite">
+            <i class="fas fa-history"></i>
+              <p>お気に入り</p>
+            </a>
+          </li>
+          <li>
             <a href="/mypage_old">
             <i class="fas fa-history"></i>
               <p>過去の購入履歴</p>
