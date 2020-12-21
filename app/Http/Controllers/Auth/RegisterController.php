@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+//admin追加
+use App\Admin;
+use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
@@ -29,7 +32,8 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    //登録をしたらtopsへ
+    protected $redirectTo = '/tops';
 
     /**
      * Create a new controller instance.
@@ -39,6 +43,8 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        //admin追加
+        $this->middleware('guest:admin');
     }
 
     /**
@@ -52,7 +58,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:4', 'confirmed'],
         ]);
     }
 
@@ -70,4 +76,29 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    //admin追加
+    protected function validatorAdmin(array $data)
+    {
+        return Validator::make($data, [
+            'name' => 'required|string|max:255',
+            'password' => 'required|string|min:4|confirmed',
+        ]);
+    }
+
+    public function showAdminRegisterForm()
+    {
+        return view('auth.register', ['url' => 'admin']);
+    }
+
+    protected function createAdmin(Request $request)
+    {
+        $this->validatorAdmin($request->all())->validate();
+        $admin = Admin::create([
+            'name' => $request['name'],
+            'password' => Hash::make($request['password']),
+        ]);
+        return redirect()->intended('login/admin');
+    }
+
 }
