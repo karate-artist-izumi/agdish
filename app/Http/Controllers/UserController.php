@@ -43,6 +43,15 @@ class UserController extends Controller
         // return view('mypage_new',['user' => $user, 'reservePlans' => $reservePlans]);
         return view('mypage_old',['user' => $user, 'oldPlans' => $oldPlans]);
     }
+    
+    //mypage_favorite
+    public function showUserFavorite(){
+
+        $user = \Auth::user();
+        // 省略
+        $favoritePlans = $user->favoritePlans;
+        return view('mypage_favorite',['user' => $user, 'favoritePlans' => $favoritePlans]);
+    }
 
     //profile
     public function showUserInfo(){

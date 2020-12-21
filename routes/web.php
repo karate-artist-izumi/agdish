@@ -62,6 +62,8 @@ Route::get('/mypage_new', 'UserController@showUserNew');
 
 Route::get('/mypage_old', 'UserController@showUserOld');
 
+Route::get('/mypage_favorite', 'UserController@showUserFavorite');
+
 Route::get('/profile', 'UserController@showUserInfo');
 
 Route::get('/profileedit', 'UserController@showUserEdit')->name('pe');

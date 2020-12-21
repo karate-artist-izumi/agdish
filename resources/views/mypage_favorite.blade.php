@@ -36,14 +36,14 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="active ">
-            <a href="#">
+          <li >
+            <a href="/mypage_new">
               <i class="fas fa-leaf"></i>
               <p>予約一覧</p>
             </a>
           </li>
-          <li>
-            <a href="/mypage_favorite">
+          <li class="active ">
+            <a href="/">
             <i class="fas fa-history"></i>
               <p>お気に入り</p>
             </a>
@@ -122,21 +122,21 @@
 
       <!-- Veu Field -->
       <div class="content container-fluid content-row">
-        <h5 class="ml-2 mb-2">予約一覧(プランの確認</h5>
+        <h5 class="ml-2 mb-2">お気に入りに追加したプラン</h5>
         <div class="card-group">
           <div class="row">
 
             <!-- 購入したプランを表示-->
-            @foreach($reservePlans as $reservePlan)
+            @foreach($favoritePlans as $favoritePlan)
             <div class="col-sm-6 col-lg-3">
               <div class="card" style="width: 14rem;">
                 <div class="card-body">
-                  <h5>{{ $reservePlan->plan_title }}</h5>
-                  <p class="card-title">開催日：{{ $reservePlan->plan_date }}</p>
-                  <p class="card-title">大人料金{{ $reservePlan->plan_adult_price }}円 × {{ $reservePlan->adult_kazu }}名様</p>
-                  <p class="card-title">こども料金{{ $reservePlan->plan_child_price }}円 × {{ $reservePlan->child_kazu }}名様</p>
-                  <p class="card-title">合計金額{{ $reservePlan->plan_adult_price * $reservePlan->adult_kazu + $reservePlan->plan_child_price * $reservePlan->child_kazu }}円</p>
-                  <a href="/details/{{ $reservePlan->id }}" class="btn btn-primary">詳細を確認する</a>
+                  <h5>{{ $favoritePlan->plan_title }}</h5>
+                  <p class="card-title">開催日：{{ $favoritePlan->plan_date }}</p>
+                  <p class="card-title">大人料金{{ $favoritePlan->plan_adult_price }}円 × {{ $favoritePlan->adult_kazu }}名様</p>
+                  <p class="card-title">こども料金{{ $favoritePlan->plan_child_price }}円 × {{ $favoritePlan->child_kazu }}名様</p>
+                  <p class="card-title">合計金額{{ $favoritePlan->plan_adult_price * $favoritePlan->adult_kazu + $favoritePlan->plan_child_price * $favoritePlan->child_kazu }}円</p>
+                  <a href="/details/{{ $favoritePlan->id }}" class="btn btn-primary">詳細を確認する</a>
                 </div>
               </div>
             </div>

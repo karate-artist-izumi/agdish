@@ -36,4 +36,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function plans()
+    {
+        return $this->belongsToMany('App\Plan')->withTimestamps();
+    }
+    public function favorites()
+    {
+        return $this->hasMany('App\Plan');
+    }
+
+    public function favoritePlans()
+{
+    return $this->belongsToMany('App\Plan', 'plan_user');
+}
 }
