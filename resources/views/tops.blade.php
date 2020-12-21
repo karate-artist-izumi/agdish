@@ -46,7 +46,7 @@
 
       <div class="header_center">
         <div class="header_message">
-          <p>トップメッセージ</p>
+          <p>トップメッセージ編集したよ!!!!!!!!!!!!</p>
         </div>
       </div>
 
