@@ -38,6 +38,7 @@
               <li><p>ログイン</p></li>
               <li><p>|</p></li>
               <li><p>ユーザー登録</p></li>
+              <li><img src="/img/gotoeat.png" alt=""></li>
             </ul>
           </div>
         </div>
@@ -59,34 +60,32 @@
 
             <form method="post" action="{{ url('searchs') }}" class="d-flex justify-content-end">
             {{ csrf_field() }}
-
-              <div class="search_cell">
-                <select class="select" name="small_place" id="pref">
-                  <option value="" selected>都道府県</option>
-                    <option value="茨城県">茨城県</option>
-                    <option value="栃木県">栃木県</option>
-                    <option value="群馬県">群馬県</option>
-                    <option value="埼玉県">埼玉県</option>
-                    <option value="千葉県">千葉県</option>
-                    <option value="東京都">東京都</option>
-                    <option value="神奈川県">神奈川県</option>
-                </select>
-              </div>
-              <div class="search_cell">
-                <select class="select" name="vegetable" id="veg">
-                  <option value="" selected>食材</option>
-                  <option value="白菜">白菜</option>
-                  <option value="ほうれん草">ほうれん草</option>
-                  <option value="人参">人参</option>
-                  <option value="トマト">トマト</option>
-                </select>
-              </div>
-              <div class="search_cell">
-                <input type="date" name="plan_date" value="yyyy-mm-dd" max="9999-12-31">
-              </div>
-              <div class="search_cell">
-                <button type="submit">検索</button>
-              </div>
+        
+                <div class="search_cell select_wrapper center">
+                  <select class="select custom-select sources" name="small_place" id="source" placeholder="都道府県">
+                      <option value="茨城県">茨城県</option>
+                      <option value="栃木県">栃木県</option>
+                      <option value="群馬県">群馬県</option>
+                      <option value="埼玉県">埼玉県</option>
+                      <option value="千葉県">千葉県</option>
+                      <option value="東京都">東京都</option>
+                      <option value="神奈川県">神奈川県</option>
+                  </select>
+                </div>
+                <div class="search_cell select_wrapper center">
+                  <select class="select custom-select sources" name="vegetable" id="source" placeholder="食材">
+                    <option value="白菜">白菜</option>
+                    <option value="ほうれん草">ほうれん草</option>
+                    <option value="人参">人参</option>
+                    <option value="トマト">トマト</option>
+                  </select>
+                </div>
+                <div class="search_cell calender">
+                  <label><input type="date" name="plan_date" value="yyyy-mm-dd" max="9999-12-31"></label>
+                </div>
+                <div class="search_cell">
+                  <button type="submit">検索</button>
+                </div>
               
             </form>
           </div>
@@ -98,13 +97,18 @@
 
   <main>
 
-    <section>
+    <!--  videoは外す（一応残しとく）-->
+
+    <!-- <section>
       <div class="main_top">
         <div class="video_container">
           <video id="video" src="upload/agdish01.mp4" type="vdeo/mp4"autoplay loop muted></video>
         </div>
       </div>
-    </section>
+    </section> -->
+
+    <!--  videoは外す（一応残しとく）-->
+
 
     <section>
       <div class="info">

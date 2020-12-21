@@ -15,9 +15,12 @@
   <body>
     <header>
       <nav>
-        <div class="header">
+        <div class="header d-flex flex-row justify-content-between">
           <div class="logo">
             <img src="/img/logo.png" alt="AgDish">
+          </div>
+          <div class="logo">
+            <img src="/img/gotoeat.png" alt="AgDish">
           </div>
         </div>
       </nav>
