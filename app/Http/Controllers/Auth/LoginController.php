@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+use Illuminate\Http\Request;
+use Auth;
+
 class LoginController extends Controller
 {
     /*
@@ -51,7 +54,7 @@ class LoginController extends Controller
     {
         $this->validate($request, [
             'name'   => 'required',
-            'password' => 'required|min:6'
+            'password' => 'required|min:4'
         ]);
 
         if (Auth::guard('admin')->attempt(['name' => $request->name, 'password' => $request->password], $request->get('remember'))) {
@@ -61,14 +64,10 @@ class LoginController extends Controller
         return back()->withInput($request->only('name', 'remember'));
     }
 
-    // protected function loggedOut(Request $request){
-    //     Auth::logout();
+    protected function loggedOut(Request $request){
 
-    //         $this->guard()->logout();
+        redirect('/tops');
 
-    //         $request->session()->invalidate();
-
-    //         return $this->loggedOut($request) ?: redirect('/tops');
-    // }
+    }
 
 }
