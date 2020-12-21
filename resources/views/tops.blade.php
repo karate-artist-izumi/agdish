@@ -7,8 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>TOP</title>
-  <link rel="stylesheet" type="text/css" href="{{asset('/css/slick.css')}}"/>
-  <link rel="stylesheet" type="text/css" href="{{asset('/css/slick_theme.css')}}"/>
+
   <link href="{{asset('/css/app.css')}}" rel="stylesheet">
   <link href="{{asset('/css/main.css')}}" rel="stylesheet">
   
@@ -102,34 +101,38 @@
     <section>
       <div class="info">
 
-        <div class="info_container d-flex flex-row justify-content-between w-100">
+        <div class="info_container d-flex flex-row justify-content-start w-100">
+
           <div class="info_left w-60">
             <h2>- 特集 -</h2>
             <img src="/img/info.jpg" alt="">
             <p id="arctext" class="arctext_1">まるでフルーツ？</p>
-            <p id="arctext_2" class="arctext_2">トマト嫌いでも食べられると噂のトマトの秘密を探る</p>
+            <p id="arctext_2" class="arctext_2">トマト嫌いでも食べられると噂のトマトの秘密を探る！</p>
           </div>
+
           <div class="info_right w-40">
+            
+              <h2>- 旬の野菜 -</h2>
+              <ul>
+                <li><a href="/search1/白菜">白菜</a></li>
+                <li><a href="/search1/ほうれん草">ほうれん草</a></li>
+                <li><a href="/search1/人参">人参</a></li>
+                <li><a href="/search1/トマト">トマト</a></li>
+              </ul>
+              <h2>- 関東地方 -</h2>
+              <ul>
+                <li><a href="/search2/茨城県">茨城県</a></li>
+                <li><a href="/search2/栃木県">栃木県</a></li>
+                <li><a href="/search2/群馬県">群馬県</a></li>
+                <li><a href="/search2/埼玉県">埼玉県</a></li>
+                <li><a href="/search2/千葉県">千葉県</a></li>
+                <li><a href="/search2/東京都">東京都</a></li>
+                <li><a href="/search2/神奈川県">神奈川県</a></li>
+              </ul>
+            
+              <h2>- 日程 -</h2>
 
-            <!-- 検索用リンクこposition: absolute;こから↓ -->
-
-            <ul>
-              <li><a href="/search1/白菜">白菜</a></li>
-              <li><a href="/search1/ほうれん草">ほうれん草</a></li>
-              <li><a href="/search1/人参">人参</a></li>
-              <li><a href="/search1/トマト">トマト</a></li>
-            </ul>
-
-            <ul>
-              <li><a href="/search2/茨城県">茨城県</a></li>
-              <li><a href="/search2/栃木県">栃木県</a></li>
-              <li><a href="/search2/群馬県">群馬県</a></li>
-              <li><a href="/search2/埼玉県">埼玉県</a></li>
-              <li><a href="/search2/千葉県">千葉県</a></li>
-              <li><a href="/search2/東京都">東京都</a></li>
-              <li><a href="/search2/神奈川県">神奈川県</a></li>
-            </ul>
-
+          
             <form method="post" action="{{ url('search3') }}">
             {{ csrf_field() }}
                 <input type="date" id="today" name="plan_date" value="yyyy-mm-dd" max="9999-12-31">
@@ -164,8 +167,16 @@
                   <p>{{ $plan->title }}</p>
                 </div>
 
+                <div id="details">
+                  <p>{{ $plan->description }}</p>
+                </div>
+
                 <div id="place">
                   <p>開催場所：{{ $plan->small_place }}</p> 
+                </div>
+
+                <div id="date">
+                  <p>開催日時：{{ $plan->plan_date }}</p>
                 </div>
 
                 <div id="adult_price">
@@ -174,10 +185,6 @@
 
                 <div id="child_price">
                   <p>子供料金：{{ $plan->child_price }}円</p>
-                </div>
-          
-                <div id="details">
-                  <p>{{ $plan->description }}</p>
                 </div>
 
               </div>
