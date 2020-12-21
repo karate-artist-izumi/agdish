@@ -17,10 +17,10 @@
       <nav>
         <div class="header d-flex flex-row justify-content-between">
           <div class="logo">
-            <img src="/img/logo.png" alt="AgDish">
+          <a href="/tops"><img src="/img/logo.png" alt="AgDish"></a>
           </div>
           <div class="logo">
-            <img src="/img/gotoeat.png" alt="AgDish">
+          <a href="/mypage_new"><img src="/img/gotoeat.png" alt="AgDish"></a>
           </div>
         </div>
       </nav>

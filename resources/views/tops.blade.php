@@ -36,10 +36,22 @@
           </div>
           <div class="header_right w-50">
             <ul class="d-flex flex-row justify-content-end">
-              <li><p>ログイン</p></li>
-              <li><p>|</p></li>
-              <li><p>ユーザー登録</p></li>
-              <li><img src="/img/gotoeat.png" alt=""></li>
+            @if(Auth::id())
+              <a href="/mypage_new">マイページ</a>
+              @else
+              <a class="nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a>
+              <a class="nav-link" href="{{ route('register') }}">{{ __('新規登録') }}</a>
+              @endif
+              <!-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="{{ route('logout') }}"
+                      onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();">
+                      {{ __('ログアウト') }}
+                  </a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      @csrf
+                  </form>
+              </div> -->
             </ul>
           </div>
         </div>
