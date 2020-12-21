@@ -39,19 +39,19 @@
           <li class="active ">
             <a href="#">
               <i class="fas fa-leaf"></i>
-              <p>購入履歴</p>
+              <p>予約一覧</p>
+            </a>
+          </li>
+          <li>
+            <a href="/mypage_old">
+            <i class="fas fa-history"></i>
+              <p>過去の購入履歴</p>
             </a>
           </li>
           <li>
             <a href="/profile">
             <i class="far fa-user-circle"></i>
               <p>プロフィール</p>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <i class="nc-icon nc-pin-3"></i>
-              <p>テスト2</p>
             </a>
           </li>
         </ul>
@@ -90,7 +90,7 @@
 
             <ul class="navbar-nav">
               <li class="nav-item btn-rotate dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="far fa-bell"></i>
 
                   <p>
@@ -98,14 +98,14 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                      <a class="dropdown-item" href="{{ route('logout') }}"
-                          onclick="event.preventDefault();
-                          document.getElementById('logout-form').submit();">
-                          {{ __('ログアウト') }}
-                      </a>
-                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                          @csrf
-                      </form>
+                  <a class="dropdown-item" href="{{ route('logout') }}"
+                      onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();">
+                      {{ __('ログアウト') }}
+                  </a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      @csrf
+                  </form>
                 </div>
               </li>
             </ul>
@@ -116,7 +116,7 @@
 
       <!-- Veu Field -->
       <div class="content container-fluid content-row">
-        <h5 class="ml-2 mb-2"><a href="#" >購入履歴(プランの確認)</a></h5>
+        <h5 class="ml-2 mb-2">予約一覧(プランの確認</h5>
         <div class="card-group">
           <div class="row">
 
