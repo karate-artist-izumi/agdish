@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>検索結果</title>
-  <link href="{{asset('/css/main.css')}}" rel="stylesheet">
   <link href="{{asset('/css/app.css')}}" rel="stylesheet">
+  <link href="{{asset('/css/main.css')}}" rel="stylesheet">
 
   <!-- GoogleFonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -30,7 +30,6 @@
             <ul class="d-flex flex-row justify-content-start">
               <li><img src="/img/logo.png" alt=""></li>
               <li><p>アグディッシュ</p></li>
-              <li><p>キャッチコピー</p> </li>
             </ul>
           </div>
           <div class="header_right w-50">
@@ -45,7 +44,49 @@
 
       <div class="header_center">
         <div class="header_message">
-          <p>トップメッセージ</p>
+          <p><span>ワクワク</span>と体験を</p>
+        </div>
+      </div>
+
+      <div class="header_bottom">
+        <div class="search_box d-flex justify-content-between">
+          <div class="search_box_left">
+            <h2 class="search_title">都道府県・食材・日時から探す</h2>
+          </div>
+          <div class="search_box_right">
+
+
+            <form method="post" action="{{ url('searchs') }}" class="d-flex justify-content-end">
+            {{ csrf_field() }}
+        
+                <div class="search_cell select_wrapper center">
+                  <select class="select custom-select sources" name="small_place" id="source" placeholder="都道府県">
+                      <option value="茨城県">茨城県</option>
+                      <option value="栃木県">栃木県</option>
+                      <option value="群馬県">群馬県</option>
+                      <option value="埼玉県">埼玉県</option>
+                      <option value="千葉県">千葉県</option>
+                      <option value="東京都">東京都</option>
+                      <option value="神奈川県">神奈川県</option>
+                  </select>
+                </div>
+                <div class="search_cell select_wrapper center">
+                  <select class="select custom-select sources" name="vegetable" id="source" placeholder="食材">
+                    <option value="白菜">白菜</option>
+                    <option value="ほうれん草">ほうれん草</option>
+                    <option value="人参">人参</option>
+                    <option value="トマト">トマト</option>
+                  </select>
+                </div>
+                <div class="search_cell calender">
+                  <label><input type="date" name="plan_date" value="yyyy-mm-dd" max="9999-12-31"></label>
+                </div>
+                <div class="search_cell">
+                  <button type="submit">検索</button>
+                </div>
+              
+            </form>
+          </div>
         </div>
       </div>
 
@@ -54,15 +95,6 @@
   </header>
 
   <main>
-
-
-
-    <!-- <section>
-      <div class="info">
-
-      </div>
-    </section> -->
-
     <section>
       <div class="select_wrapper d-flex flex-wrap justify-content-center">
         @foreach ($plans as $plan)
@@ -81,16 +113,24 @@
                   <p>{{ $plan->title }}</p>
                 </div>
 
+                <div id="details">
+                  <p>{{ $plan->description }}</p>
+                </div>
+
                 <div id="place">
                   <p>開催場所：{{ $plan->small_place }}</p>
                 </div>
 
-                <div id="price">
-                  <p>金額：{{ $plan->price }}円</p>
+                <div id="date">
+                  <p>開催日時：{{ $plan->plan_date }}</p>
                 </div>
-
+          
                 <div id="details">
                   <p>{{ $plan->description }}</p>
+                </div>
+
+                <div id="child_price">
+                  <p>子供料金：{{ number_format($plan->child_price) }}円</p>
                 </div>
 
               </div>
