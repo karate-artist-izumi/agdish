@@ -44,7 +44,7 @@
           </li>
           <li>
             <a href="/mypage_favorite">
-            <i class="fas fa-history"></i>
+            <i class="fas fa-seedling"></i>
               <p>お気に入り</p>
             </a>
           </li>
@@ -132,7 +132,8 @@
               <div class="card" style="width: 14rem;">
                 <div class="card-body">
                   <h5>{{ $oldPlan->plan_title }}</h5>
-                  <p class="card-title">開催日：{{ $oldPlan->plan_date }}</p>
+                  <?php $date = date("Y-m-d",strtotime($reservePlan->plan_date)) ?>
+                  <p class="card-title">開催日：{{ $date }}</p>
                   <p class="card-title">大人料金{{ $oldPlan->plan_adult_price }}円 × {{ $oldPlan->adult_kazu }}名様</p>
                   <p class="card-title">こども料金{{ $oldPlan->plan_child_price }}円 × {{ $oldPlan->child_kazu }}名様</p>
                   <p class="card-title">合計金額{{ $oldPlan->plan_adult_price * $oldPlan->adult_kazu + $oldPlan->plan_child_price * $oldPlan->child_kazu }}円</p>
