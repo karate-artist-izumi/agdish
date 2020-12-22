@@ -121,7 +121,7 @@
                     <p>大人料金</p>
                   </div>
                   <div>
-                    <p>{{ $plan->adult_price }}</p>
+                    <p>{{ number_format($plan->adult_price) }}円</p>
                   </div>
                 </div>
                 <div class="info_cell d-flex flex-row">
@@ -129,7 +129,7 @@
                     <p>子供料金</p>
                   </div>
                   <div>
-                    <p>{{ $plan->child_price }}</p>
+                    <p>{{ number_format($plan->child_price) }}円</p>
                   </div>
                 </div>
               </div>
