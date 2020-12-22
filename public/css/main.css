@@ -52,6 +52,10 @@ header {
   padding-top: 25px;
 }
 
+.header_left p{
+  font-family: 'Kosugi Maru', sans-serif;
+}
+
 .header_left li:first-child {
   padding-top: 10px;
 }
@@ -63,8 +67,17 @@ header {
 .header_right li {
   list-style: none;
   padding-right: 20px;
-  color: grey;
   padding-top: 20px;
+}
+
+.header_right a {
+  color:grey;
+  padding-right: 20px;
+  padding-top: 30px;
+}
+
+a.nav-link {
+  color: grey;
 }
 
 .header_right li:last-child {
@@ -92,7 +105,7 @@ header {
 
 .header_message {
   height: 100px;
-  width: 50%;
+  width: 60%;
   margin: 0 auto;
   background: rgba(0, 0, 0, 0);
 }
@@ -103,9 +116,7 @@ header {
   font-size: 60px;
   text-align: center;
   font-weight: bold;
-  animation-name: fadeIn;
-  animation-duration: 2s;
-  animation-iteration-count: 1;
+  color:white;
 }
 @keyframes fadeIn {
   from {
@@ -117,6 +128,17 @@ header {
     transform: translateY(0);
   }
 }
+
+.header_message span{
+  font-family: "Nico Moji";
+  font-size:120px;
+  color: #FF7C00;
+  color: #FF8C00;
+  background: -webkit-linear-gradient(0deg, #40E0D0, #FF8C00, #FF0080);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 
 .header_bottom {
   position: absolute;
@@ -285,6 +307,7 @@ header {
 .select{
   width:150px;
   padding:10px;
+  border:none;
 }
 
 .select:last-child{
@@ -398,6 +421,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   max-width:100%;
   max-height:100%;
 }
+
 .arctext_1{
   position: absolute;
   color: white;
@@ -583,3 +607,22 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 
 /* footer end */
+
+/* register用 */
+
+.login_container{
+  padding-top:50px !important;
+}
+
+/* profile用 */
+
+.izumi{
+  width:800px;
+  margin:100px auto;
+}
+
+.izumi img{
+  width:600px;
+  margin-top:25px;
+}
+

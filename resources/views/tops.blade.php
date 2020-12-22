@@ -15,6 +15,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
 
+  <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet" />
+
+
+
 </head>
 <!-- 最初の設定は終わっています　必要な方は触ってください -->
 
@@ -31,7 +37,6 @@
             <ul class="d-flex flex-row justify-content-start">
               <li><img src="/img/logo.png" alt=""></li>
               <li><p>アグディッシュ</p></li>
-              <li><p>キャッチコピー</p> </li>
             </ul>
           </div>
           <div class="header_right w-50">
@@ -39,19 +44,20 @@
             @if(Auth::id())
               <a href="/mypage_new">マイページ</a>
               @else
-              <a class="nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a>
-              <a class="nav-link" href="{{ route('register') }}">{{ __('新規登録') }}</a>
+              <li><a class="nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a></li>
+              <li><a class="nav-link" href="{{ route('register') }}">{{ __('新規登録') }}</a></li>
               @endif
-              <!-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="{{ route('logout') }}"
-                      onclick="event.preventDefault();
-                      document.getElementById('logout-form').submit();">
-                      {{ __('ログアウト') }}
-                  </a>
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                      @csrf
-                  </form>
-              </div> -->
+              <!--  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="{{ route('logout') }}"
+                          onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();">
+                          {{ __('ログアウト') }}
+                      </a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                          @csrf
+                      </form>
+                    </div> -->
+              <li><img src="/img/gotoeat.png" alt="AgDish"></li>
             </ul>
           </div>
         </div>
@@ -59,7 +65,7 @@
 
       <div class="header_center">
         <div class="header_message">
-          <p>トップメッセージ編集したよ!!!!!!!!!!!!</p>
+          <p><span>ワクワク</span>と体験を</p>
         </div>
       </div>
 
@@ -118,7 +124,7 @@
           <div class="info_left w-60">
             <h2>- 特集 -</h2>
             <img src="/img/info.jpg" alt="">
-            <p id="arctext" class="arctext_1">まるでフルーツ？</p>
+            <p id="arctext_1" class="arctext_1">まるでフルーツ？</p>
             <p id="arctext_2" class="arctext_2">トマト嫌いでも食べられると噂のトマトの秘密を探る！</p>
           </div>
 
@@ -249,13 +255,13 @@
           </div>
           <div class="footer_list">
             <ul class="">
-                <li><a href="/about">運営会社</a></li>
+                <li><a href="/abouts">運営会社</a></li>
                 <li><a href="#">よくある質問</a></li>
                 <li><a href="#">お問い合わせ</a></li>
                 <li><a href="#">利用規約</a></li>
                 <li><a href="#">プライバシーポリシー</a></li>
                 <li><a href="#" target="_blank" rel="noopener">特定商取引法</a></li>
-                <li><a href="#" target="_blank" rel="noopener">採用情報</a></li>
+                <li><a href="/abouts" target="_blank" rel="noopener">採用情報</a></li>
               </ul>
           </div>
         </div>
@@ -297,7 +303,7 @@
 <script type="text/javascript" src="js/jquery.arctext.js"></script>
   </script>
   <script>
-    $arctext.arctext({radius: 300})
+    $arctext_1.arctext({radius: 300})
   </script>
 </body>
 
