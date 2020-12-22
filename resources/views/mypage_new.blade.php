@@ -44,7 +44,7 @@
           </li>
           <li>
             <a href="/mypage_favorite">
-            <i class="fas fa-history"></i>
+              <i class="fas fa-seedling"></i>
               <p>お気に入り</p>
             </a>
           </li>
@@ -103,6 +103,7 @@
                     <span class="d-lg-none d-md-block">ユーザー情報</span>
                   </p>
                 </a>
+                
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                   <a class="dropdown-item" href="{{ route('logout') }}"
                       onclick="event.preventDefault();
@@ -132,7 +133,8 @@
               <div class="card" style="width: 14rem;">
                 <div class="card-body">
                   <h5>{{ $reservePlan->plan_title }}</h5>
-                  <p class="card-title">開催日：{{ $reservePlan->plan_date }}</p>
+                  <?php $date = date("Y-m-d",strtotime($reservePlan->plan_date)) ?>
+                  <p class="card-title">開催日：{{ $date }}</p>
                   <p class="card-title">大人料金{{ $reservePlan->plan_adult_price }}円 × {{ $reservePlan->adult_kazu }}名様</p>
                   <p class="card-title">こども料金{{ $reservePlan->plan_child_price }}円 × {{ $reservePlan->child_kazu }}名様</p>
                   <p class="card-title">合計金額{{ $reservePlan->plan_adult_price * $reservePlan->adult_kazu + $reservePlan->plan_child_price * $reservePlan->child_kazu }}円</p>
