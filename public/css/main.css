@@ -307,6 +307,7 @@ a.nav-link {
 .select{
   width:150px;
   padding:10px;
+  border:none;
 }
 
 .select:last-child{
@@ -614,4 +615,14 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 
 /* profile用 */
+
+.izumi{
+  width:800px;
+  margin:100px auto;
+}
+
+.izumi img{
+  width:600px;
+  margin-top:25px;
+}
 
