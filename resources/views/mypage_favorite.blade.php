@@ -134,7 +134,7 @@
               <div class="card d-flex flex-column w-100">
                 <div class="card-body gakuamano">
                   <h5>{{ $favoritePlan->plan_title }}</h5>
-                  <?php $date = date("Y-m-d",strtotime($reservePlan->plan_date)) ?>
+                  <?php $date = date("Y-m-d",strtotime($favoritePlan->plan_date)) ?>
                   <p class="card-title">開催日：{{ $date }}</p>
                   <p class="card-title">大人料金{{ $favoritePlan->plan_adult_price }}円 × {{ $favoritePlan->adult_kazu }}名様</p>
                   <p class="card-title">こども料金{{ $favoritePlan->plan_child_price }}円 × {{ $favoritePlan->child_kazu }}名様</p>
