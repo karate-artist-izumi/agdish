@@ -76,7 +76,6 @@
         
                 <div class="search_cell select_wrapper center">
                   <select class="select custom-select sources" name="small_place" id="source" placeholder="都道府県">
-                      <option value="">選択してください</option>
                       <option value="茨城県">茨城県</option>
                       <option value="栃木県">栃木県</option>
                       <option value="群馬県">群馬県</option>
@@ -88,7 +87,6 @@
                 </div>
                 <div class="search_cell select_wrapper center">
                   <select class="select custom-select sources" name="vegetable" id="source" placeholder="食材">
-                    <option value="">選択してください</option>
                     <option value="白菜">白菜</option>
                     <option value="ほうれん草">ほうれん草</option>
                     <option value="人参">人参</option>
