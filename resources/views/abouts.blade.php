@@ -118,7 +118,7 @@
     <section>
       <div class="d-flex flex-column izumi">
         <div>
-          <img src="/img/kaigi1.jpg" alt="">
+          <img src="/img/kaigi1.JPG" alt="">
         </div>
         <div>
           <img src="/img/kaigi2.jpg" alt="">
