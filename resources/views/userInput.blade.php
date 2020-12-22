@@ -33,12 +33,12 @@ $session = $stripe->checkout->sessions->create([
   'line_items' => [$cartData],
   'mode' => 'payment',
   // 本番のサイトURLを入力
-  // 'success_url' => 'http://agdish.jeez.jp/buy/result?session_id={CHECKOUT_SESSION_ID}',
-  // 'cancel_url' => 'http://agdish.jeez.jp/buy/result?session_id={CHECKOUT_SESSION_ID}',
+  'success_url' => 'http://agdish.jeez.jp/buy/result?session_id={CHECKOUT_SESSION_ID}',
+  'cancel_url' => 'http://agdish.jeez.jp/buy/result?session_id={CHECKOUT_SESSION_ID}',
 
   // ローカル時のURLを入力
-  'success_url' => 'http://localhost/buy/result?session_id={CHECKOUT_SESSION_ID}',
-  'cancel_url' => 'http://localhost/buy/result?session_id={CHECKOUT_SESSION_ID}',
+  // 'success_url' => 'http://localhost/buy/result?session_id={CHECKOUT_SESSION_ID}',
+  // 'cancel_url' => 'http://localhost/buy/result?session_id={CHECKOUT_SESSION_ID}',
 ]);
 
 ?>
