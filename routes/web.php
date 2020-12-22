@@ -9,6 +9,9 @@ Route::get('/books', 'PlansController@search');
 //topページ
 Route::get('/tops', 'PlansController@top');
 
+//aboutページ
+Route::get('/abouts', 'PlansController@about');
+
 //詳細ページ
 Route::get('/details/{id}', 'PlansController@detail')->name('details');
 

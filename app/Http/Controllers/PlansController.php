@@ -16,6 +16,11 @@ class PlansController extends Controller
         return view('tops',['plans' => $plans]);
     }
 
+    //aboutページ
+    public function about(){
+        return view('abouts');
+    }
+
     //詳細ページ
     public function detail($id){
         $plan = Plan::find($id);

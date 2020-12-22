@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>ログイン</title>
-  <link href="{{asset('/css/main.css')}}" rel="stylesheet">
+  
   <link href="{{asset('/css/app.css')}}" rel="stylesheet">
+  <link href="{{asset('/css/main.css')}}" rel="stylesheet">
 
   <!-- GoogleFonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -24,12 +25,12 @@
                 <ul class="d-flex flex-row justify-content-start">
                 <li><img src="/img/logo.png" alt=""></li>
                 <li><p>アグディッシュ</p></li>
-                <li><p>キャッチコピー</p> </li>
                 </ul>
             </div>
             <div class="header_right w-50">
                 <ul class="d-flex flex-row justify-content-end">
                 <li><p><a href="/tops">トップページへ戻る</a></p></li>
+                <li></li>
                 </ul>
             </div>
             </div>
@@ -38,7 +39,7 @@
     </header>
 
     <main>
-        <div class="container">
+        <div class="login_container" style="padding-top:50px;">
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">

@@ -115,101 +115,8 @@
   </header>
 
   <main>
-
     <section>
-      <div class="info">
-
-        <div class="info_container d-flex flex-row justify-content-start w-100">
-
-          <div class="info_left w-60">
-            <h2>- 特集 -</h2>
-            <img src="/img/info.jpg" alt="">
-            <p id="arctext_1" class="arctext_1">まるでフルーツ？</p>
-            <p id="arctext_2" class="arctext_2">トマト嫌いでも食べられると噂のトマトの秘密を探る！</p>
-          </div>
-
-          <div class="info_right w-40">
-            
-              <h2>- 旬の野菜 -</h2>
-              <ul>
-                <li><a href="/search1/白菜">白菜</a></li>
-                <li><a href="/search1/ほうれん草">ほうれん草</a></li>
-                <li><a href="/search1/人参">人参</a></li>
-                <li><a href="/search1/トマト">トマト</a></li>
-              </ul>
-              <h2>- 関東地方 -</h2>
-              <ul>
-                <li><a href="/search2/茨城県">茨城県</a></li>
-                <li><a href="/search2/栃木県">栃木県</a></li>
-                <li><a href="/search2/群馬県">群馬県</a></li>
-                <li><a href="/search2/埼玉県">埼玉県</a></li>
-                <li><a href="/search2/千葉県">千葉県</a></li>
-                <li><a href="/search2/東京都">東京都</a></li>
-                <li><a href="/search2/神奈川県">神奈川県</a></li>
-              </ul>
-            
-              <h2>- 日程 -</h2>
-
-          
-            <form method="post" action="{{ url('search3') }}">
-            {{ csrf_field() }}
-                <input type="date" id="today" name="plan_date" value="yyyy-mm-dd" max="9999-12-31">
-                <button type="submit">検索</button>
-            </form>
-
-            <!-- 検索用リンクここまで↑ -->
-
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="main_center">
-        <h2>- プラン一覧 -</h2>
-      </div>
-      <div class="plan_wrapper d-flex flex-wrap justify-content-center">
-        @foreach ($plans as $plan)
-          <div class="select_box">
-            <a href="/details/{{ $plan->id }}">
-              <div class="select_cell d-flex flex-column">
-
-                <div class="select_img"> 
-                  <img src="upload/{{ $plan->ag_photo }}" alt="">
-                </div>
-                <div class="select_img">
-                  <img src="upload/{{ $plan->dish_photo }}" alt="">
-                </div>
-
-                <div id="select_text">
-                  <p>{{ $plan->title }}</p>
-                </div>
-
-                <div id="details">
-                  <p>{{ $plan->description }}</p>
-                </div>
-
-                <div id="place">
-                  <p>開催場所：{{ $plan->small_place }}</p> 
-                </div>
-
-                <div id="date">
-                  <p>開催日時：{{ $plan->plan_date }}</p>
-                </div>
-
-                <div id="adult_price">
-                  <p>大人料金：{{ number_format($plan->adult_price) }}円</p>
-                </div>
-
-                <div id="child_price">
-                  <p>子供料金：{{ number_format($plan->child_price) }}円</p>
-                </div>
-
-              </div>
-            </a>
-          </div>
-        @endforeach
-      </div>
+      <img src="/img/info.jpg" alt="">
     </section>
   </main>
 
@@ -255,13 +162,13 @@
           </div>
           <div class="footer_list">
             <ul class="">
-                <li><a href="/abouts">運営会社</a></li>
+                <li><a href="/about">運営会社</a></li>
                 <li><a href="#">よくある質問</a></li>
                 <li><a href="#">お問い合わせ</a></li>
                 <li><a href="#">利用規約</a></li>
                 <li><a href="#">プライバシーポリシー</a></li>
                 <li><a href="#" target="_blank" rel="noopener">特定商取引法</a></li>
-                <li><a href="/abouts" target="_blank" rel="noopener">採用情報</a></li>
+                <li><a href="/about/" target="_blank" rel="noopener">採用情報</a></li>
               </ul>
           </div>
         </div>

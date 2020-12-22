@@ -15,6 +15,9 @@
   <!-- CSS Files -->
   <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('css/paper-dashboard.css?v=2.0.1') }}" rel="stylesheet">
+  <link href="{{asset('/css/main.css')}}" rel="stylesheet">
+  
+
 </head>
 
 <body class="">
@@ -123,22 +126,27 @@
       <!-- Veu Field -->
       <div class="content container-fluid content-row">
         <h5 class="ml-2 mb-2">ご登録情報</h5>
-        <div class="card-group">
+        <div class="card-group d-flex flex-column">
             <!-- お客様の情報を表示-->
-          <table>
-            <tr>
-              <th>お名前</th><td>{{$user->name}}</td>
-            </tr>
-            <tr>
-              <th>メールアドレス</th><td>{{$user->email}}</td>
-            </tr>
-            <tr>
-              <th>電話番号</th><td>{{$user->tell}}</td>
-            </tr>
-          </table>
+            <div class="profile_info">
+              <table>
+              <tr>
+                <th>お名前</th><td>{{$user->name}}</td>
+              </tr>
+              <tr>
+                <th>メールアドレス</th><td>{{$user->email}}</td>
+              </tr>
+              <tr>
+                <th>電話番号</th><td>{{$user->tell}}</td>
+              </tr>
+              </table>
+            </div>
+            <div>
               <a href="{{ url('profileedit') }}" class="btn btn-primary">
                 お客様情報を変更する
               </a>
+            </div>
+              
             <!-- お客様の情報を表示-->
         </div>
       </div>
