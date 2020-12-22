@@ -15,7 +15,7 @@
   <!-- CSS Files -->
   <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('css/paper-dashboard.css?v=2.0.1') }}" rel="stylesheet">
-  <link href="{{ asset('css/common.css') }}" rel="stylesheet">
+  <!-- <link href="{{ asset('css/common.css') }}" rel="stylesheet"> -->
 
 </head>
 
@@ -46,7 +46,7 @@
           </li>
           <li class="active ">
             <a href="/">
-            <i class="fas fa-history"></i>
+            <i class="fas fa-seedling"></i>
               <p>お気に入り</p>
             </a>
           </li>
@@ -134,7 +134,8 @@
               <div class="card d-flex flex-column w-100">
                 <div class="card-body gakuamano">
                   <h5>{{ $favoritePlan->plan_title }}</h5>
-                  <p class="card-title">開催日：{{ $favoritePlan->plan_date }}</p>
+                  <?php $date = date("Y-m-d",strtotime($reservePlan->plan_date)) ?>
+                  <p class="card-title">開催日：{{ $date }}</p>
                   <p class="card-title">大人料金{{ $favoritePlan->plan_adult_price }}円 × {{ $favoritePlan->adult_kazu }}名様</p>
                   <p class="card-title">こども料金{{ $favoritePlan->plan_child_price }}円 × {{ $favoritePlan->child_kazu }}名様</p>
                   <p class="card-title">合計金額{{ $favoritePlan->plan_adult_price * $favoritePlan->adult_kazu + $favoritePlan->plan_child_price * $favoritePlan->child_kazu }}円</p>
