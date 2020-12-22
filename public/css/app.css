@@ -4413,6 +4413,7 @@ input[type=button].btn-block {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
+  color:grey;
 }
 
 .nav-link:hover,
@@ -7503,6 +7504,7 @@ button.bg-dark:focus {
 
 .justify-content-center {
   justify-content: center !important;
+  padding-top:50px;
 }
 
 .justify-content-between {

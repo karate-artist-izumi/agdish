@@ -54,6 +54,11 @@ body {
   height:280px;
 }
 
+.info_cell{
+  padding-right:30px;
+}
+
+
 .info_pic{
   padding:0px 30px 20px 0px;
 }
@@ -66,7 +71,7 @@ body {
 /* d-flexの左側 */
 
 .map{
-  padding-bottom:30px;
+  padding-bottom:0px;
 }
 
 .reservation{
@@ -215,3 +220,24 @@ button:hover:before,button:hover:after{
 }
 
 /* footer end */
+
+/* ogawa_button */
+
+.ogawa_button{
+  padding-top:10px !important;
+  margin-left:250px;
+}
+
+/* 経路検索 */
+
+.route_map{
+  margin-top:20px;
+}
+
+.route_map i{
+  font-size:32px
+}
+.route_map a{
+  font-size:32px;
+  text-align:center;
+}

@@ -31,33 +31,35 @@
           <div class="info d-flex flex-row">
 
             <div class="plan_info d-flex flex-column w-55">
-
-              <div>
-                <p style="font-weight:bold; font-size:32px">店舗情報</p>
-              </div>
-
-              <!-- 以下おがわお気に入りボタンテスト -->
-              @if(Auth::id())
-              <div style="margin-bottom:30px;" class="row justify-content-center">
-              @if(!$plan->users()->where('user_id', Auth::id())->exists())
-                <div class="col-md-3"> 
-                  <form action="{{ route('favorites', $plan) }}" method="POST">
-                    @csrf
-                    <input type="submit" value="&#xf004;お気に入りに追加する" class="fas btn btn-danger">
-                  </form>
+              <div class="d-flex flex-row">
+                <div>
+                  <p style="font-weight:bold; font-size:32px">店舗情報</p>
                 </div>
-              @else
-                <div class="col-md-3">
-                  <form action="{{ route('unfavorites', $plan) }}" method="POST">
-                    @csrf
-                    <input type="submit" value="&#xf004;お気に入りを取り消す" class="fas btn btn-info">
-                  </form>
-                </div>
-              @endif
-              </div>
-              @endif
+                <div>
+                  <!-- 以下おがわお気に入りボタンテスト -->
+                    @if(Auth::id())
+                    <div class="row ogawa_button">
+                    @if(!$plan->users()->where('user_id', Auth::id())->exists())
+                      <div class="col-md-3"> 
+                        <form action="{{ route('favorites', $plan) }}" method="POST">
+                          @csrf
+                          <input type="submit" value="&#xf004;お気に入りに追加する" class="fas btn btn-danger">
+                        </form>
+                      </div>
+                    @else
+                      <div class="col-md-3">
+                        <form action="{{ route('unfavorites', $plan) }}" method="POST">
+                          @csrf
+                          <input type="submit" value="&#xf004;お気に入りを取り消す" class="fas btn btn-info">
+                        </form>
+                      </div>
+                    @endif
+                    </div>
+                    @endif
               <!-- おがわお気に入りボタンテストここまで -->
-
+                </div>
+              </div>
+              
               <div class="info_cell d-flex flex-row">
                 <div class="info_pic">
                   <div>
@@ -70,55 +72,38 @@
                   </div>
                 </div>
               </div>
-
-              <div class="info_cell d-flex flex-row">
-                <div>
-                  <p>プラン名</p>
-                </div>
-                <div>
-                  <p>{{ $plan->ag_name }}</p>
-                </div>
-              </div>
-              <div class="info_cell d-flex flex-row">
-                <div>
-                  <p>プラン名</p>
-                </div>
-                <div>
-                  <p>{{ $plan->dish_name }}</p>
-                </div>
-              </div>
-
-              <div class="info_cell d-flex flex-row">
-                <div>
-                  <p>プラン名</p>
-                </div>
-                <div>
-                  <p>{{ $plan->title }}</p>
-                </div>
-              </div>
-
-              <div class="info_cell d-flex flex-row">
-                <div>
-                  <p>プラン詳細</p>
-                </div>
-                <div>
-                  <p>{{ $plan->description }}</p>
-                </div>
-              </div>
-              <div class="info_cell d-flex flex-row">
-                <div>
-                  <p>野菜</p>
-                </div>
-                <div>
-                  <p>{{ $plan->vegetable }}</p>
-                </div>
-              </div>
               
+              <div class="d-flex flex-row">
+                <div class="info_cell d-flex flex-row">
+                  <div>
+                    <p>農家名：</p>
+                  </div>
+                  <div>
+                    <p>{{ $plan->ag_name }}</p>
+                  </div>
+                </div>
+                <div class="info_cell d-flex flex-row">
+                  <div>
+                    <p>店舗名：</p>
+                  </div>
+                  <div>
+                    <p>{{ $plan->dish_name }}</p>
+                  </div>
+                </div>
+                <div class="info_cell d-flex flex-row">
+                  <div>
+                    <p>野菜：</p>
+                  </div>
+                  <div>
+                    <p>{{ $plan->vegetable }}</p>
+                  </div>
+                </div>
+              </div>
 
               <div class="info_cell d-flex flex-row">
                 <div class="info_cell d-flex flex-row">
                   <div>
-                    <p>大人料金</p>
+                    <p>大人料金：</p>
                   </div>
                   <div>
                     <p>{{ number_format($plan->adult_price) }}円</p>
@@ -126,7 +111,7 @@
                 </div>
                 <div class="info_cell d-flex flex-row">
                   <div>
-                    <p>子供料金</p>
+                    <p>子供料金：</p>
                   </div>
                   <div>
                     <p>{{ number_format($plan->child_price) }}円</p>
@@ -136,10 +121,22 @@
 
               <div class="info_cell d-flex flex-row">
                 <div>
-                  <p>住所</p>
+                  <p>住所：</p>
                 </div>
                 <div>
                   <p>{{ $plan->place }}</p>
+                </div>
+              </div>
+
+              <div class="info_cell d-flex flex-row">
+                <div>
+                  <p>{{ $plan->title }}</p>
+                </div>
+              </div>
+
+              <div class="info_cell d-flex flex-row">
+                <div>
+                  <p>{{ $plan->description }}</p>
                 </div>
               </div>
             
@@ -154,7 +151,9 @@
                   <span id="js-dish_latitude"  data-name="{{ $plan->dish_latitude }}"></span>
                   <span id="js-dish_longitude" data-name="{{ $plan->dish_longitude }}"></span>
                 </div>
-                <a href="http://maps.google.com/maps?saddr={{ $plan->ag_latitude }},{{ $plan->ag_longitude }}&daddr={{ $plan->dish_latitude }},{{ $plan->dish_longitude }}&dirflg=d" target="_blank">経路検索</a>
+                <div class="route_map">
+                  <a href="http://maps.google.com/maps?saddr={{ $plan->ag_latitude }},{{ $plan->ag_longitude }}&daddr={{ $plan->dish_latitude }},{{ $plan->dish_longitude }}&dirflg=d" target="_blank"><i class="far fa-lightbulb"></i><span> 経路検索 </span><i class="far fa-lightbulb"></i></a>
+                </div>
               </div>
 
               <div class="reservation">
