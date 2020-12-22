@@ -57,11 +57,11 @@
 
 
 
-    <section>
+    <!-- <section>
       <div class="info">
 
       </div>
-    </section>
+    </section> -->
 
     <section>
       <div class="select_wrapper d-flex flex-wrap justify-content-center">
@@ -70,7 +70,7 @@
             <a href="/details/{{ $plan->id }}">
               <div class="select_cell d-flex flex-column">
 
-                <div class="select_img"> 
+                <div class="select_img">
                   <img src="../upload/{{ $plan->ag_photo }}" alt="">
                 </div>
                 <div class="select_img">
@@ -82,13 +82,13 @@
                 </div>
 
                 <div id="place">
-                  <p>開催場所：{{ $plan->small_place }}</p> 
+                  <p>開催場所：{{ $plan->small_place }}</p>
                 </div>
 
                 <div id="price">
                   <p>金額：{{ $plan->price }}円</p>
                 </div>
-          
+
                 <div id="details">
                   <p>{{ $plan->description }}</p>
                 </div>
