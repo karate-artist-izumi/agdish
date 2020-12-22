@@ -236,7 +236,7 @@ public function search_plan_date(Request $request)
         $plan_date4=$plan_date2.' 23:59:59';
 
         // $plans = Plan::where('small_place', $small_place)->where('vegetable', $vegetable)->get();
-        // $plans = Plan::whereDate('plan_date', $plan_date2)->get();
+        // $plans = Plan::whereDate('plan_date', $plan_date)->get();
         $plans = Plan::whereBetween('plan_date', [$plan_date3, $plan_date4])->get();
         $data = ['plans' => $plans];
         return view('searchs', $data);
@@ -249,24 +249,28 @@ public function search(Request $request)
         $small_place=$request->input('small_place');
         $vegetable=$request->input('vegetable');
         $plan_date=$request->input('plan_date');
-
-        $plan_date2=substr($plan_date, 0, 10);
-   
+        
+        
+        if($plan_date!==null){
+            $plan_date2=substr($plan_date, 0, 10);
+            $plan_date3=$plan_date2.' 00:00:00';
+            $plan_date4=$plan_date2.' 23:59:59';
+        }
 
         // 県が未選択の時の処理
-        if (is_null($small_place) && !is_null($vegetable) && !is_null($plan_date)) {
-            $plans = Plan::where('vegetable', $vegetable)->whereDate('plan_date', $plan_date2)->get();
+        if (is_null($small_place) && !is_null($vegetable) && $plan_date!==null) {
+            $plans = Plan::where('vegetable', $vegetable)->whereBetween('plan_date', [$plan_date3, $plan_date4])->get();
             $data = ['plans' => $plans];
             return view('searchs', $data);
         }
         // 野菜が未選択の時の処理
-        if (!is_null($small_place) && is_null($vegetable) && !is_null($plan_date)) {
-            $plans = Plan::where('small_place', $small_place)->whereDate('plan_date', $plan_date2)->get();
+        if (!is_null($small_place) && is_null($vegetable) && $plan_date!==null) {
+            $plans = Plan::where('small_place', $small_place)->whereBetween('plan_date', [$plan_date3, $plan_date4])->get();
             $data = ['plans' => $plans];
             return view('searchs', $data);
         }
         // 日付が未選択の時の処理
-        if (!is_null($small_place) && !is_null($vegetable) && is_null($plan_date)) {
+        if (!is_null($small_place) && !is_null($vegetable) && $plan_date===null) {
             $plans = Plan::where('small_place', $small_place)->where('vegetable', $vegetable)->get();
             $data = ['plans' => $plans];
             return view('searchs', $data);
@@ -276,19 +280,19 @@ public function search(Request $request)
 
 
         // 県と野菜が未選択の時の処理
-        if (is_null($small_place) && is_null($vegetable) && !is_null($plan_date)) {
-            $plans = Plan::whereDate('plan_date', $plan_date2)->get();
+        if (is_null($small_place) && is_null($vegetable) && $plan_date!==null) {
+            $plans = Plan::whereBetween('plan_date', [$plan_date3, $plan_date4])->get();
             $data = ['plans' => $plans];
             return view('searchs', $data);
         }
         // 県と日付が未選択の時の処理
-        if (is_null($small_place) && !is_null($vegetable) && is_null($plan_date)) {
+        if (is_null($small_place) && !is_null($vegetable) && $plan_date===null) {
             $plans = Plan::where('vegetable', $vegetable)->get();
             $data = ['plans' => $plans];
             return view('searchs', $data);
         }
         // 野菜と日付が未選択の時の処理
-        if (!is_null($small_place) && is_null($vegetable) && is_null($plan_date)) {
+        if (!is_null($small_place) && is_null($vegetable) && $plan_date===null) {
             $plans = Plan::where('small_place', $small_place)->get();
             $data = ['plans' => $plans];
             return view('searchs', $data);
@@ -298,7 +302,7 @@ public function search(Request $request)
 
 
         // 全て未選択だった場合の処理
-        if (is_null($small_place) && is_null($vegetable) && is_null($plan_date)) {
+        if (is_null($small_place) && is_null($vegetable) && $plan_date!==null) {
             $plans = Plan::orderBy('created_at', 'desc')->get();
             $data = ['plans' => $plans];
             return view('searchs', $data);
@@ -308,8 +312,8 @@ public function search(Request $request)
 
         
         // 全て選択されていた時の処理
-        if (!is_null($small_place) && !is_null($vegetable) && !is_null($plan_date)) {
-            $plans = Plan::where('small_place', $small_place)->where('vegetable', $vegetable)->whereDate('plan_date', $plan_date2)->get();
+        if (!is_null($small_place) && !is_null($vegetable) && $plan_date===null) {
+            $plans = Plan::where('small_place', $small_place)->where('vegetable', $vegetable)->whereBetween('plan_date', [$plan_date3, $plan_date4])->get();
             $data = ['plans' => $plans];
             return view('searchs', $data);
         }
