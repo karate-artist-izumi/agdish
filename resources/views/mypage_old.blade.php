@@ -132,7 +132,7 @@
               <div class="card" style="width: 14rem;">
                 <div class="card-body">
                   <h5>{{ $oldPlan->plan_title }}</h5>
-                  <?php $date = date("Y-m-d",strtotime($reservePlan->plan_date)) ?>
+                  <?php $date = date("Y-m-d",strtotime($oldPlan->plan_date)) ?>
                   <p class="card-title">開催日：{{ $date }}</p>
                   <p class="card-title">大人料金{{ $oldPlan->plan_adult_price }}円 × {{ $oldPlan->adult_kazu }}名様</p>
                   <p class="card-title">こども料金{{ $oldPlan->plan_child_price }}円 × {{ $oldPlan->child_kazu }}名様</p>
