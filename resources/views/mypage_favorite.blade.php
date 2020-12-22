@@ -131,14 +131,13 @@
             <!-- 購入したプランを表示-->
             @foreach($favoritePlans as $favoritePlan)
             <div class="col-sm-6 col-lg-3">
-              <div class="card d-flex flex-column w-100">
-                <div class="card-body gakuamano">
-                  <h5>{{ $favoritePlan->plan_title }}</h5>
+              <div class="card" style="width: 14rem;">
+                <div class="card-body">
+                <h5>{{ $favoritePlan->title }}</h5>
                   <?php $date = date("Y-m-d",strtotime($favoritePlan->plan_date)) ?>
                   <p class="card-title">開催日：{{ $date }}</p>
-                  <p class="card-title">大人料金{{ $favoritePlan->plan_adult_price }}円 × {{ $favoritePlan->adult_kazu }}名様</p>
-                  <p class="card-title">こども料金{{ $favoritePlan->plan_child_price }}円 × {{ $favoritePlan->child_kazu }}名様</p>
-                  <p class="card-title">合計金額{{ $favoritePlan->plan_adult_price * $favoritePlan->adult_kazu + $favoritePlan->plan_child_price * $favoritePlan->child_kazu }}円</p>
+                  <p class="card-title">大人料金{{ $favoritePlan->adult_price }}円</p>
+                  <p class="card-title">こども料金{{ $favoritePlan->child_price }}円</p>
                   <a href="/details/{{ $favoritePlan->id }}" class="btn btn-primary">詳細を確認する</a>
                 </div>
               </div>
