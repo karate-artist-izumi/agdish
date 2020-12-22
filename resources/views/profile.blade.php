@@ -44,7 +44,7 @@
           </li>
           <li>
             <a href="/mypage_favorite">
-            <i class="fas fa-history"></i>
+            <i class="fas fa-seedling"></i>
               <p>お気に入り</p>
             </a>
           </li>
