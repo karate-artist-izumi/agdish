@@ -274,7 +274,7 @@
   <!-- footerはここまで -->
 
     <script src="{{ asset('/js/map.js') }}"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyDfICqav8n0LnTfZ3FtjZhPuas7lIdh8kc&callback=initMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=************&callback=initMap"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   </body>
 
